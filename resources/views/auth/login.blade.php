@@ -9,11 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public/assets/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/images/favicon.png') }}">
     <title>
         Кафе Bambetel - Логін</title>
     <!-- Custom CSS -->
-    <link href="{{ url('public/dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ url('dist/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -40,11 +40,11 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
-            style="background:url(public/assets/images/big/auth-bg.jpg) no-repeat center center;">
+            style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
-                        <span class="db"><img src="{{ url('public/assets/images/logo-icon.png') }}"
+                        <span class="db"><img src="{{ url('assets/images/logo-icon.png') }}"
                                 alt="logo" /></span>
                         <h5 class="font-medium m-b-20 m-t-10">{{ $header_title }}</h5>
 
@@ -98,7 +98,7 @@
                 </div>
                 <div id="recoverform">
                     <div class="logo">
-                        <span class="db"><img src="public/assets/images/logo-icon.png" alt="logo" /></span>
+                        <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
                         <h5 class="font-medium m-b-20">Відновити пароль</h5>
                         <span>Введіть вашу електронну адресу, і ми надішлемо вам інструкції для відновлення.</span>
                     </div>
@@ -151,10 +151,10 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-    <script src="{{ url('public/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url('assets/libs/jquery/dist/jquery.min.js') }}"></script>
 
-    <script src="{{ url('public/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ url('public/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ url('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
