@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Pages
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 //Auth, Login, Forgot And Reset Password
 Route::get('login', [AuthController::class, 'login'])->name('login');
