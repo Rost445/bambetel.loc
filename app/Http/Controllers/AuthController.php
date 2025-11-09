@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Mail\RegisterMail;
+use App\Mail\ForgotPasswordMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -46,6 +50,23 @@ class AuthController extends Controller
         $save->password =  Hash::make($request->password);
         $save->remember_token = Str::random(40);
         $save->save();
+
+          Mail::to($save->email)->send(new  RegisterMail($save));
+
         return redirect('login')->with('success', "Ваш акаунт створено успішно! На вашу електрону адресу надіслано лист активації.");
+    }
+
+     public function verify($token)
+    {
+
+        $user = User::where('remember_token', '=', $token)->first();
+        if (!empty($user)) {
+            $user->email_verified_at = date('Y-m-d H:i:s');
+            $user->remember_token = Str::random(40);
+            $user->save();
+            return redirect('login')->with('success', "Електрону пошту підтверджено!");
+        } else {
+            abort(404);
+        }
     }
 }

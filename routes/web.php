@@ -20,8 +20,10 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 //Auth, Login, Forgot And Reset Password
 Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'auth_login'])->name('auth_login');
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'create_user'])->name('create_user');
+Route::get('verify/{token}', [AuthController::class, 'verify']);
 Route::get('forgot-password', [AuthController::class, 'forgot'])->name('forgot');
 
 /* 
