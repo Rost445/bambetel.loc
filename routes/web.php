@@ -27,9 +27,6 @@ Route::get('verify/{token}', [AuthController::class, 'verify']);
 Route::get('forgot-password', [AuthController::class, 'forgot'])->name('forgot');
 
 /* 
-Route::post('login', [AuthController::class, 'auth_login'])->name('auth_login');
-Route::post('register', [AuthController::class, 'create_user'])->name('create_user');
-Route::get('verify/{token}', [AuthController::class, 'verify']);
 Route::post('forgot-password', [AuthController::class, 'forgot_password'])->name('forgot_password');
 Route::get('forgot-password', [AuthController::class, 'forgot'])->name('forgot');
 Route::post('forgot-password', [AuthController::class, 'forgot_password'])->name('forgot_password');

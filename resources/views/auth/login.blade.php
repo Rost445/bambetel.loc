@@ -54,26 +54,29 @@
                     <div class="row">
                         <div class="col-12">
                             @include('layouts._message')
-                            <form class="form-horizontal m-t-20" id="loginform" action="{{ url('') }}">
+                            <form class="form-horizontal m-t-20" id="loginform" action="" method="post">
+                               @csrf 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                                        <span class="input-group-text" id="basic-addon1"><i class="ti-email"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Email"
+                                    <input id="loginEmail" type="email" name="email" class="form-control form-control-lg" placeholder="Email"
                                         aria-label="Username" aria-describedby="basic-addon1">
+                                        <div class="invalid-feedback">Введіть коректний email</div>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon2"><i
-                                                class="ti-pencil"></i></span>
+                                                class="ti-lock"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Пароль"
+                                    <input id="loginPassword" type="password" name="password" class="form-control form-control-lg" placeholder="Пароль"
                                         aria-label="Password" aria-describedby="basic-addon1">
+                                          <div class="invalid-feedback">Мінімум 6 символів</div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <input type="checkbox"  value="true" name="remember" class="custom-control-input" id="customCheck1">
                                             <label class="custom-control-label" for="customCheck1">Запам'ятати</label>
                                             <a href="javascript:void(0)" id="to-recover"
                                                 class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Забули
@@ -170,6 +173,38 @@
             $("#recoverform").fadeIn();
         });
     </script>
+    <script>
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+
+    // Email
+    loginEmail.addEventListener('input', () => {
+        const value = loginEmail.value.trim();
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (pattern.test(value)) {
+            loginEmail.classList.add('is-valid');
+            loginEmail.classList.remove('is-invalid');
+        } else {
+            loginEmail.classList.add('is-invalid');
+            loginEmail.classList.remove('is-valid');
+        }
+    });
+
+    // Password (мінімум 6 символів)
+    loginPassword.addEventListener('input', () => {
+        const value = loginPassword.value.trim();
+
+        if (value.length >= 6) {
+            loginPassword.classList.add('is-valid');
+            loginPassword.classList.remove('is-invalid');
+        } else {
+            loginPassword.classList.add('is-invalid');
+            loginPassword.classList.remove('is-valid');
+        }
+    });
+</script>
+
 </body>
 
 </html>

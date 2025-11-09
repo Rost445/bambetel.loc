@@ -29,6 +29,28 @@ class AuthController extends Controller
         return view('auth.login',  ['header_title' => "Відновлення паролю"]);
     }
 
+    public function auth_login(Request $request)
+    {
+        $remember = !empty($request->remember) ? true : false;
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+            if (!empty(Auth::user()->email_verified_at)) {
+                return redirect('panel/dashboard');
+            } else {
+                $user_id = Auth::user()->id;
+                Auth::logout();
+                $save =  User::getSingle($user_id);
+                $save->remember_token = Str::random(40);
+                $save->save();
+
+
+                Mail::to($save->email)->send(new  RegisterMail($save));
+                return redirect()->back()->with('success', "Будь ласка, спочатку підтвердьте свою електронну пошту.Перегляньте свою поштову скриньку.");
+            }
+        } else {
+            return redirect()->back()->with('error', "Будь ласка, введіть коректну електронну адресу та пароль.");
+        }
+    }
+
     public function create_user(Request $request)
     {
         $request->validate([
