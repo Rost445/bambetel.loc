@@ -21,6 +21,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 //Auth, Login, Forgot And Reset Password
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('register', [AuthController::class, 'create_user'])->name('create_user');
 Route::get('forgot-password', [AuthController::class, 'forgot'])->name('forgot');
 
 /* 

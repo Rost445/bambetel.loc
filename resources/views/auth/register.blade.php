@@ -51,32 +51,35 @@
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal m-t-20" action="index.html">
+                            <form class="form-horizontal m-t-20" action="" method ="post">
+                                @csrf
                                 <div class="form-group row ">
                                     <div class="col-12 ">
-                                        <input class="form-control form-control-lg" type="text" required=" " placeholder="Ім'я">
+                                        <input id="nameInput" class="form-control form-control-lg  {{ $errors->has('name') ? 'is-invalid' : (old('name') ? 'is-valid' : '') }}" name="name" value="{{ old('name') }}" type="text" required=" " placeholder="Ім'я">
+                                      <div class="text-danger">{{ $errors->first('name') }}</div>
+                                       <div class="invalid-feedback">Введіть не менше 2 літер</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12 ">
-                                        <input class="form-control form-control-lg" type="text" required=" " placeholder="Email">
+                                        <input id="emailInput" class="form-control form-control-lg {{ $errors->has('email') ? 'is-invalid' : (old('email') ? 'is-valid' : '') }}"   name="email" value="{{ old('email') }}" type="text" required=" " placeholder="Email">
+                                    <div class="text-danger">{{ $errors->first('email') }}</div>
+                                      <div class="invalid-feedback">Некоректний email</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12 ">
-                                        <input class="form-control form-control-lg" type="password" required=" " placeholder="Пароль">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-12 ">
-                                        <input class="form-control form-control-lg" type="password" required=" " placeholder="Підтвердити пароль">
+                                        <input id="passwordInput" class="form-control form-control-lg {{ $errors->has('password') ? 'is-invalid' : (old('password') ? 'is-valid' : '') }}" type="password" name="password" required=" " placeholder="Пароль">
+                                     <div class="text-danger">{{ $errors->first('password') }}</div>
+                                      <div class="invalid-feedback">Мінімум 6 символів</div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-12 ">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1">Я згоден і приймаю  <a href="javascript:void(0)">Умови</a></label>
+                                            <input type="checkbox"   name="Умови приймаю" class="custom-control-input" id="customCheck1" type="checkbox" required>
+                                            <label class="custom-control-label"for="customCheck1" >Я згоден і приймаю  
+                                                <a href="#">Умови</a></label>
                                         </div>
                                     </div>
                                 </div>
@@ -126,6 +129,51 @@
     $('[data-toggle="tooltip "]').tooltip();
     $(".preloader ").fadeOut();
     </script>
+    <script>
+    const nameInput = document.getElementById('nameInput');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+
+    // Валідація ім’я (мін. 2 букви)
+    nameInput.addEventListener('input', function() {
+        let value = this.value.trim();
+        if (value.length >= 2) {
+            this.classList.add('is-valid');
+            this.classList.remove('is-invalid');
+        } else {
+            this.classList.add('is-invalid');
+            this.classList.remove('is-valid');
+        }
+    });
+
+    // Валідація Email
+    emailInput.addEventListener('input', function() {
+        let value = this.value.trim();
+        let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (pattern.test(value)) {
+            this.classList.add('is-valid');
+            this.classList.remove('is-invalid');
+        } else {
+            this.classList.add('is-invalid');
+            this.classList.remove('is-valid');
+        }
+    });
+
+    // Валідація Пароля (мін. 6 символів)
+    passwordInput.addEventListener('input', function() {
+        let value = this.value.trim();
+        if (value.length >= 6) {
+            this.classList.add('is-valid');
+            this.classList.remove('is-invalid');
+        } else {
+            this.classList.add('is-invalid');
+            this.classList.remove('is-valid');
+        }
+    });
+</script>
+
+
 </body>
 
 </html>

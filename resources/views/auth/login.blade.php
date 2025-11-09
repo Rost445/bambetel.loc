@@ -40,7 +40,7 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
-            style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+            style="background:url(..assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
@@ -53,7 +53,8 @@
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal m-t-20" id="loginform" action="index.html">
+                            @include('layouts._message')
+                            <form class="form-horizontal m-t-20" id="loginform" action="{{ url('') }}">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
