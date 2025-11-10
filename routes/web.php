@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,10 +30,7 @@ Route::get('reset/{token}', [AuthController::class, 'reset']);
 Route::post('reset/{token}', [AuthController::class, 'post_reset']);
 
 /* 
-Route::post('forgot-password', [AuthController::class, 'forgot_password'])->name('forgot_password');
-Route::get('forgot-password', [AuthController::class, 'forgot'])->name('forgot');
-Route::post('forgot-password', [AuthController::class, 'forgot_password'])->name('forgot_password');
-Route::get('reset/{token}', [AuthController::class, 'reset']);
-Route::post('reset/{token}', [AuthController::class, 'post_reset']);
 Route::get('logout', [AuthController::class, 'logout']);
  */
+
+Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
