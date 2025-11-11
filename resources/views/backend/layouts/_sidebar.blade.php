@@ -28,7 +28,7 @@
                 <li class="sidebar-item">
                     <a href="index.html" class="sidebar-link">
                         <i class="mdi mdi-adjust"></i>
-                        <span class="hide-menu">Класичне</span>
+                        <span class="hide-menu">Загальне</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -44,6 +44,13 @@
             <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/gallery') }}">
                 <i class="mdi mdi-image"></i>
                 <span class="hide-menu">Фотогалерея</span>
+            </a>
+        </li>
+        
+        <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/gallery') }}">
+                <i class="mdi mdi-book-open-variant"></i>
+                <span class="hide-menu">Сторінки</span>
             </a>
         </li>
 
