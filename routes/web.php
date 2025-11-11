@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +30,16 @@ Route::post('forgot-password', [AuthController::class, 'forgot_password'])->name
 Route::get('reset/{token}', [AuthController::class, 'reset']);
 Route::post('reset/{token}', [AuthController::class, 'post_reset']);
 
-/* 
-Route::get('logout', [AuthController::class, 'logout']);
- */
 
+
+
+
+
+
+
+//Admin
+Route::group(['middleware' => 'adminuser'], function () {
 Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});

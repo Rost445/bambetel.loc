@@ -70,7 +70,7 @@
                                   <div class="form-group row">
                                     <div class="col-12 ">
                                         <input id="cpasswordInput" class="form-control form-control-lg {{ $errors->has('cpassword') ? 'is-invalid' : (old('cpassword') ? 'is-valid' : '') }}"
-                                         type="cpassword" name="cpassword" required=" " placeholder="Підтвердити Пароль">
+                                         type="password" name="cpassword" required=" " placeholder="Підтвердити Пароль">
                                      <div class="text-danger">{{ $errors->first('cpassword') }}</div>
                                       <div class="invalid-feedback">Мінімум 6 символів</div>
                                     </div>

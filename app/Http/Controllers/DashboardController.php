@@ -8,7 +8,9 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-return view('backend.dashboard');
+        $data['header_title'] ='Адмін-панель';
+        ;
+        return view('backend.dashboard');
+       
     }
-      
 }
