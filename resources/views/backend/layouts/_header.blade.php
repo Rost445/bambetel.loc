@@ -264,21 +264,17 @@
                                 </div>
                                 <div class="profile-dis scrollable">
                                     <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                        <i class="ti-user m-r-5 m-l-5"></i>Мій профіль</a>
+                                  
                                     <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)">
-                                        <i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                        <i class="ti-settings m-r-5 m-l-5"></i> Налаштування акаунту</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}">
                                         <i class="fa fa-power-off m-r-5 m-l-5"></i> Вихід</a>
                                     <div class="dropdown-divider"></div>
                                 </div>
                                 <div class="p-l-30 p-10">
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">Переглянути профіль</a>
                                 </div>
                             </div>
                         </li>
