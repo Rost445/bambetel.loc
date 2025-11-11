@@ -108,11 +108,12 @@
                     </div>
                     <div class="row m-t-20">
                         <!-- Form -->
-                        <form class="col-12" action="{{ route('forgot') }}">
+                        <form class="col-12" action="{{ route('forgot') }}" method="POST">
+                            @csrf
                             <!-- email -->
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control form-control-lg" type="email" required=""
+                                    <input class="form-control form-control-lg" type="email" name="email" required=""
                                         placeholder="Ваша електронна пошта">
                                 </div>
                             </div>

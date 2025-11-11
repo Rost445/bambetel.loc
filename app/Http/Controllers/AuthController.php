@@ -11,6 +11,7 @@ use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
+
 class AuthController extends Controller
 {
     public function login()
@@ -27,6 +28,54 @@ class AuthController extends Controller
     {
 
         return view('auth.login',  ['header_title' => "Відновлення паролю"]);
+    }
+
+     public function forgot_password(Request $request){
+
+         $user = User::where('email', '=', $request->email)->first();
+        if (!empty($user)) {
+            $user->remember_token = Str::random(40);
+            $user->save();
+
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+            return redirect()->back()->with('success', 'Будь ласка, перевірте поштову скриньку, та відновіть ваш пароль.');
+        } else {
+            return redirect()->back()->with('error', "Така електронна адреса не знайдена.");
+        }
+     }
+
+     public function reset($token)
+    {
+
+        $user = User::where('remember_token', '=', $token)->first();
+        if (!empty($user)) {
+           
+            $data['header_title'] = "Відновлення паролю";
+            $data['user'] = $user;
+            return view('auth.reset', $data);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function post_reset($token, Request $request)
+    {
+        $user = User::where('remember_token', '=', $token)->first();
+        if (!empty($user)) {
+            if ($request->password == $request->cpassword) {
+                $user->password = Hash::make($request->password);
+                if (empty($user->email_verified_at)) {
+                    $user->email_verified_at = date('Y-m-d H:i:s');
+                }
+                $user->remember_token = Str::random(40);
+                $user->save();
+                return redirect('login')->with('success', "Пароль успішно відновлено!");
+            } else {
+                return redirect()->back()->with('error', "Паролі не співпадають!");
+            }
+        } else {
+            abort(404);
+        }
     }
 
     public function auth_login(Request $request)
@@ -90,5 +139,10 @@ class AuthController extends Controller
         } else {
             abort(404);
         }
+    }
+     public function logout()
+    {
+        Auth::logout();
+        return  redirect('login');
     }
 }
