@@ -3,17 +3,17 @@
       <div class="scroll-sidebar">
           <!-- Sidebar navigation-->
          <nav class="sidebar-nav">
-    <ul id="sidebarnav">
+    <ul id="sidebarnav" class="mt-5">
 
         <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/dashboard') }}">
+            <a class="sidebar-link waves-effect waves-dark" href="{{url('panel/dashboard')}}">
                 <i class="mdi mdi-av-timer"></i>
                 <span class="hide-menu">Панель Адміна</span>
             </a>
         </li>
 
         <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/users') }}">
+            <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/user/list') }}">
                 <i class="mdi mdi-account"></i>
                 <span class="hide-menu">Користувачі</span>
             </a>
