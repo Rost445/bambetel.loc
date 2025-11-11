@@ -17,9 +17,13 @@
                                         <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><i class="mdi mdi-octagram"></i><span class="hide-menu"> item 1.3.4</span></a></li>
                                     </ul>
                                 </li>
-                                <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><i class="mdi mdi-playlist-check"></i><span class="hide-menu"> item 1.4</span></a></li>
+                                <li class="sidebar-item"><a href="javascript:void(0)" 
+                                    class="sidebar-link"><i class="mdi mdi-playlist-check">
+                                        </i><span class="hide-menu"> item 1.4</span></a></li>
                             </ul>
                         </li>
+                        <li class="sidebar-item"> <a class="ssidebar-link waves-effect waves-dark sidebar-link" href="{{ route('logout') }}">
+                                        <i class="fa fa-power-off m-r-5 m-l-5"></i> Вихід</a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

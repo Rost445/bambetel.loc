@@ -35,11 +35,11 @@ Route::post('reset/{token}', [AuthController::class, 'post_reset']);
 
 
 
-
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //Admin
 Route::group(['middleware' => 'adminuser'], function () {
 Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
 });
