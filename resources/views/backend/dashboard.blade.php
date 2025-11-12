@@ -4,7 +4,7 @@
 
 @section('content')
 
-       
+
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
@@ -15,16 +15,16 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="/">Головна</a>
+                                        <a href="{{ url('panel/dashboard') }}">Головна</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Starter Page</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Панель Адміна</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-          
+
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -38,11 +38,8 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
-           
-           
-          
- @endsection
+@endsection
 @section('script')
 @endsection       
