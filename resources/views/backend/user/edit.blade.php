@@ -28,10 +28,7 @@
                      <nav aria-label="breadcrumb">
                          <ol class="breadcrumb">
                              <li class="breadcrumb-item">
-                                 <a href="{{url('panel/dashboard')}}">Головна</a>
-                             </li>
-                              <li class="breadcrumb-item">
-                                 <a href="{{url('panel/user/list')}}">Користувачі</a>
+                                 <a href="{{ url('panel/dashboard') }}">Головна</a>
                              </li>
                              <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
                          </ol>
@@ -40,8 +37,6 @@
              </div>
          </div>
      </div>
-
-
      <div class="container-fluid">
          <div class="row">
              <div class="col-sm-12">
@@ -51,24 +46,32 @@
                          @csrf
                          <div class="form-group">
                              <label><strong>Ім'я</strong><span class="text-danger"> *</span></label>
-                             <input type="text" name="name" class="form-control" required>
+                             <input type="text" name="name" value="{{ $getRecord->name }}" class="form-control"
+                                 required>
+                             <div class="text-danger">{{ $errors->first('name') }}</div>
                          </div>
                          <div class="form-group">
-                             <label for="email"><strong>Електронна пошта</strong><span class="text-danger" > *</span></label>
-                             <input type="email" id="email" name="email" class="form-control" required>
+                             <label for="email"><strong>Електронна пошта</strong><span class="text-danger">
+                                     *</span></label>
+                             <input type="email" id="email" name="email" value="{{ $getRecord->email }}"
+                                 class="form-control" required>
+                             <div class="text-danger">{{ $errors->first('email') }}</div>
                          </div>
                          <div class="form-group">
-                             <label><strong>Пароль</strong><span class="text-danger" > *</span></label>
-                             <input type="password" name="password" class="form-control" required>
+                             <label><strong>Пароль</strong></label>
+                             <input type="text" name="password" class="form-control mb-1">
+                             <small class="form-control-feedback">Залишіть поле пустим, якщо не хочете змінювати пароль. </small>
+                             <div class="text-danger">{{ $errors->first('password') }}</div>
                          </div>
                          <div class="form-group">
                              <label><strong>Статус</strong></label>
                              <select class="form-control custom-select" name="status">
-                                 <option {{ old('status') == 1 ? 'selected' : '' }} value="1">Активний</option>
-                                 <option {{ old('status') == 0 ? 'selected' : '' }} value="0">Неактивний</option>
+                                 <option {{ $getRecord->status == 1 ? 'selected' : '' }} value="1">Активний</option>
+                                 <option {{ $getRecord->status == 0 ? 'selected' : '' }} value="0">Неактивний
+                                 </option>
                              </select>
                          </div>
-                         <button type="submit" class="btn btn-primary">Додати</button>
+                         <button type="submit" class="btn btn-primary">Зберегти</button>
                      </form>
                  </div>
              </div>
