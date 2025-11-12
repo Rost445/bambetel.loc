@@ -1,0 +1,10 @@
+[33m5ddc817[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mUser_List[m[33m, [m[1;31morigin/User_List[m[33m, [m[1;32mSetup_Admin[m[33m)[m Оновлення перед створенням гілки User_List
+[33m0dcf42e[m[33m ([m[1;31morigin/Setup_Admin[m[33m)[m Add user list
+[33m8830f8f[m Add controller User
+[33mca3593c[m sidebar icon
+[33m9c43a8c[m sidebar li
+[33mb9e01df[m Admin & User Role managment
+[33m6fe83aa[m auth
+[33m630a23d[m nice admin
+[33mb303c54[m[33m ([m[1;31morigin/Forgot_Password[m[33m, [m[1;32mForgot_Password[m[33m)[m delete folder bambetel.loc
+[33m1f6ac34[m Added password reset email and link functionality
