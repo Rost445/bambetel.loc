@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,15 @@ Route::post('panel/user/add', [UserController::class, 'insert_user']);
 Route::get('panel/user/edit/{id}', [UserController::class, 'edit_user'])->name('panel.user.edit');
 Route::post('panel/user/edit/{id}', [UserController::class, 'update_user']);
 Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
+
+//Menu
+    Route::get('panel/menu/list', [MenuController::class, 'menu'])->name('panel.menu.list');
+    Route::get('panel/menu/add', [MenuController::class, 'add_menu'])->name('panel.menu.add');
+    Route::post('panel/menu/add', [MenuController::class, 'insert_menu']);
+    Route::get('panel/menu/edit/{id}', [MenuController::class, 'edit_menu'])->name('panel.menu.edit');
+    Route::post('panel/menu/edit/{id}', [MenuController::class, 'update_menu']);
+    Route::get('panel/menu/delete/{id}', [MenuController::class, 'delete_menu']);
+
 
 
 

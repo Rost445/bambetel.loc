@@ -16,31 +16,17 @@
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.user.*') ? 'active' : '' }}"
                           href="{{ route('panel.user.list') }}">
-                          <i class="mdi mdi-account-group"></i>
+                          <i class="mdi mdi-account-multiple-plus"></i>
                           <span class="hide-menu">Користувачі</span>
                       </a>
                   </li>
 
                   <li class="sidebar-item">
-                      <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                          aria-expanded="false">
-                          <i class="mdi mdi-silverware"></i>
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.menu.*') ? 'active' : '' }}"
+                          href="{{ route('panel.menu.list') }}">
+                          <i class="mdi mdi-note-multiple"></i>
                           <span class="hide-menu">Меню</span>
                       </a>
-                      <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item">
-                              <a href="index.html" class="sidebar-link">
-                                  <i class="mdi mdi-adjust"></i>
-                                  <span class="hide-menu">Загальне</span>
-                              </a>
-                          </li>
-                          <li class="sidebar-item">
-                              <a href="index2.html" class="sidebar-link">
-                                  <i class="mdi mdi-adjust"></i>
-                                  <span class="hide-menu">Дитяче</span>
-                              </a>
-                          </li>
-                      </ul>
                   </li>
 
                   <li class="sidebar-item">
