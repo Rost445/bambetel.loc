@@ -42,6 +42,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        @include('layouts._message')
                         <h4 class="card-title m-0"><a href="{{ url('panel/user/add') }}" type="button"
                                 class=" float-right btn waves-effect waves-light btn-rounded btn-success"><i
                                     class="mdi mdi-account-plus mr-2"></i>Додати користувача</a></h4>
