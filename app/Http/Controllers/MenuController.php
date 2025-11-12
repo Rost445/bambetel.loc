@@ -12,7 +12,7 @@ class MenuController extends Controller
     public function menu()
     {
         $data['active_class'] = 'menu';
-        //$data['getRecord'] = MenuModel::getRecordMenu();
+        $data['getRecord'] = MenuModel::getRecord();
         $data['header_title'] = 'Меню';
 
         return view('backend.menu.list', $data);

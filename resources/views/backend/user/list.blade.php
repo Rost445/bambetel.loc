@@ -59,7 +59,7 @@
                                     <th scope="col">Підтверджено</th>
                                     <th scope="col">Статус</th>
                                     <th scope="col">Дата реєстрації</th>
-                                    <th scope="col"><i class="mdi mdi-account-edit mr-2"></i>Редагувати</i></th>
+                                    <th scope="col"><i class="mdi mdi-account-edit mr-2"></i>Редагувати</th>
                                     <th scope="col"><i class="mdi mdi-account-remove mr-2"></i>Видалити</th>
                                 </tr>
                             </thead>
@@ -69,8 +69,8 @@
                                         <th scope="row">{{ $value->id }}</td>
                                         <td>{{ $value->name }} </td>
                                         <td>{{ $value->email }}</td>
-                                        <td>{{ !empty($value->email_verified_at) ? 'Так' : 'Ні' }} </td>
-                                        <td>{{ !empty($value->status) ? 'Активний' : 'Неактивний' }} </td>
+                                        <td>{{ $value->email_verified_at ? 'Так' : 'Ні' }} </td>
+                                        <td>{{ $value->status ? 'Активний' : 'Неактивний' }} </td>
                                         <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
                                         <td><a href="{{ url('panel/user/edit/' . $value->id) }}" class="text-primary"><i
                                                     class="mdi mdi-pencil mr-2"></i>Редагувати</a></td>
