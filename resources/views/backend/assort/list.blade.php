@@ -54,9 +54,8 @@
                             <thead>
                                 <tr class="">
                                     <th scope="col">#</th>
-                                    <th scope="col">Ім'я</th>
-                                    <th scope="col">Слаг</th>
                                     <th scope="col">Назва</th>
+                                     <th scope="col">Слаг</th>
                                     <th scope="col">Мета назва</th>
                                     <th scope="col">Мета опис</th>
                                     <th scope="col">Ключові слова</th>

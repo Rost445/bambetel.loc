@@ -24,7 +24,7 @@ class AssortController extends Controller
     public function add_assort()
     {
         $data['active_class'] = 'assort';
-      //   $data['getCategory'] = MenuModel::getCategory();
+      $data['getCategory'] = MenuModel::getMenu();
       //   $data['getRecord'] = AssortModel::getRecord();
         $data['header_title'] = 'Додати блюдо';
         return view(
