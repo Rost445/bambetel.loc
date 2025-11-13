@@ -10,11 +10,11 @@ class MenuModel extends Model
     use HasFactory;
      protected $table = 'menu';
 
-    //  static public function getSingle($id)
-    // {
-    //     //return CategoryModel::find($id);
-	// 	return self::find($id);
-    // }
+      static public function getSingle($id)
+     {
+       //return CategoryModel::find($id);
+	 	return self::find($id);
+    }
 
     static public function getRecord()
     {
@@ -24,7 +24,7 @@ class MenuModel extends Model
         ->paginate(10);
     }
 
-  /*   static public function getMenu()
+     static public function getMenu()
     {
         return self::select('menu.*')
         ->where('status', '=', 1)
@@ -50,6 +50,6 @@ class MenuModel extends Model
         ->where('is_delete', '=', 0)
         ->first();
     }
- */
+
 
 }

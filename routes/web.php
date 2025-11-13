@@ -59,5 +59,4 @@ Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
 
 
 
-
 });
