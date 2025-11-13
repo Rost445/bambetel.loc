@@ -28,6 +28,13 @@
                           <span class="hide-menu">Розділи меню</span>
                       </a>
                   </li>
+                   <li class="sidebar-item">
+                      <a class="sidebar-link waves-effect waves-dark "
+                          href="#">
+                          <i class="mdi mdi-food-fork-drink"></i>
+                          <span class="hide-menu">Асортимент меню</span>
+                      </a>
+                  </li>
 
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/gallery') }}">
