@@ -29,8 +29,8 @@
                       </a>
                   </li>
                    <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark "
-                          href="#">
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.assort.*') ? 'active' : '' }}"
+                          href="{{ route('panel.assort.list') }}">
                           <i class="mdi mdi-food-fork-drink"></i>
                           <span class="hide-menu">Асортимент меню</span>
                       </a>

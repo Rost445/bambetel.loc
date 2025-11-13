@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AssortController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,7 @@ Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
     Route::post('panel/menu/edit/{id}', [MenuController::class, 'update_menu']);
     Route::get('panel/menu/delete/{id}', [MenuController::class, 'delete_menu']);
 
+//Assortment Menu
 
-
+ Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
 });
