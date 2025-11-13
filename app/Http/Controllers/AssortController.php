@@ -11,7 +11,12 @@ use Illuminate\Support\Str;
 
 class AssortController extends Controller
 {
-   public function assort(){
-     return view('backend.assort.list');
+    public function assort()
+    {
+         $data['active_class'] = 'assort';
+        $data['getRecord'] = AssortModel::getRecord();
+        $data['header_title'] = 'Ассортимент меню';
+        
+        return view('backend.assort.list');
+    }
 }
-   }
