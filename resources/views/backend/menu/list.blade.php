@@ -45,7 +45,7 @@
                         @include('layouts._message')
                         <h4 class="card-title m-0"><a href="{{ url('panel/menu/add') }}" type="button"
                                 class=" float-right btn waves-effect waves-light btn-rounded btn-success"><i
-                                    class="mdi mdi-account-plus mr-2"></i>Додати меню</a></h4>
+                                    class="mdi mdi-account-plus mr-2"></i>Додати розділ</a></h4>
 
                     </div>
 

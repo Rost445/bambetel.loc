@@ -25,7 +25,7 @@
                       <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.menu.*') ? 'active' : '' }}"
                           href="{{ route('panel.menu.list') }}">
                           <i class="mdi mdi-note-multiple"></i>
-                          <span class="hide-menu">Меню</span>
+                          <span class="hide-menu">Розділи меню</span>
                       </a>
                   </li>
 

@@ -13,6 +13,9 @@
          .table thead th {
              font-weight: bold !important;
          }
+         .form-label{
+            font-weight: bold;
+         }
      </style>
  @endsection
 
@@ -31,7 +34,7 @@
                                  <a href="{{url('panel/dashboard')}}">Адмін-панель</a>
                              </li>
                               <li class="breadcrumb-item">
-                                 <a href="{{url('panel/menu/list')}}">Меню</a>
+                                 <a href="{{url('panel/menu/list')}}">Розділи меню</a>
                              </li>
                              <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
                          </ol>
@@ -49,45 +52,45 @@
                      @include('layouts._message')
                      <form class="form-horizontal m-t-30" method="post">
                          @csrf
-                        <div class="col-12">
+                        <div class="form-group">
                                 <label for="name" class="form-label">Ім'я</label><span class="text-danger"> *</span>
                                 <input type="text" name="name" value="{{ old('name')}}" required class="form-control" id="name">
                                 <div class="text-danger">{{ $errors->first('name') }}</div>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="title" class="form-label">Назва</label><span class="text-danger"> *</span>
                                 <input type="text" name="title" value="{{ old('title') }}" required class="form-control" id="title">
                                 <div class="text-danger">{{ $errors->first('title') }}</div>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="slug" class="form-label">Слаг</label><span class="text-mute"> *</span>
                                 <input type="text" name="slug" value="{{ old('slug') }}" class="form-control" id="slug">
                                 <div class="text-danger">{{ $errors->first('slug') }}</div>
                                 <p class="text-muted"><small>* Можна залишити поле пустим</small></p>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="meta_title" class="form-label">Мета Заголовок</label><span class="text-danger"> *</span>
                                 <input type="text" name="meta_title" value="{{ old('meta_title') }}" required class="form-control" id="meta_title">
                                 <div class="text-danger">{{ $errors->first('meta_title') }}</div>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="meta_description" class="form-label">Мета Опис</label><span class="text-danger"> *</span>
                                 <textarea name="meta_description" required class="form-control" id="meta_description">{{ old('meta_description') }}</textarea>
                                 <div class="text-danger">{{ $errors->first('meta_description') }}</div>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="meta_keywords" class="form-label">Ключові слова</label><span class="text-danger"> *</span>
                                 <input type="text" name="meta_keywords" required value="{{ old('meta_keywords') }}" class="form-control" id="meta_keywords">
                                 <div class="text-danger">{{ $errors->first('meta_keywords') }}</div>
                             </div>
 
 
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="status" class="form-label">Меню</label><span class="text-danger"> *</span>
                                 <select class="form-control" name="is_menu" id="status">
                                     <option  value="0">Ні</option>
@@ -95,11 +98,11 @@
                                 </select>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="form-group">
                                 <label for="status" class="form-label">Статус</label><span class="text-danger"> *</span>
                                 <select class="form-control" name="status" id="status">
-                                    <option {{ (old('status') == 1) ? 'selected' : '' }} value="1">Активний</option>
-                                    <option {{ (old('status') == 0) ? 'selected' : '' }} value="0">Неактивний</option>
+                                    <option {{ (old('status') == 0) ? 'selected' : '' }} value="0">Активний</option>
+                                    <option {{ (old('status') == 1) ? 'selected' : '' }} value="1">Неактивний</option>
                                 </select>
                             </div>
                             

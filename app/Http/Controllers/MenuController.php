@@ -14,7 +14,7 @@ class MenuController extends Controller
     {
         $data['active_class'] = 'menu';
         $data['getRecord'] = MenuModel::getRecord();
-        $data['header_title'] = 'Меню';
+        $data['header_title'] = 'Розділи меню';
 
         return view('backend.menu.list', $data);
     }
@@ -23,7 +23,7 @@ class MenuController extends Controller
 
         $data['active_class'] = 'menu';
         $data['getRecord'] = MenuModel::getRecord();
-        $data['header_title'] = 'Додати Меню';
+        $data['header_title'] = 'Додати розділ';
 
         return view('backend.menu.add', $data);
     }
@@ -53,14 +53,14 @@ class MenuController extends Controller
         $save->is_menu =             trim($request->is_menu);
         $save->save();
 
-        return redirect('panel/menu/list')->with('success', 'Меню успішно додано!');
+        return redirect('panel/menu/list')->with('success', 'Розділ меню успішно додано!');
     }
 
     public function edit_menu($id)
     {
         $data['active_class'] = 'menu';
         $data['getRecord'] = MenuModel::getSingle($id);
-        $data['header_title'] = 'Редагувати Меню';
+        $data['header_title'] = 'Розділ меню';
 
         return view('backend.menu.edit', $data);
     }
@@ -92,7 +92,7 @@ class MenuController extends Controller
 
         $save->save();
 
-        return redirect('panel/menu/list')->with('success', 'Меню успішно оновлено!');
+        return redirect('panel/menu/list')->with('success', 'Розділ меню успішно оновлено!');
     }
 
     public function delete_menu($id)
@@ -100,6 +100,6 @@ class MenuController extends Controller
         $save = menuModel::getSingle($id);
         $save->is_delete = 1;
         $save->save();
-        return redirect()->back()->with('success', "Меню успішно видалено!");
+        return redirect()->back()->with('success', "Розділ меню успішно видалено!");
     }
 }

@@ -13,6 +13,9 @@
          .table thead th {
              font-weight: bold !important;
          }
+         .form-label{
+            font-weight: bold;
+         }
      </style>
  @endsection
 
@@ -31,7 +34,7 @@
                                  <a href="{{ url('panel/dashboard') }}">Адмін-панель</a>
                              </li>
                               <li class="breadcrumb-item">
-                                 <a href="{{url('panel/menu/list')}}">Меню</a>
+                                 <a href="{{url('panel/menu/list')}}">Розділ меню</a>
                              </li>
                              <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
                          </ol>
