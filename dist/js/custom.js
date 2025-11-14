@@ -129,3 +129,4 @@ $(function() {
         $('.show-left-part').toggleClass('ti-menu');
     });
 });
+

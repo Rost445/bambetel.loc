@@ -66,38 +66,64 @@
 
                              </select>
                          </div>
+                         <div class="form-group">
+                             <label for="description" class="form-label">Зображення</label><span class="text-danger"></span>
+                             <div class="input-group mb-3">
+                                 <div class="input-group-prepend">
+                                     <span class="input-group-text">Завантажити</span>
+                                 </div>
+                                 <div class="custom-file">
+                                     <input type="file" name="image-file" class="custom-file-input"
+                                         id="inputGroupFile01">
+                                     <label class="custom-file-label" for="inputGroupFile01">Виберіть файл</label>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="form-group">
+                             <label for="description" class="form-label">Опис</label><span class="text-danger">
+                                 *</span>
+                             <textarea name="description" rows="7" required class="form-control" id="mymce"></textarea>
+                             <div class="text-danger">{{ $errors->first('meta_description') }}</div>
+                         </div>
+
+                         <div class="form-group">
+                             <label for="title" class="form-label">Теги</label>
+                             <input type="text" name="tags" class="form-control">
+                             <div class="text-danger">{{ $errors->first('title') }}</div>
+                         </div>
+
+                         <hr>
 
                          <div class="form-group">
                              <label for="meta_title" class="form-label">Мета Заголовок</label><span class="text-danger">
                                  *</span>
-                             <input type="text" name="meta_title" value="{{ old('meta_title') }}" required
-                                 class="form-control" id="meta_title">
+                             <input type="text" name="meta_title" required class="form-control" id="meta_title">
                              <div class="text-danger">{{ $errors->first('meta_title') }}</div>
                          </div>
 
                          <div class="form-group">
                              <label for="meta_description" class="form-label">Мета Опис</label><span class="text-danger">
                                  *</span>
-                             <textarea name="meta_description" required class="form-control" id="meta_description">{{ old('meta_description') }}</textarea>
+                             <textarea name="meta_description" required class="form-control" id="meta_description"></textarea>
                              <div class="text-danger">{{ $errors->first('meta_description') }}</div>
                          </div>
 
                          <div class="form-group">
                              <label for="meta_keywords" class="form-label">Ключові слова</label><span class="text-danger">
                                  *</span>
-                             <input type="text" name="meta_keywords" required value="{{ old('meta_keywords') }}"
-                                 class="form-control" id="meta_keywords">
+                             <input type="text" name="meta_keywords" required class="form-control" id="meta_keywords">
                              <div class="text-danger">{{ $errors->first('meta_keywords') }}</div>
                          </div>
-
-
                          <div class="form-group">
-                             <label for="status" class="form-label">Меню</label><span class="text-danger"> *</span>
-                             <select class="form-control" name="is_menu" id="status">
-                                 <option value="0">Ні</option>
-                                 <option value="1">Так</option>
+                             <label for="status" class="form-label">Опубліковано</label><span class="text-danger">
+                                 *</span>
+                             <select class="form-control" name="is_publish">
+                                 <option {{ old('publish') == 1 ? 'selected' : '' }} value="1">Так</option>
+                                 <option {{ old('publish') == 0 ? 'selected' : '' }} value="0">Ні</option>
                              </select>
                          </div>
+
 
                          <div class="form-group">
                              <label for="status" class="form-label">Статус</label><span class="text-danger"> *</span>
