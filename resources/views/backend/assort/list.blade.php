@@ -46,35 +46,68 @@
                         <h4 class="card-title m-0"><a href="{{ url('panel/assort/add') }}" type="button"
                                 class=" float-right btn waves-effect waves-light btn-rounded btn-success"><i
                                     class="mdi mdi-account-plus mr-2"></i>Додати блюдо</a></h4>
-
                     </div>
 
                     <div class="table-responsive px-3">
-                        <table class="table table-bordered table-responsive-lg">
+                        <table class="table table-bordered">
                             <thead>
-                                <tr class="">
+                                <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Назва</th>
-                                     <th scope="col">Слаг</th>
-                                    <th scope="col">Мета назва</th>
-                                    <th scope="col">Мета опис</th>
-                                    <th scope="col">Ключові слова</th>
+                                    <th scope="col">Зображення</th>
+                                    @if (Auth::user()->is_admin == 1)
+                                        <th scope="col">Користувач</th>
+                                    @endif
+                                    <th scope="col">Заголовок</th>
+                                    <th scope="col">Ціна</th>
+                                    <th scope="col">Вага</th>
+                                    <th scope="col">Категорія</th>
                                     <th scope="col">Статус</th>
-                                    <th scope="col">Меню cайта</th>
-                                    <th scope="col">Дата реєстрації</th>
-                                    <th scope="col"><i class="mdi mdi-account-edit mr-2"></i>Редагувати</th>
-                                    <th scope="col"><i class="mdi mdi-account-remove mr-2"></i>Видалити</th>
-                                </tr>
+                                    <th scope="col">Опубліковано</th>
+                                    <th scope="col">Дата публікації</th>
+                                    <th scope="col"><i class="bi bi-pencil-square"></i></th>
+                                    <th scope="col"><i class="bi bi-trash-fill"></i></th>
                             </thead>
                             <tbody>
-                              
 
+                                @forelse($getRecord as $value)
+                                    <tr>
+
+                                        <th scope="row">{{ $value->id }} </th>
+                                        <td>
+                                            @if (!empty($value->getImage()))
+                                                <img src=" {{ $value->getImage() }} " alt="" class="img-thumbnail"
+                                                    style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
+                                            @endif
+                                        </td>
+                                        @if (Auth::user()->is_admin == 1)
+                                            <td>{{ $value->user_name }} </td>
+                                        @endif
+                                        <td>{{ $value->title }} </td>
+                                        <td>{{ $value->price }} грн</td>
+                                        <td>{{ $value->weight }} г/мл</td>
+                                        <td>{{ $value->category_name }} </td>
+                                        <td>{{ !empty($value->status) ? 'Неактивний ' : 'Активний' }} </td>
+                                        <td>{{ !empty($value->is_publish) ? 'Так' : 'Ні' }} </td>
+                                        <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
+                                        <td><a href="{{ url('panel/assort/edit/' . $value->id) }}" class="text-primary"><i
+                                                    class="bi bi-pencil-square"></i></a></td>
+                                        <td><a onclick="return confirm('Ви дійсно хочете видалити запис?');"
+                                                href="{{ url('panel/assort/delete/' . $value->id) }}"
+                                                class="text-danger"><i class="bi bi-trash-fill"></i></a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="100%">Записів не знайдено!</td>
+                                    </tr>
+                                @endforelse
 
                             </tbody>
                         </table>
+
                     </div>
-                    <div class="mx-3">
-                     
+                    <div class="float-lg-end">
+                        {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
                     </div>
 
                 </div>

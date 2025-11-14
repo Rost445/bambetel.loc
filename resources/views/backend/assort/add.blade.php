@@ -76,7 +76,7 @@
                                      <span class="input-group-text">Завантажити</span>
                                  </div>
                                  <div class="custom-file">
-                                     <input type="file" name="image-file" class="custom-file-input"
+                                     <input type="file" name="image_file" class="custom-file-input"
                                          id="inputGroupFile01">
                                      <label class="custom-file-label" for="inputGroupFile01">Виберіть файл</label>
                                  </div>
@@ -86,7 +86,8 @@
                          <div class="form-group">
                              <label for="description" class="form-label">Опис</label><span class="text-danger">
                                  *</span>
-                             <textarea name="description" rows="7" required class="form-control" id="mymce"></textarea>
+                          <textarea name="description" rows="7" class="form-control" id="mymce"></textarea>
+
                              <div class="text-danger">{{ $errors->first('meta_description') }}</div>
                          </div>
                          <div class="form-group">

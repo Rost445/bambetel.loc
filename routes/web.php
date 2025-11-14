@@ -62,4 +62,5 @@ Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
 
  Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
  Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
+ Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
 });
