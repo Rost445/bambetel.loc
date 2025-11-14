@@ -57,7 +57,7 @@
                                     <th scope="col">Ім'я</th>
                                     <th scope="col">Слаг</th>
                                     <th scope="col">Назва</th>
-                                    <th scope="col">Мета назва</th>
+                                    {{-- <th scope="col">Мета назва</th> --}}
                                     <th scope="col">Мета опис</th>
                                     <th scope="col">Ключові слова</th>
                                     <th scope="col">Статус</th>
@@ -74,7 +74,7 @@
                                         <td>{{ $value->name }} </td>
                                         <td>{{ $value->slug }}</td>
                                         <td>{{ $value->title }}</td>
-                                        <td>{{ $value->meta_title }}</td>
+                                        {{-- <td>{{ $value->meta_title }}</td> --}}
                                         <td>{{ $value->meta_description }}</td>
                                         <td>{{ $value->meta_keywords }}</td>
                                         <td>{{ $value->status ? 'Неактивний' : 'Активний' }}</td>
