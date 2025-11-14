@@ -18,7 +18,7 @@ class AssortController extends Controller
         //$data['getRecord'] = AssortModel::getRecord();
         $data['header_title'] = 'Ассортимент меню';
 
-        return view('backend.assort.list',$data);
+        return view('backend.assort.list', $data);
     }
 
 
@@ -26,7 +26,7 @@ class AssortController extends Controller
     public function add_assort()
     {
         $data['active_class'] = 'assort';
-        //$data['getCategory'] = MenuModel::getMenu();
+        $data['getMenu'] = MenuModel::getMenu();
         //   $data['getRecord'] = AssortModel::getRecord();
         $data['header_title'] = 'Додати блюдо';
         return view(

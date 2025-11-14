@@ -27,7 +27,7 @@ class MenuModel extends Model
      static public function getMenu()
     {
         return self::select('menu.*')
-        ->where('status', '=', 1)
+        ->where('status', '=', 0)
         ->where('is_delete', '=', 0)
         ->get();
     }

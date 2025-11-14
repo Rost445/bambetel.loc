@@ -63,6 +63,9 @@
                                  *</span>
                              <select class="form-control" name="menu_id" required>
                                  <option value="">Вибрати категорію</option>
+                                  @foreach ($getMenu as $value)
+                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                    @endforeach
 
                              </select>
                          </div>
@@ -85,6 +88,16 @@
                                  *</span>
                              <textarea name="description" rows="7" required class="form-control" id="mymce"></textarea>
                              <div class="text-danger">{{ $errors->first('meta_description') }}</div>
+                         </div>
+                         <div class="form-group">
+                             <label for="weight" class="form-label">Вага (г/кг)</label>
+                             <input type="number" step="1" class="form-control" id="weight" name="weight"
+                                 placeholder="Наприклад: 250">
+                         </div>
+                         <div class="form-group">
+                             <label for="price" class="form-label">Ціна (грн)</label>
+                             <input type="number" step="1" class="form-control" id="price" name="price"
+                                 placeholder="Наприклад: 120.50">
                          </div>
 
                          <div class="form-group">
@@ -110,9 +123,11 @@
                          </div>
 
                          <div class="form-group">
-                             <label for="meta_keywords" class="form-label">Ключові слова</label><span class="text-danger">
+                             <label for="meta_keywords" class="form-label">Ключові слова</label><span
+                                 class="text-danger">
                                  *</span>
-                             <input type="text" name="meta_keywords" required class="form-control" id="meta_keywords">
+                             <input type="text" name="meta_keywords" required class="form-control"
+                                 id="meta_keywords">
                              <div class="text-danger">{{ $errors->first('meta_keywords') }}</div>
                          </div>
                          <div class="form-group">
