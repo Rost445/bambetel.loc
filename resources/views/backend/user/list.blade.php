@@ -59,8 +59,8 @@
                                     <th scope="col">Підтверджено</th>
                                     <th scope="col">Статус</th>
                                     <th scope="col">Дата реєстрації</th>
-                                    <th scope="col"><i class="mdi mdi-account-edit mr-2"></i>Редагувати</th>
-                                    <th scope="col"><i class="mdi mdi-account-remove mr-2"></i>Видалити</th>
+                                    <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
+                                    <th scope="col"><i class="mdi mdi-delete mr-2"></i>Видалити</th>
                                 </tr>
                             </thead>
                             <tbody>

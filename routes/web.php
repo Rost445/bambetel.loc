@@ -42,15 +42,15 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 //Adminuser
 Route::group(['middleware' => 'adminuser'], function () {
-Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
-Route::get('panel/user/list', [UserController::class, 'user'])->name('panel.user.list');
-Route::get('panel/user/add', [UserController::class, 'add_user'])->name('panel.user.add');
-Route::post('panel/user/add', [UserController::class, 'insert_user']);
-Route::get('panel/user/edit/{id}', [UserController::class, 'edit_user'])->name('panel.user.edit');
-Route::post('panel/user/edit/{id}', [UserController::class, 'update_user']);
-Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
+    Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+    Route::get('panel/user/list', [UserController::class, 'user'])->name('panel.user.list');
+    Route::get('panel/user/add', [UserController::class, 'add_user'])->name('panel.user.add');
+    Route::post('panel/user/add', [UserController::class, 'insert_user']);
+    Route::get('panel/user/edit/{id}', [UserController::class, 'edit_user'])->name('panel.user.edit');
+    Route::post('panel/user/edit/{id}', [UserController::class, 'update_user']);
+    Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
 
-//Menu
+    //Menu
     Route::get('panel/menu/list', [MenuController::class, 'menu'])->name('panel.menu.list');
     Route::get('panel/menu/add', [MenuController::class, 'add_menu'])->name('panel.menu.add');
     Route::post('panel/menu/add', [MenuController::class, 'insert_menu']);
@@ -58,9 +58,12 @@ Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
     Route::post('panel/menu/edit/{id}', [MenuController::class, 'update_menu']);
     Route::get('panel/menu/delete/{id}', [MenuController::class, 'delete_menu']);
 
-//Assortment Menu
+    //Assortment Menu
 
- Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
- Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
- Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
+    Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
+    Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
+    Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
+    Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.blog.edit');
+    Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
+    Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 });

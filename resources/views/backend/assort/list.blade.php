@@ -64,8 +64,8 @@
                                     <th scope="col">Статус</th>
                                     <th scope="col">Опубліковано</th>
                                     <th scope="col">Дата публікації</th>
-                                    <th scope="col"><i class="bi bi-pencil-square"></i></th>
-                                    <th scope="col"><i class="bi bi-trash-fill"></i></th>
+                                      <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
+                                    <th scope="col"><i class="mdi mdi-delete mr-2"></i>Видалити</th>
                             </thead>
                             <tbody>
 
@@ -90,10 +90,10 @@
                                         <td>{{ !empty($value->is_publish) ? 'Так' : 'Ні' }} </td>
                                         <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
                                         <td><a href="{{ url('panel/assort/edit/' . $value->id) }}" class="text-primary"><i
-                                                    class="bi bi-pencil-square"></i></a></td>
+                                                    class="mdi mdi-pencil mr-2"></i>Редагувати</a></td>
                                         <td><a onclick="return confirm('Ви дійсно хочете видалити запис?');"
                                                 href="{{ url('panel/assort/delete/' . $value->id) }}"
-                                                class="text-danger"><i class="bi bi-trash-fill"></i></a>
+                                                class="text-danger"><i class="mdi mdi-delete mr-2"></i>Видалити</a>
                                         </td>
                                     </tr>
                                 @empty
