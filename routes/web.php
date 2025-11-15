@@ -21,6 +21,12 @@ use App\Http\Controllers\AssortController;
 
 //Pages
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('pagemenu', [HomeController::class, 'pagemenu'])->name('pagemenu');
+Route::get('about', [HomeController::class, 'about'])->name('about');
+Route::get('contacts', [HomeController::class, 'contacts'])->name('contacts');
+Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('reservation', [HomeController::class, 'reservation'])->name('reservation');
+
 
 //Auth, Login, Forgot And Reset Password
 Route::get('login', [AuthController::class, 'login'])->name('login');

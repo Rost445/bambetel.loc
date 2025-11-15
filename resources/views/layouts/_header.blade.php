@@ -30,18 +30,18 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="#hero" class="active">Головна</a></li>
-                        <li class="dropdown"><a href="#"><span>Меню</span> <i
+                        <li><a href="{{url('')}}" class="active">Головна</a></li>
+                        <li class="dropdown"><a href="{{ ('pagemenu') }}"><span>Меню</span> <i
                                     class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
                                 <li><a href="#">Загальне</a></li>
                                 <li><a href="#">Дитяче</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Про кафе</a></li>
-                        <li><a href="#">Фото</a></li>
-                        <li><a href="#">Контакти</a></li>
-                        <li><a href="#">Бронювання</a></li>
+                        <li><a href="{{ ('about') }}">Про кафе</a></li>
+                        <li><a href="{{ ('gallery') }}">Фото</a></li>
+                        <li><a href="{{ ('contacts') }}">Контакти</a></li>
+                        <li><a href="{{ ('reservation') }}">Бронювання</a></li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
