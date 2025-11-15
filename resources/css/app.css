@@ -14,3 +14,39 @@
 .scrolled .mobile-nav-toggle {
     color: #f8efeb;
 }
+
+/* Контейнер */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Стандартна кнопка */
+.page-link {
+    padding: 4px 8px;
+    border: none !important;
+    background: transparent;
+    color: #352a26;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+/* При наведенні */
+.page-link:hover {
+    background: #f0e7e3;
+    color: #352a26;
+}
+
+/* Активна */
+.page-item.active .page-link {
+    background: #352a26;
+    color: #fff !important;
+}
+
+/* Disabled */
+.page-item.disabled .page-link {
+    color: #b9b0ac;
+}

@@ -28,9 +28,10 @@
 
     <!-- Main CSS File -->
     <link href="{{ url('front/assets/css/main.css') }}" rel="stylesheet">
-<link href="{{ url('resources/css/app.css') }}" rel="stylesheet">
-
-   @yield('style')
+    @if (!Request::is('/'))
+        <link href="{{ url('resources/css/app.css') }}" rel="stylesheet">
+    @endif-
+    @yield('style')
 </head>
 
 <body class="index-page">
@@ -61,7 +62,7 @@
 <script src="{{ 'front/assets/vendor/glightbox/js/glightbox.min.js' }}"></script>
 <script src="{{ 'front/assets/js/main.js' }}"></script>
 
-   @stack('scripts')
+@stack('scripts')
 </body>
 
 </html>

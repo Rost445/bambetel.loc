@@ -7,7 +7,7 @@
     <main class="main">
         <div class="divider"></div>
         <!-- Book A Table Section -->
-    <section id="book-a-table" class="book-a-table section light-background">
+    <section id="book-a-table" class="book-a-table section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 

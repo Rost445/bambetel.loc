@@ -44,7 +44,7 @@ class AssortModel extends Model
             ->where('assort.is_publish', '=', 1)
             ->where('assort.is_delete', '=', 0)
             ->orderBy('assort.id', 'desc')
-            ->paginate(20);
+            ->paginate(9);
 
         return $return;
     }
