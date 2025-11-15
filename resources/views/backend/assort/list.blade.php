@@ -154,8 +154,8 @@
                                         <td>{{ $value->price }} грн</td>
                                         <td>{{ $value->weight }} г/мл</td>
                                         <td>{{ $value->menu_name }} </td>
-                                        <td>{{ !empty($value->status) ? 'Активний' :'Неактивний'  }} </td>
-                                        <td>{{ !empty($value->is_publish) ? 'Так' : 'Ні' }} </td>
+                                        <td>{{ ($value->status) ?  'Неактивний':'Активний' }} </td>
+                                        <td>{{ ($value->is_publish) ? 'Так' :'Ні' }} </td>
                                         <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
                                         <td><a href="{{ url('panel/assort/edit/' . $value->id) }}"
                                                 class="text-primary"><i class="mdi mdi-pencil mr-2"></i>Редагувати</a>

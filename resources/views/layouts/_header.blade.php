@@ -31,7 +31,7 @@
                 <nav id="navmenu" class="navmenu">
                     <ul>
                         <li><a href="{{url('')}}" class="active">Головна</a></li>
-                        <li class="dropdown"><a href="{{ ('pagemenu') }}"><span>Меню</span> <i
+                        <li class="dropdown"><a href="{{ ('assort') }}"><span>Меню</span> <i
                                     class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
                                 <li><a href="#">Загальне</a></li>

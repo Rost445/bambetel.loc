@@ -22,14 +22,32 @@ class AssortModel extends Model
     'meta_keywords',
     'is_publish',
     'status',
-    'image_file',    // ← МАЄ бути
+    'image_file',    
       ];
       static public function getSingle($id)
     {
         return self::find($id);
     }
 
-   
+    static public function getRecordFront()
+    {
+        $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id');
+
+        if (!empty(Request::get('q'))) {
+            $return = $return->where('assort.title', 'like', '%' . Request::get('q') . '%');
+        }
+
+
+        $return = $return->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->paginate(20);
+
+        return $return;
+    }
 
 
         static public function getRecord()

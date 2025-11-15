@@ -21,7 +21,7 @@ use App\Http\Controllers\AssortController;
 
 //Pages
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('pagemenu', [HomeController::class, 'pagemenu'])->name('pagemenu');
+Route::get('assort', [HomeController::class, 'assort'])->name('assort');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contacts', [HomeController::class, 'contacts'])->name('contacts');
 Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');

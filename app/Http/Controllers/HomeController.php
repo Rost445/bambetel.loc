@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AssortModel;
 
 class HomeController extends Controller
 {
@@ -10,12 +11,17 @@ class HomeController extends Controller
     {
          return view('home');
     }
-     public function pagemenu()
+     public function menu()
     {
        
-
-        return view('pagemenu');
+        return view('menu');
     }
+
+    public function assort(){
+         $data['getRecord'] = AssortModel::getRecordFront();
+         return view('assort',$data);
+    }
+    
 
     public function about()
     {
