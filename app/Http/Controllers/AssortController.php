@@ -46,6 +46,7 @@ class AssortController extends Controller
         $save->description =   trim($request->description);
         $save->price =   trim($request->price);
         $save->weight =   trim($request->weight);
+         $save->meta_title =   trim($request->meta_title);
         $save->meta_description =   trim($request->meta_description);
         $save->meta_keywords =      trim($request->meta_keywords);
         $save->is_publish =      trim($request->is_publish);
@@ -74,7 +75,7 @@ class AssortController extends Controller
 
         $save->save();
 
-        //BlogTagsModel::InsertDeleteTag($save->id, $request->tags);
+       AssortTagsModel::InsertDeleteTag($save->id, $request->tags);
 
         return redirect('panel/assort/list')->with('success', 'Страва успішно додана!');
     }
@@ -117,7 +118,7 @@ class AssortController extends Controller
             $save->image_file = $filename;
         }
 
-        // BlogTagsModel::InsertDeleteTag($save->id, $request->tags);
+        AssortTagsModel::InsertDeleteTag($save->id, $request->tags);
 
         $save->save();
 
@@ -133,4 +134,6 @@ class AssortController extends Controller
         $save->save();
         return redirect()->back()->with('success', "Страву успішно видалено!");
     }
+
+    
 }

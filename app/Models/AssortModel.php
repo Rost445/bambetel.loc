@@ -93,6 +93,9 @@ class AssortModel extends Model
         }
     }
     
-
+public function getTag()
+    {
+        return $this->hasMany(AssortTagsModel::class, 'assort_id');
+    }
 
 }

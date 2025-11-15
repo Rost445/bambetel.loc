@@ -17,7 +17,12 @@
          .form-label {
              font-weight: bold;
          }
+
+         .bootstrap-tagsinput .tag {
+             background: #7460ee !important;
+         }
      </style>
+     <link rel="stylesheet" type="text/css" href ="{{ url('assets/tagsinput/bootstrap-tagsinput.css') }}">
  @endsection
 
 
@@ -55,7 +60,8 @@
                          @csrf
                          <div class="form-group">
                              <label for="title" class="form-label">Назва</label><span class="text-danger"> *</span>
-                             <input type="text" name="title"  value="{{ $getRecord->title }}" required class="form-control" id="title">
+                             <input type="text" name="title" value="{{ $getRecord->title }}" required
+                                 class="form-control" id="title">
                              <div class="text-danger">{{ $errors->first('title') }}</div>
                          </div>
                          <div class="form-group">
@@ -63,13 +69,13 @@
                                  *</span>
                              <select class="form-control" name="menu_id" required>
                                  <option value="">Вибрати категорію</option>
-                                   @foreach ($getMenu as $value)
-                                        <option {{ $getRecord->menu_id == $value->id ? 'selected' : '' }}
-                                            value="{{ $value->id }}">{{ $value->name }}</option>
-                                    @endforeach
+                                 @foreach ($getMenu as $value)
+                                     <option {{ $getRecord->menu_id == $value->id ? 'selected' : '' }}
+                                         value="{{ $value->id }}">{{ $value->name }}</option>
+                                 @endforeach
 
                              </select>
-                              <div class="text-danger">{{ $errors->first('category_id') }}</div>
+                             <div class="text-danger">{{ $errors->first('category_id') }}</div>
                          </div>
                          <div class="form-group">
                              <label for="description" class="form-label">Зображення</label><span class="text-danger"></span>
@@ -84,37 +90,44 @@
                                  </div>
                              </div>
                          </div>
-                           @if (!empty($getRecord->getImage()))
-                                    <div class="my-3">
-                                        <img src=" {{ $getRecord->getImage() }} " alt="" class="img-thumbnail"
-                                            style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
-                                    </div>
-                                @endif
-                                <div class="text-danger">{{ $errors->first('image_file') }}</div>
+                         @if (!empty($getRecord->getImage()))
+                             <div class="my-3">
+                                 <img src=" {{ $getRecord->getImage() }} " alt="" class="img-thumbnail"
+                                     style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
+                             </div>
+                         @endif
+                         <div class="text-danger">{{ $errors->first('image_file') }}</div>
 
                          <div class="form-group">
                              <label for="description" class="form-label">Опис</label><span class="text-danger">
                                  *</span>
-                          <textarea name="description" rows="7" class="form-control" id="mymce">{{ $getRecord->description }}</textarea>
+                             <textarea name="description" rows="7" class="form-control" id="mymce">{{ $getRecord->description }}</textarea>
 
-                              <div class="text-danger">{{ $errors->first('description') }}</div>
+                             <div class="text-danger">{{ $errors->first('description') }}</div>
                          </div>
                          <div class="form-group">
                              <label for="weight" class="form-label">Вага (г/кг)</label>
-                             <input type="number" step="1" class="form-control" id="weight" name="weight" value="{{ $getRecord->weight }}"
-                                 placeholder="Наприклад: 250">
-                                   <div class="text-danger">{{ $errors->first('weight') }}</div>
-                         </div>
-                         
-                         <div class="form-group">
-                             <label for="price" class="form-label">Ціна (грн)</label>
-                             <input type="number" step="1" class="form-control" id="price" name="price" value="{{ $getRecord->price }}"
-                                 placeholder="Наприклад: 120.50"> <div class="text-danger">{{ $errors->first('weight') }}</div>
+                             <input type="number" step="1" class="form-control" id="weight" name="weight"
+                                 value="{{ $getRecord->weight }}" placeholder="Наприклад: 250">
+                             <div class="text-danger">{{ $errors->first('weight') }}</div>
                          </div>
 
                          <div class="form-group">
+                             <label for="price" class="form-label">Ціна (грн)</label>
+                             <input type="number" step="1" class="form-control" id="price" name="price"
+                                 value="{{ $getRecord->price }}" placeholder="Наприклад: 120.50">
+                             <div class="text-danger">{{ $errors->first('weight') }}</div>
+                         </div>
+                         @php
+                             $tags = '';
+                             foreach ($getRecord->getTag as $value) {
+                                 $tags .= $value->name . ',';
+                             }
+                         @endphp
+                         <div class="form-group">
                              <label for="title" class="form-label">Теги</label>
-                             <input type="text" name="tags" class="form-control">
+                             <input type="text" name="tags" id="tags" class="form-control"
+                                 data-role="tagsinput" value="{{ $tags }}">
                              <div class="text-danger">{{ $errors->first('title') }}</div>
                          </div>
 
@@ -123,7 +136,8 @@
                          <div class="form-group">
                              <label for="meta_title" class="form-label">Мета Заголовок</label><span class="text-danger">
                                  *</span>
-                             <input type="text" name="meta_title" required class="form-control" id="meta_title" value="{{ $getRecord->meta_title }}">
+                             <input type="text" name="meta_title" required class="form-control" id="meta_title"
+                                 value="{{ $getRecord->meta_title }}">
                              <div class="text-danger">{{ $errors->first('meta_title') }}</div>
                          </div>
 
@@ -138,31 +152,31 @@
                              <label for="meta_keywords" class="form-label">Ключові слова</label><span
                                  class="text-danger">
                                  *</span>
-                             <input type="text" name="meta_keywords" required class="form-control"
-                                 id="meta_keywords" value="{{ $getRecord->meta_keywords }}">
+                             <input type="text" name="meta_keywords" required class="form-control" id="meta_keywords"
+                                 value="{{ $getRecord->meta_keywords }}">
                              <div class="text-danger">{{ $errors->first('meta_keywords') }}</div>
                          </div>
                          <div class="form-group">
                              <label for="status" class="form-label">Опубліковано</label><span class="text-danger">
                                  *</span>
                              <select class="form-control" name="is_publish">
-                                    <option {{ $getRecord->is_publish == 1 ? 'selected' : '' }} value="1">Так
-                                    </option>
-                                    <option {{ $getRecord->is_publish == 0 ? 'selected' : '' }} value="0">Ні
-                                    </option>
-                                </select>
+                                 <option {{ $getRecord->is_publish == 1 ? 'selected' : '' }} value="1">Так
+                                 </option>
+                                 <option {{ $getRecord->is_publish == 0 ? 'selected' : '' }} value="0">Ні
+                                 </option>
+                             </select>
                          </div>
 
 
                          <div class="form-group">
                              <label for="status" class="form-label">Статус</label><span class="text-danger"> *</span>
                              <select class="form-control" name="status" id="status">
-                                   
-                                    <option {{ $getRecord->status == 1 ? 'selected' : '' }} value="1">Неактивний
-                                    </option>
-                                     <option {{ $getRecord->status == 0 ? 'selected' : '' }} value="0">Активний
-                                    </option>
-                                </select>
+
+                                 <option {{ $getRecord->status == 1 ? 'selected' : '' }} value="1">Неактивний
+                                 </option>
+                                 <option {{ $getRecord->status == 0 ? 'selected' : '' }} value="0">Активний
+                                 </option>
+                             </select>
                          </div>
 
                          <div class="text-start pt-3">
@@ -176,4 +190,8 @@
  @endsection
 
  @section('script')
+     <script src="{{ url('assets/tagsinput/bootstrap-tagsinput.js') }}"></script>
+     <script>
+         $("#tags").tagsinput()
+     </script>
  @endsection

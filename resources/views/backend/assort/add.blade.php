@@ -17,7 +17,12 @@
          .form-label {
              font-weight: bold;
          }
+         .bootstrap-tagsinput .tag{
+            background: #7460ee !important;
+         }
      </style>
+     <link rel="stylesheet" type="text/css" 
+     href ="{{ url('assets/tagsinput/bootstrap-tagsinput.css') }}">
  @endsection
 
 
@@ -103,7 +108,7 @@
 
                          <div class="form-group">
                              <label for="title" class="form-label">Теги</label>
-                             <input type="text" name="tags" class="form-control">
+                              <input type="text" id="tags" name="tags" class="form-control" data-role="tagsinput">
                              <div class="text-danger">{{ $errors->first('title') }}</div>
                          </div>
 
@@ -160,4 +165,9 @@
  @endsection
 
  @section('script')
+  <script src="{{ url('assets/tagsinput/bootstrap-tagsinput.js' )}}"></script>
+  <script>
+    $("#tags").tagsinput()
+  </script>
+
  @endsection
