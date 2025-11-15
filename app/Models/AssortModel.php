@@ -28,9 +28,13 @@ class AssortModel extends Model
     {
         return self::find($id);
     }
+
+   
+
+
         static public function getRecord()
     {
-        $return =  self::select('assort.*', 'users.name as user_name', 'menu.name as category_name', 'menu.slug as menu_slug')
+        $return =  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
             ->join('users', 'users.id', '=', 'assort.user_id')
             ->join('menu', 'menu.id', '=', 'assort.menu_id');
 
@@ -42,9 +46,9 @@ class AssortModel extends Model
         if (!empty(Request::get('id'))) {
             $return =  $return->where('assort.id', '=', Request::get('id'));
         }
-        if (!empty(Request::get('username'))) {
-            $return =  $return->where('users.username', 'like', '%' . Request::get('username') . '%');
-        }
+      if (!empty(Request::get('username'))) {
+    $return =  $return->where('users.name', 'like', '%' . Request::get('username') . '%');
+}
         if (!empty(Request::get('title'))) {
             $return =  $return->where('assort.title', 'like', '%' . Request::get('title') . '%');
         }

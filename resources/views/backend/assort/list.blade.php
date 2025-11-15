@@ -43,6 +43,73 @@
                 <div class="card">
                     <div class="card-body">
                         @include('layouts._message')
+                        <!--search form -->
+                        <form class=" mb-3 pb-3 border-bottom" accept="get">
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label class="form-label">ID</label>
+                                    <input type="text" class="form-control" name="id"
+                                        value="{{ Request::get('id') }}">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label class="form-label"><strong>Ім'я користувача</strong></label>
+                                    <input type="text" class="form-control" name="username"
+                                        value="{{ Request::get('username') }}">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label"><strong>Заголовок</strong></label>
+                                    <input type="text" class="form-control" name="title"
+                                        value="{{ Request::get('title') }}">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label"><b>Розділ меню</b></label>
+                                    <input type="text" class="form-control" name="menu"
+                                        value="{{ Request::get('menu') }}">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label"><b>Статус</b></label>
+                                    <select class="form-control text-secondary" name="status" id="status">
+                                        <option value="">Вибрати</option>
+                                        <option {{ Request::get('status') == 1 ? 'selected' : '' }} value="1">
+                                            Активний</option>
+                                        <option {{ Request::get('status') == 100 ? 'selected' : '' }} value="100">
+                                            Неактивний</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label y"><b>Опубліковано</b></label>
+                                    <select class="form-control text-secondary" name="is_publish" id="status">
+                                        <option value="">Вибрати</option>
+                                        <option {{ Request::get('is_publish') == 1 ? 'selected' : '' }} value="1">Так
+                                        </option>
+                                        <option {{ Request::get('is_publish') == 100 ? 'selected' : '' }} value="100">
+                                            Ні</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label"><b>Дата (від:)</b></label>
+                                    <input type="date" class="form-control" name="start_date"
+                                        value="{{ Request::get('start_date') }}">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="form-label"><b>Дата (до:)</b></label>
+                                    <input type="date" class="form-control" name="end_date"
+                                        value="{{ Request::get('end_date') }}">
+                                </div>
+                                <!--buttons-->
+
+                                <div class="form-group col-md-12">
+                                    <button class="btn btn-info waves-effect waves-light" type="submit"><i
+                                            class="mdi mdi-magnify mr-1"></i> Пошук
+                                    </button>
+                                    <a href="{{ url('panel/assort/list') }}" class="btn btn-danger waves-effect waves-light m-l-10"
+                                        type="button"><i class="mdi mdi-broom mr-1"></i>Очистити
+                                </a>
+                                </div>
+                            </div>
+                        </form>
+                        <!--.search form -->
                         <h4 class="card-title m-0"><a href="{{ url('panel/assort/add') }}" type="button"
                                 class=" float-right btn waves-effect waves-light btn-rounded btn-success"><i
                                     class="mdi mdi-account-plus mr-2"></i>Додати блюдо</a></h4>
@@ -64,7 +131,7 @@
                                     <th scope="col">Статус</th>
                                     <th scope="col">Опубліковано</th>
                                     <th scope="col">Дата публікації</th>
-                                      <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
+                                    <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
                                     <th scope="col"><i class="mdi mdi-delete mr-2"></i>Видалити</th>
                             </thead>
                             <tbody>
@@ -75,7 +142,8 @@
                                         <th scope="row">{{ $value->id }} </th>
                                         <td>
                                             @if (!empty($value->getImage()))
-                                                <img src=" {{ $value->getImage() }} " alt="" class="img-thumbnail"
+                                                <img src=" {{ $value->getImage() }} " alt=""
+                                                    class="img-thumbnail"
                                                     style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
                                             @endif
                                         </td>
@@ -85,12 +153,13 @@
                                         <td>{{ $value->title }} </td>
                                         <td>{{ $value->price }} грн</td>
                                         <td>{{ $value->weight }} г/мл</td>
-                                        <td>{{ $value->category_name }} </td>
-                                        <td>{{ !empty($value->status) ? 'Неактивний ' : 'Активний' }} </td>
+                                        <td>{{ $value->menu_name }} </td>
+                                        <td>{{ !empty($value->status) ? 'Активний' :'Неактивний'  }} </td>
                                         <td>{{ !empty($value->is_publish) ? 'Так' : 'Ні' }} </td>
                                         <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
-                                        <td><a href="{{ url('panel/assort/edit/' . $value->id) }}" class="text-primary"><i
-                                                    class="mdi mdi-pencil mr-2"></i>Редагувати</a></td>
+                                        <td><a href="{{ url('panel/assort/edit/' . $value->id) }}"
+                                                class="text-primary"><i class="mdi mdi-pencil mr-2"></i>Редагувати</a>
+                                        </td>
                                         <td><a onclick="return confirm('Ви дійсно хочете видалити запис?');"
                                                 href="{{ url('panel/assort/delete/' . $value->id) }}"
                                                 class="text-danger"><i class="mdi mdi-delete mr-2"></i>Видалити</a>
