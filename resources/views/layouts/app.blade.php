@@ -28,6 +28,7 @@
 
     <!-- Main CSS File -->
     <link href="{{ url('front/assets/css/main.css') }}" rel="stylesheet">
+<link href="{{ url('resources/css/app.css') }}" rel="stylesheet">
 
    @yield('style')
 </head>

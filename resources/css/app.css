@@ -1,0 +1,16 @@
+ .divider {
+            min-height: 70px;
+            padding: 10px 0;
+        }
+
+     /* Початковий стан */
+.navmenu a,
+.mobile-nav-toggle {
+    color: #352a26; /* Темний */
+}
+
+/* Після скролу */
+.scrolled .navmenu a,
+.scrolled .mobile-nav-toggle {
+    color: #f8efeb;
+}

@@ -1,15 +1,6 @@
 @extends('layouts.app')
 @section('style')
-    <style>
-        .divider {
-            min-height: 70px;
-            padding: 10px 0;
-        }
-
-        .navmenu a,
-        .mobile-nav-toggle {
-            color: #352a26;
-        }
+    
     </style>
 @endsection
 
@@ -47,7 +38,7 @@
                                     </div>
                                     <div class="menu-card-content">
                                         <h4><a href="{{ url($value->slug) }}">{{$value->title}}</a></h4>
-                                       
+                                       <p>{{ $value->menu_name }} | <a href=""></a></p>
                                         <div class="spice-level">
                                             <span class="spice-dot"></span>
                                             <span class="spice-dot"></span>

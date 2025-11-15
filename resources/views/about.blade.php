@@ -1,15 +1,6 @@
 @extends('layouts.app')
 @section('style')
-    <style>
-        .divider {
-            min-height: 70px;
-            padding: 10px 0;
-        }
-        .navmenu a, .mobile-nav-toggle {
-            color:#352a26;
-        }
-      
-    </style>
+   
 @endsection
 
 @section('content')
