@@ -1,4 +1,4 @@
-@extends('backend.layouts.app');
+@extends('backend.layouts.app')
 @section('style')
     <style>
         .table thead th,
