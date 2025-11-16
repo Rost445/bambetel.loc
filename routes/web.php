@@ -73,3 +73,8 @@ Route::group(['middleware' => 'adminuser'], function () {
     Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
     Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 });
+
+
+
+// Blog Detail
+Route::get('{slug}', [HomeController::class, 'assortdetail'])->name('assort_detail');
