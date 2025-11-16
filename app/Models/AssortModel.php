@@ -10,21 +10,21 @@ use Illuminate\Support\Facades\Request;
 class AssortModel extends Model
 {
     use HasFactory;
-      protected $table = 'assort';
-      protected $fillable = [
-    'user_id',
-    'title',
-    'menu_id',
-    'description',
-    'price',
-    'weight',
-    'meta_description',
-    'meta_keywords',
-    'is_publish',
-    'status',
-    'image_file',    
-      ];
-      static public function getSingle($id)
+    protected $table = 'assort';
+    protected $fillable = [
+        'user_id',
+        'title',
+        'menu_id',
+        'description',
+        'price',
+        'weight',
+        'meta_description',
+        'meta_keywords',
+        'is_publish',
+        'status',
+        'image_file',
+    ];
+    static public function getSingle($id)
     {
         return self::find($id);
     }
@@ -60,24 +60,36 @@ class AssortModel extends Model
         return $return;
     }
 
+     static public function getRecentPost()
+    {
+        return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->limit(3)
+            ->get();
+    }
 
-        static public function getRecord()
+
+    static public function getRecord()
     {
         $return =  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
             ->join('users', 'users.id', '=', 'assort.user_id')
             ->join('menu', 'menu.id', '=', 'assort.menu_id');
 
-            if(!empty(Auth::check()) && (Auth::user()->is_admin != 1))
-            {
-                $return =  $return->where('assort.user_id', '=', Auth::user()->id);
-            }
+        if (!empty(Auth::check()) && (Auth::user()->is_admin != 1)) {
+            $return =  $return->where('assort.user_id', '=', Auth::user()->id);
+        }
 
         if (!empty(Request::get('id'))) {
             $return =  $return->where('assort.id', '=', Request::get('id'));
         }
-      if (!empty(Request::get('username'))) {
-    $return =  $return->where('users.name', 'like', '%' . Request::get('username') . '%');
-}
+        if (!empty(Request::get('username'))) {
+            $return =  $return->where('users.name', 'like', '%' . Request::get('username') . '%');
+        }
         if (!empty(Request::get('title'))) {
             $return =  $return->where('assort.title', 'like', '%' . Request::get('title') . '%');
         }
@@ -109,15 +121,13 @@ class AssortModel extends Model
         }
 
 
-
-
         $return =  $return->where('assort.is_delete', '=', 0)
             ->orderBy('assort.id', 'desc')
             ->paginate(12);
 
         return   $return;
     }
-  public function getImage()
+    public function getImage()
     {
         if (!empty($this->image_file) && file_exists('upload/assort/' . $this->image_file)) {
             return url('upload/assort/' . $this->image_file);
@@ -125,10 +135,11 @@ class AssortModel extends Model
             return "";
         }
     }
-    
-public function getTag()
+
+    public function getTag()
     {
         return $this->hasMany(AssortTagsModel::class, 'assort_id');
     }
+
 
 }

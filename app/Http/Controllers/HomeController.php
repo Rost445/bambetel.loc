@@ -30,6 +30,8 @@ class HomeController extends Controller
    $getRecord = AssortModel::getRecordSlug($slug);
    if(!empty($getRecord))
    {
+    $data['getMenu'] = MenuModel::getMenu();
+    $data['getRecentPost'] = AssortModel::getRecentPost();
     $data['getRecord'] = $getRecord;
     return view('assort_detail',$data);
    }else{

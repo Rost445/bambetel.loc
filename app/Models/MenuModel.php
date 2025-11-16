@@ -51,5 +51,13 @@ class MenuModel extends Model
         ->first();
     }
 
+ public function totalAssort()
+    {
+        return $this->hasMany(AssortModel::class, 'menu_id')
+        ->where('assort.status', '=', 0)
+        ->where('assort.is_publish', '=', 1)
+        ->where('assort.is_delete', '=', 0)
+        ->count();
+    }
 
 }

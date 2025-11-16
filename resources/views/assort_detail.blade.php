@@ -25,6 +25,10 @@
             border-color: color-mix(in srgb, var(--accent-color), black 15%);
             transform: translateY(-2px);
         }
+        .price{
+            font-size: 1.2em;
+            font-weight: bold;
+        }
     </style>
 @endsection
 
@@ -51,7 +55,7 @@
             <!-- Section Title -->
             <div class="container section-title aos-init aos-animate" data-aos="fade-up">
 
-                <span class="description-title">Starter Section</span>
+                <span class="description-title">{{ $getRecord->title }}</span>
                 <h2>{{ $getRecord->title }}</h2>
                 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div><!-- End Section Title -->
@@ -70,49 +74,26 @@
                                             @endif
                                             <div class="blog-item-content mt-5">
                                                 <div class="blog-item-meta mb-3">
-                                                    <span class="text-color-2 text-capitalize mr-3"><i
-                                                            class="icofont-book-mark mr-2"></i> {{ $getRecord->menu_name }}
+                                                    <span class="text-color-2 text-capitalize mr-3"><i class="bi bi-journal-text"></i> {{ $getRecord->menu_name }}
                                                         | </span>
-                                                    <span class="text-muted text-capitalize mr-3"><i
-                                                            class="icofont-comment mr-2"></i>5 Comments</span>
-                                                    <span class="text-black text-capitalize mr-3"><i
-                                                            class="icofont-calendar mr-2"></i> | 28th January 2019</span>
+                                                    {{-- <span class="text-muted text-capitalize mr-3"><i
+                                                            class="icofont-comment mr-2"></i>5 Comments</span> --}}
+                                                    <span class="text-black text-capitalize mr-3"><i class="bi bi-calendar3"></i> {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
                                                 </div>
 
                                                 <h2 class="mb-4 text-md"><a
-                                                        href="blog-single.html">{{ $getRecord->title }}</a></h2>
+                                                        href="#">{{ $getRecord->title }}</a></h2>
+                                                        <div class="price mb-3" id="dishPrice"> {{ $getRecord->price }} ₴ | Вага: {{ $getRecord->weight }} г</div>
 
                                                 {!! $getRecord->description !!}
 
-                                                <div class="mt-5 clearfix">
-                                                    <ul class="float-left list-inline tag-option">
-                                                        <li class="list-inline-item"><a href="#">Advancher</a></li>
-                                                        <li class="list-inline-item"><a href="#">Landscape</a></li>
-                                                        <li class="list-inline-item"><a href="#">Travel</a></li>
-                                                    </ul>
-
-                                                    <ul class="float-right list-inline">
-                                                        <li class="list-inline-item"> Share: </li>
-                                                        <li class="list-inline-item"><a href="#" target="_blank"><i
-                                                                    class="icofont-facebook" aria-hidden="true"></i></a>
-                                                        </li>
-                                                        <li class="list-inline-item"><a href="#" target="_blank"><i
-                                                                    class="icofont-twitter" aria-hidden="true"></i></a></li>
-                                                        <li class="list-inline-item"><a href="#" target="_blank"><i
-                                                                    class="icofont-pinterest" aria-hidden="true"></i></a>
-                                                        </li>
-                                                        <li class="list-inline-item"><a href="#" target="_blank"><i
-                                                                    class="icofont-linkedin" aria-hidden="true"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                             
                                             </div>
                                         </div>
                                     </div>
-
+{{-- 
                                     <div class="col-lg-12">
                                         <div class="comment-area mt-4 mb-5">
-                                            <h4 class="mb-4">2 Comments on Healthy environment... </h4>
                                             <ul class="comment-tree list-unstyled">
                                                 <li class="mb-5">
                                                     <div class="comment-area-box">
@@ -178,7 +159,7 @@
                                             <input class="btn btn-primary btn-round-full" type="submit"
                                                 name="submit-contact" id="submit_contact" value="Опублікувати">
                                         </form>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
@@ -231,36 +212,46 @@
                                     </div>
 
 
-                                    <div class="sidebar-widget latest-post mb-2">
+                                    <div class="sidebar-widget latest-post mb-2 mx-2">
                                         <h5>Популярні страви</h5>
+                                        @foreach ($getRecentPost as $post)
+                                            <div class="py-2">
+                                                @if(!empty($post->getImage()))
+                                                <img class="img-fluid" src="{{ $post->getImage() }}"   style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
+                                                @endif
+                                                <span class="text-sm text-muted">{{$post->menu_name}}</span>
+                                                <h6 class="my-2">
+                                                    <a href="#">{{$post->title}}</a>
+                                                </h6>
+                                            </div>
+                                        @endforeach
 
-                                        <div class="py-2">
-                                            <span class="text-sm text-muted">03 Mar 2018</span>
-                                            <h6 class="my-2"><a href="#">Thoughtful living in los Angeles</a></h6>
-                                        </div>
 
                                     </div>
 
-                                    <div class="sidebar-widget category mb-5">
+                                    <div class="sidebar-widget category mb-5 mx-2">
                                         <h5 class="mb-2">Розділи меню</h5>
                                         <ul class="list-unstyled">
-                                            <li class="align-items-center">
-                                                <a href="#">Medicine</a>
-                                                <span>(14)</span>
-                                            </li>
+                                            @foreach ($getMenu as $menu)
+                                                <li class="align-items-center">
+                                                    <a href="{{ $menu->slug }}">{{ $menu->name }}</a>
+                                                    <span>({{ $menu->totalAssort() }})</span>
+                                                </li>
+                                            @endforeach
+
 
                                         </ul>
                                     </div>
 
 
-                                    <div class="sidebar-widget tags mb-5">
+                                    <div class="sidebar-widget tags mb-5 mx-2">
                                         <h5 class="mb-2">Теги</h5>
 
                                         <a href="#">Doctors</a>
 
                                     </div>
 
-                                    <div class="sidebar-widget schedule-widget mb-5">
+                                    <div class="sidebar-widget schedule-widget mb-5 mx-2">
                                         <h5 class="mb-2">Години роботи:</h5>
 
                                         <ul class="list-unstyled">
