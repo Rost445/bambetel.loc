@@ -8,25 +8,35 @@ use App\Models\MenuModel;
 
 class HomeController extends Controller
 {
-    public function home()
-    {
-         return view('home');
-    }
-     public function menu()
-    {
-       
-        return view('menu');
-    }
+  public function home()
+  {
+    return view('home');
+  }
+  public function menu()
+  {
 
-    public function assort(){
-         $data['getRecord'] = AssortModel::getRecordFront();
-         return view('assort',$data);
-    }
+    return view('menu');
+  }
 
-      public function assortdetail($slug)
-    {
-/* 
-        $getMenu = MenuModel::getSlug($slug);
+  public function assort()
+  {
+    $data['getRecord'] = AssortModel::getRecordFront();
+    return view('assort', $data);
+  }
+
+  public function assortdetail($slug)
+  {
+
+   $getRecord = AssortModel::getRecordSlug($slug);
+   if(!empty($getRecord))
+   {
+    $data['getRecord'] = $getRecord;
+    return view('assort_detail',$data);
+   }else{
+    abort(404);
+   }
+    
+    /*     $getMenu = MenuModel::getSlug($slug);
         if (!empty($getMenu)) {
             $data['title'] =       $getMenu->name;
             $data['meta_title'] =       $getMenu->meta_title;
@@ -50,36 +60,34 @@ class HomeController extends Controller
                 $data['meta_description'] = $getRecord->meta_description;
                 $data['meta_keywords'] =    $getRecord->meta_keywords; */
 
-                return view('assort_detail');
-           /*  } else {
+    
+    /*  } else {
                 abort(404, "Сторінку не знайдено");
            
         } } */
-    }
+  }
 
-    
 
-    public function about()
-    {
-       
 
-        return view('about');
-    }
+  public function about()
+  {
 
-    public function gallery()
-      {
-        return view('gallery');
-      }
 
-      public function contacts()
-      {
-        return view('contacts');
-      }
-      
-      public function reservation()
-      {
-        return view(' reservation');
-      }
-      
+    return view('about');
+  }
 
+  public function gallery()
+  {
+    return view('gallery');
+  }
+
+  public function contacts()
+  {
+    return view('contacts');
+  }
+
+  public function reservation()
+  {
+    return view(' reservation');
+  }
 }

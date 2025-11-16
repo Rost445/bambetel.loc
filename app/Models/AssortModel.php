@@ -28,6 +28,17 @@ class AssortModel extends Model
     {
         return self::find($id);
     }
+    static public function getRecordSlug($slug)
+    {
+        return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->where('assort.slug', '=', $slug)
+            ->first();
+    }
 
     static public function getRecordFront()
     {
