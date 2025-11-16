@@ -25,7 +25,8 @@
             border-color: color-mix(in srgb, var(--accent-color), black 15%);
             transform: translateY(-2px);
         }
-        .price{
+
+        .price {
             font-size: 1.2em;
             font-weight: bold;
         }
@@ -69,29 +70,35 @@
                                     <div class="col-lg-12 mb-5">
                                         <div class="single-blog-item">
                                             @if (!empty($getRecord->getImage()))
-                                                <img src="{{ $getRecord->getImage() }}" alt="" class="img-fluid"
-                                                    style="height: 532px; width: 1024px; object-fit: cover; object-position: center;">
+                                                <img src="{{ $getRecord->getImage() }}" alt=""
+                                                    class="img-fluid p-2 border Small shadow"
+                                                    style="height: 532px; width: 1024px; object-fit: cover; object-position: center; border-radius:7px ;">
                                             @endif
                                             <div class="blog-item-content mt-5">
                                                 <div class="blog-item-meta mb-3">
-                                                    <span class="text-color-2 text-capitalize mr-3"><i class="bi bi-journal-text"></i> {{ $getRecord->menu_name }}
+                                                    <span class="text-color-2 text-capitalize mr-3"><i
+                                                            class="bi bi-journal-text"></i> {{ $getRecord->menu_name }}
                                                         | </span>
                                                     {{-- <span class="text-muted text-capitalize mr-3"><i
                                                             class="icofont-comment mr-2"></i>5 Comments</span> --}}
-                                                    <span class="text-black text-capitalize mr-3"><i class="bi bi-calendar3"></i> {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
+                                                    <span class="text-black text-capitalize mr-3"><i
+                                                            class="bi bi-calendar3"></i>
+                                                        {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
                                                 </div>
 
-                                                <h2 class="mb-4 text-md"><a
-                                                        href="#">{{ $getRecord->title }}</a></h2>
-                                                        <div class="price mb-3" id="dishPrice"> {{ $getRecord->price }} ₴ | Вага: {{ $getRecord->weight }} г</div>
+                                                <h2 class="mb-4 text-md"><a href="#">{{ $getRecord->title }}</a></h2>
+                                                <div class="price mb-3" id="dishPrice"> Ціна:
+                                                    {{ intval($getRecord->price) }} ₴ | Вага:
+                                                    {{ intval($getRecord->weight) }} г</div>
 
                                                 {!! $getRecord->description !!}
 
-                                             
                                             </div>
                                         </div>
+
                                     </div>
-{{-- 
+
+                                    {{-- 
                                     <div class="col-lg-12">
                                         <div class="comment-area mt-4 mb-5">
                                             <ul class="comment-tree list-unstyled">
@@ -160,6 +167,74 @@
                                                 name="submit-contact" id="submit_contact" value="Опублікувати">
                                         </form>
                                     </div> --}}
+                                   
+                                    <div class="col-lg-12">
+                                        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+                                            <div
+                                                class="recent swiper init-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                                                <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 2,
+              "spaceBetween": 24,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 16
+                },
+                "768": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 24
+                },
+                "1200": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 24
+                }
+              }
+            }
+          </script>
+                                                <h4 class="mb-4">Недавно додані</h4>
+                                                <div class="swiper-wrapper">
+                                                    @foreach ($getRecentPost as $recent)
+                                                        <div class="swiper-slide">
+                                                            <div class="recent-item">
+                                                                <div class="profile">
+                                                                    @if (!empty($recent->getImage()))
+                                                                        <a href=" {{ url($recent->slug) }}">
+                                                                            <img src="{{ $recent->getImage() }}"
+                                                                                alt="{{ $recent->title }}"
+                                                                                class="flex-shrink-0 border p-1"
+                                                                                style="width: 100px ; height:100px; object-fit: cover ; border-radius: 3px;">
+                                                                        </a>
+                                                                    @endif
+                                                                    <span style="padding-left: 5px">{{ $recent->title }}</span>
+                                                                    <p style="padding-left: 5px">{{ intval($recent->price )}}₴ / {{ intval($recent->weight) }}г</p>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+
+
+
+
+                                                <span class="swiper-notification" aria-live="assertive"
+                                                    aria-atomic="true"></span>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -212,22 +287,7 @@
                                     </div>
 
 
-                                    <div class="sidebar-widget latest-post mb-2 mx-2">
-                                        <h5>Популярні страви</h5>
-                                        @foreach ($getRecentPost as $post)
-                                            <div class="py-2">
-                                                @if(!empty($post->getImage()))
-                                                <img class="img-fluid" src="{{ $post->getImage() }}"   style="height: 100px; width: 100px; object-fit: cover; object-position: center;">
-                                                @endif
-                                                <span class="text-sm text-muted">{{$post->menu_name}}</span>
-                                                <h6 class="my-2">
-                                                    <a href="#">{{$post->title}}</a>
-                                                </h6>
-                                            </div>
-                                        @endforeach
 
-
-                                    </div>
 
                                     <div class="sidebar-widget category mb-5 mx-2">
                                         <h5 class="mb-2">Розділи меню</h5>
