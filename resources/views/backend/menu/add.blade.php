@@ -93,8 +93,8 @@
                             <div class="form-group">
                                 <label for="status" class="form-label">Меню</label><span class="text-danger"> *</span>
                                 <select class="form-control" name="is_menu" id="status">
-                                    <option  value="0">Ні</option>
-                                    <option  value="1">Так</option>
+                                    <option  value="0">Так</option>
+                                    <option  value="1">Ні</option>
                                 </select>
                             </div>
                             

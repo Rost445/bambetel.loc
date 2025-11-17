@@ -32,14 +32,7 @@ class MenuModel extends Model
         ->get();
     }
 
-    static public function getMainMenu()
-    {
-        return self::select('menu.*')
-        ->where('status', '=', 0)
-        ->where('is_menu', '=', 1)
-        ->where('is_delete', '=', 0)
-        ->get();
-    }
+
 
 
     static public function getSlug($slug)
@@ -64,6 +57,7 @@ class MenuModel extends Model
     {
         return self::select('menu.*')
         ->where('status', '=', 0)
+        ->where('is_menu', '=', 0)
         ->where('is_delete', '=', 0)
         ->get();
     }

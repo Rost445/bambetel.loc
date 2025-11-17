@@ -88,10 +88,10 @@
 
                             
                             <div class="form-group">
-                                <label for="status" class="form-label">Меню</label><span class="text-danger"> *</span>
-                                <select class="form-control" name="is_menu" id="status">
-                                    <option {{ ( $getRecord->is_menu == 0) ? 'selected' : '' }} value="0">Ні</option>
-                                    <option {{ ( $getRecord->is_menu == 1) ? 'selected' : '' }} value="1">Так</option>
+                                <label for="is_menu" class="form-label">Меню</label><span class="text-danger"> *</span>
+                                <select class="form-control" name="is_menu" id="is_menu">
+                                    <option {{ ( $getRecord->is_menu == 0) ? 'selected' : '' }} value="0">Так</option>
+                                    <option {{ ( $getRecord->is_menu == 1) ? 'selected' : '' }} value="1">Ні</option>
                                    
                                 </select>
                             </div>

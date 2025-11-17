@@ -76,7 +76,7 @@
                                         <td>{{ $value->meta_description }}</td>
                                         <td>{{ $value->meta_keywords }}</td>
                                         <td>{{ $value->status ? 'Неактивний' : 'Активний' }}</td>
-                                        <td>{{ $value->is_menu ? 'Так' : 'Ні' }} </td>
+                                        <td>{{ $value->is_menu ?  'Ні': 'Так' }} </td>
                                         <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
                                         <td><a href="{{ url('panel/menu/edit/' . $value->id) }}" class="text-primary"><i
                                                     class="mdi mdi-pencil mr-2"></i>Редагувати</a></td>

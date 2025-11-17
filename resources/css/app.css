@@ -92,10 +92,11 @@
 }
 
 .booking-card {
-    background: color-mix(in srgb, var(--surface-color), transparent 70%) !important;
+    /*background: color-mix(in srgb, var(--surface-color), transparent 70%) !important;*/
     border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%) !important;
     padding: 40px !important;
     border-radius: 15px !important;
+    background-color: white !important;
 
 }
 
@@ -106,11 +107,11 @@
     font-size: 14px;
     transition: all 0.3s ease;
     color: var(--default-color);
-    background-color: transparent;
+    /*background-color: transparent;*/
 }
 
 .card-bg {
-    background: color-mix(in srgb, var(--surface-color), transparent 70%) !important;
+    /*background: color-mix(in srgb, var(--surface-color), transparent 70%) !important;*/
     border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%) !important;
     padding: 20px !important;
     border-radius: 15px !important;
