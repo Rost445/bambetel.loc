@@ -60,6 +60,29 @@ class AssortModel extends Model
         return $return;
     }
 
+     static public function getRecordFrontMenu($menu_id)
+    {
+
+        $result = self::where('menu_id', $menu_id)->get();
+        if (!$result) {
+            return collect([]); // Завжди повертаємо колекцію
+        }
+        $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.menu_id', '=', $menu_id)
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->paginate(20);
+            
+
+        return $return ?? collect([]);
+        
+    }
+
+
      static public function getRecentPost()
     {
         return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')

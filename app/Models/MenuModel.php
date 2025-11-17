@@ -35,7 +35,7 @@ class MenuModel extends Model
     static public function getMainMenu()
     {
         return self::select('menu.*')
-        ->where('status', '=', 1)
+        ->where('status', '=', 0)
         ->where('is_menu', '=', 1)
         ->where('is_delete', '=', 0)
         ->get();
@@ -46,7 +46,7 @@ class MenuModel extends Model
     {
         return self::select('menu.*')
         ->where('slug', '=', $slug)
-        ->where('status', '=', 1)
+        ->where('status', '=', 0)
         ->where('is_delete', '=', 0)
         ->first();
     }
@@ -59,5 +59,15 @@ class MenuModel extends Model
         ->where('assort.is_delete', '=', 0)
         ->count();
     }
+
+    static public function getMenuMenu()
+    {
+        return self::select('menu.*')
+        ->where('status', '=', 0)
+        ->where('is_delete', '=', 0)
+        ->get();
+    }
+
+    
 
 }
