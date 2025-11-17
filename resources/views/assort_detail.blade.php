@@ -54,7 +54,7 @@
                         </div>
 
                         <p class="lead">
-                            {!! $getRecord->description !!}$
+                            {!! $getRecord->description !!}
                         </p>
 
                         <h4 class="mt-4 assort-price">Ціна: <strong>{{ intval($getRecord->price) }} грн</strong></h4>
@@ -70,10 +70,11 @@
                                 <h5>Хештеги:</h5>
                                 <div class="d-flex flex-wrap gap-2 mt-2 mb-4">
                                     <ul class="awards list-unstyled ">
-   @foreach ($getRecord->getTag as $tag)
-                                            <li class="award-badge"><a href="{{ 'blog?q=' . $tag->name }}"><i class="bi bi-tags"></i> {{ $tag->name }}</a></li>
+                                        @foreach ($getRecord->getTag as $tag)
+                                            <li class="award-badge"><a href="{{ 'blog?q=' . $tag->name }}"><i
+                                                        class="bi bi-tags"></i> {{ $tag->name }}</a></li>
                                         @endforeach
-                                       
+
 
                                     </ul>
                                 </div>
@@ -135,7 +136,17 @@
                             </form>
                         </div>
                     </div>
-
+                    <!--Пошук-->
+                    <div class=" card card-bg mb-4 shadow-sm search-widget">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Пошук</h5>
+                            <form action="{{ url('assort') }}" method="get">
+                                <input type="text" name="q" required class="form-control">
+                                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <!--Пошук-->
                     <!-- CATEGORIES -->
                     <div class=" card card-bg mb-4 shadow-sm">
                         <div class="card-body">
@@ -179,12 +190,17 @@
                     <!-- WORKING HOURS -->
                     <div class="card card-bg shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title mb-3">Графік роботи</h5>
+                            <h5 class="card-title mb-3">Години роботи:</h5>
                             <ul class="list-unstyled text-muted">
-                                <li>Пн–Пт: 09:00 – 22:00</li>
-                                <li>Сб: 10:00 – 23:00</li>
-                                <li>Нд: 10:00 – 21:00</li>
-                            </ul>
+                                            <li class="d-flex  align-items-start">
+                                                <a href="#"><b>Понеділок–Субота:</b></a>
+                                                <span> &nbsp;09:00–18:00</span>
+                                            </li>
+                                            <li class="d-flex  align-items-center">
+                                                <a href="#"><b>Неділя:</b></a>
+                                                <span> &nbsp;Зачинено</span>
+                                            </li>
+                                        </ul>
                         </div>
                     </div>
 
