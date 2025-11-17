@@ -4,9 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Platia Bootstrap Template</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <title>{{ !empty($meta_title) ? $meta_title : '' }}</title>
+    @if (!empty($meta_description))
+         <meta name="description" content="{{ $meta_description }}">
+     @endif
+     @if (!empty($meta_keywords))
+         <meta name="keywords" content="{{ $meta_keywords }}">
+     @endif
+    
 
     <!-- Favicons -->
     <link href="{{ url('front/assets/img/favicon.png') }}" rel="icon">
@@ -30,7 +35,7 @@
     <link href="{{ url('front/assets/css/main.css') }}" rel="stylesheet">
     @if (!Request::is('/'))
         <link href="{{ url('resources/css/app.css') }}" rel="stylesheet">
-    @endif-
+    @endif
     @yield('style')
 </head>
 

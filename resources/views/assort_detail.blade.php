@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('style')
 @endsection
+
+@section('content')
 <main class="main">
     <div class="divider"></div>
     <section id="starter-section" class="starter-section section">
@@ -216,7 +218,7 @@
     </section>
 
 </main>
-
+@endsection
 
 @section('script')
 @endsection

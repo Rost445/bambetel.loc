@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('style')
-    </style>
+  
 @endsection
 
 @section('content')

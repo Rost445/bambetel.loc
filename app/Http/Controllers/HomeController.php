@@ -12,14 +12,15 @@ class HomeController extends Controller
   {
     return view('home');
   }
-  public function menu()
-  {
-
-    return view('menu');
-  }
 
   public function assort()
   {
+
+    $getRecord = AssortModel::getRecordFront();
+    $data['getRecord'] = $getRecord;
+    $data['meta_title'] =       $getRecord->meta_title;
+    $data['meta_description'] = $getRecord->meta_description;
+    $data['meta_keywords'] =    $getRecord->meta_keywords;
     $data['getRecord'] = AssortModel::getRecordFront();
     return view('assort', $data);
   }
