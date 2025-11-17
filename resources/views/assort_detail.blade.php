@@ -71,7 +71,7 @@
                                 <div class="d-flex flex-wrap gap-2 mt-2 mb-4">
                                     <ul class="awards list-unstyled ">
                                         @foreach ($getRecord->getTag as $tag)
-                                            <li class="award-badge"><a href="{{ 'blog?q=' . $tag->name }}"><i
+                                            <li class="award-badge"><a href="{{ 'assort?q=' . $tag->name }}"><i
                                                         class="bi bi-tags"></i> {{ $tag->name }}</a></li>
                                         @endforeach
 
@@ -114,7 +114,10 @@
 
                 <!-- RIGHT SIDEBAR -->
                 <div class="col-lg-4">
-
+ <div class="card card-bg shadow-sm mb-4">
+                        <p class="mb-0">Маєте питання? Ми на зв'язку.</p>
+                        <h3>+380 (97) 882 05 90</h3>
+                    </div>
                     <!-- FORM -->
                     <div class="booking-card aos-init aos-animate shadow-sm mb-4" data-aos="fade-up"
                         data-aos-delay="200">
@@ -192,17 +195,19 @@
                         <div class="card-body">
                             <h5 class="card-title mb-3">Години роботи:</h5>
                             <ul class="list-unstyled text-muted">
-                                            <li class="d-flex  align-items-start">
-                                                <a href="#"><b>Понеділок–Субота:</b></a>
-                                                <span> &nbsp;09:00–18:00</span>
-                                            </li>
-                                            <li class="d-flex  align-items-center">
-                                                <a href="#"><b>Неділя:</b></a>
-                                                <span> &nbsp;Зачинено</span>
-                                            </li>
-                                        </ul>
+                                <li class="d-flex  align-items-start">
+                                    <a href="#"><b>Понеділок–Субота:</b></a>
+                                    <span> &nbsp;09:00–18:00</span>
+                                </li>
+                                <li class="d-flex  align-items-center">
+                                    <a href="#"><b>Неділя:</b></a>
+                                    <span> &nbsp;Зачинено</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+
+                   
 
                 </div>
 
