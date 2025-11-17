@@ -28,6 +28,7 @@ class HomeController extends Controller
   {
 
    $getRecord = AssortModel::getRecordSlug($slug);
+    $data['header_title'] = $getRecord->title;
    if(!empty($getRecord))
    {
     $data['getMenu'] = MenuModel::getMenu();

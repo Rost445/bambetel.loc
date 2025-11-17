@@ -1,373 +1,201 @@
 @extends('layouts.app')
 @section('style')
-    <style>
-        .booking-card {
-            background: color-mix(in srgb, var(--surface-color), transparent 70%);
-            border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%);
-            padding: 40px;
-            border-radius: 15px;
-
-        }
-
-        .booking-card .btn-primary {
-            background-color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            color: var(--contrast-color);
-            padding: 15px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .hero .booking-card .btn-primary:hover {
-            background-color: color-mix(in srgb, var(--accent-color), black 15%);
-            border-color: color-mix(in srgb, var(--accent-color), black 15%);
-            transform: translateY(-2px);
-        }
-
-        .price {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-    </style>
 @endsection
+<main class="main">
+    <div class="divider"></div>
+    <section id="starter-section" class="starter-section section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb p-3 rounded-3">
+                    <li class="breadcrumb-item">
+                        <a class="link-body-emphasis" href="{{ url('') }}">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span class="visually-hidden">Головна</span>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-body-emphasis fw-semibold text-decoration-none"
+                            href="{{ url('/assort') }}">Меню</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- Section Title -->
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
 
-@section('content')
-    <main class="main">
-        <div class="divider"></div>
-        <section id="starter-section" class="starter-section section">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb p-3 rounded-3">
-                        <li class="breadcrumb-item">
-                            <a class="link-body-emphasis" href="#">
-                                <i class="bi bi-house-door-fill"></i>
-                                <span class="visually-hidden">Головна</span>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Library</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Data</li>
-                    </ol>
-                </nav>
-            </div>
-            <!-- Section Title -->
-            <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <span class="description-title">{{ $getRecord->title }}</span>
+            <h2>{{ $getRecord->title }}</h2>
 
-                <span class="description-title">{{ $getRecord->title }}</span>
-                <h2>{{ $getRecord->title }}</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
+        </div><!-- End Section Title -->
+        </div>
+        <div class="container py-5">
+            <div class="row">
 
-            <div class="container aos-init aos-animate" data-aos="fade-up">
-                <section class="section blog-wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col-lg-12 mb-5">
-                                        <div class="single-blog-item">
-                                            @if (!empty($getRecord->getImage()))
-                                                <img src="{{ $getRecord->getImage() }}" alt=""
-                                                    class="img-fluid p-2 border Small shadow"
-                                                    style="height: 532px; width: 1024px; object-fit: cover; object-position: center; border-radius:7px ;">
-                                            @endif
-                                            <div class="blog-item-content mt-5">
-                                                <div class="blog-item-meta mb-3">
-                                                    <span class="text-color-2 text-capitalize mr-3"><i
-                                                            class="bi bi-journal-text"></i> {{ $getRecord->menu_name }}
-                                                        | </span>
-                                                    {{-- <span class="text-muted text-capitalize mr-3"><i
-                                                            class="icofont-comment mr-2"></i>5 Comments</span> --}}
-                                                    <span class="text-black text-capitalize mr-3"><i
-                                                            class="bi bi-calendar3"></i>
-                                                        {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
-                                                </div>
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-8">
 
-                                                <h2 class="mb-4 text-md"><a href="#">{{ $getRecord->title }}</a></h2>
-                                                <div class="price mb-3" id="dishPrice"> Ціна:
-                                                    {{ intval($getRecord->price) }} ₴ | Вага:
-                                                    {{ intval($getRecord->weight) }} г</div>
-
-                                                {!! $getRecord->description !!}
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    {{-- 
-                                    <div class="col-lg-12">
-                                        <div class="comment-area mt-4 mb-5">
-                                            <ul class="comment-tree list-unstyled">
-                                                <li class="mb-5">
-                                                    <div class="comment-area-box">
-                                                        <div class="comment-thumb float-left">
-                                                            <img alt="" src="" class="img-fluid">
-                                                        </div>
-
-                                                        <div class="comment-info">
-                                                            <h5 class="mb-1">John</h5>
-                                                            <span>United Kingdom</span>
-                                                            <span class="date-comm">| Posted April 7, 2019</span>
-                                                        </div>
-                                                        <div class="comment-meta mt-2">
-                                                            <a href="#"><i
-                                                                    class="icofont-reply mr-2 text-muted"></i>Reply</a>
-                                                        </div>
-
-                                                        <div class="comment-content mt-3">
-                                                            <p>Some consultants are employed indirectly by the client via a
-                                                                consultancy staffing company, a company that provides
-                                                                consultants on an agency basis. </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="comment-area-box">
-                                                        <div class="comment-thumb float-left">
-                                                            <img alt="" src="images/blog/testimonial2.jpg"
-                                                                class="img-fluid">
-                                                        </div>
-
-                                                        <div class="comment-info">
-                                                            <h5 class="mb-1">Philip W</h5>
-                                                            <span>United Kingdom</span>
-                                                            <span class="date-comm">| Posted June 7, 2019</span>
-                                                        </div>
-
-                                                        <div class="comment-meta mt-2">
-                                                            <a href="#"><i
-                                                                    class="icofont-reply mr-2 text-muted"></i>Reply </a>
-                                                        </div>
-
-                                                        <div class="comment-content mt-3">
-                                                            <p>Some consultants are employed indirectly by the client via a
-                                                                consultancy staffing company, a company that provides
-                                                                consultants on an agency basis. </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-lg-12">
-                                        <form class="comment-form my-5" id="comment-form">
-                                            <h4 class="mb-4">Ваш коментар</h4>
-
-                                            <textarea class="form-control mb-4" name="comment" id="comment" cols="30" rows="5"
-                                                placeholder="Коментар"></textarea>
-
-                                            <input class="btn btn-primary btn-round-full" type="submit"
-                                                name="submit-contact" id="submit_contact" value="Опублікувати">
-                                        </form>
-                                    </div> --}}
-                                   
-                                    <div class="col-lg-12">
-                                        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-
-                                            <div
-                                                class="recent swiper init-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
-                                                <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": 2,
-              "spaceBetween": 24,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 16
-                },
-                "768": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 24
-                },
-                "1200": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 24
-                }
-              }
-            }
-          </script>
-                                                <h4 class="mb-4">Недавно додані</h4>
-                                                <div class="swiper-wrapper">
-                                                    @foreach ($getRecentPost as $recent)
-                                                        <div class="swiper-slide">
-                                                            <div class="recent-item">
-                                                                <div class="profile">
-                                                                    @if (!empty($recent->getImage()))
-                                                                        <a href=" {{ url($recent->slug) }}">
-                                                                            <img src="{{ $recent->getImage() }}"
-                                                                                alt="{{ $recent->title }}"
-                                                                                class="flex-shrink-0 border p-1"
-                                                                                style="width: 100px ; height:100px; object-fit: cover ; border-radius: 3px;">
-                                                                        </a>
-                                                                    @endif
-                                                                    <span style="padding-left: 5px">{{ $recent->title }}</span>
-                                                                    <p style="padding-left: 5px">{{ intval($recent->price )}}₴ / {{ intval($recent->weight) }}г</p>
-                                                                   
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-
-
-
-
-                                                <span class="swiper-notification" aria-live="assertive"
-                                                    aria-atomic="true"></span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 mb-4">
-                                         @if (!empty($getRelatedPost->count()))
-                                <div class="recent-posts-widget widget-item">
-
-                                    <h3 class="widget-title">Схожі дописи</h3>
-                                    @foreach ($getRelatedPost as $related)
-                                        <div class="post-item">
-                                            @if (!empty($related->getImage()))
-                                                <a href="{{ url($related->slug) }}">
-                                                    <img src="{{ $related->getImage() }}" alt="{{ $related->title }}"
-                                                        class="flex-shrink-0" style="height: 100px"; width="100px"; object-fit="cover">
-                                                </a>
-                                            @endif
-                                            <div>
-                                                <h4><a href="{{ url($related->slug) }}">{{ $related->title }}</a></h4>
-                                                <time
-                                                    datetime="2020-01-01">{{ $related->created_at->locale('uk')->translatedFormat('d F Y') }}</time>
-                                            </div>
-                                        </div><!-- End recent post item-->
-                                    @endforeach
-
-
-                                </div>
+                    <article class="mb-4">
+                        <div class="mb-5">
+                            @if (!empty($getRecord->getImage()))
+                                <img src="{{ $getRecord->getImage() }}" alt=""
+                                    class="img-fluid p-2 border small shadow"
+                                    style="height: 532px; width: 1024px; object-fit: cover; object-position: center; border-radius:7px ;">
                             @endif
-                                    </div>
+                        </div>
+
+
+                        <h1 class="fw-bold mb-3">{{ $getRecord->title }}</h1>
+
+                        <div class="d-flex gap-3 text-muted mb-3">
+                            <span><i class="bi bi-tag"></i> Категорія: {{ $getRecord->menu_name }}</span>
+                            <span><i class="bi bi-clock"></i>
+                                {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
+                        </div>
+
+                        <p class="lead">
+                            {!! $getRecord->description !!}$
+                        </p>
+
+                        <h4 class="mt-4 assort-price">Ціна: <strong>{{ intval($getRecord->price) }} грн</strong></h4>
+                        <h5 class="mb-4">
+                            <div class="assort-w">
+                                Вага: {{ intval($getRecord->weight) }} г
+                            </div>
+                        </h5>
+
+                        <hr>
+                        @if (!empty($getRecord->getTag->count()))
+                            <div class="mt-4">
+                                <h5>Хештеги:</h5>
+                                <div class="d-flex flex-wrap gap-2 mt-2 mb-4">
+                                    <ul class="awards list-unstyled ">
+   @foreach ($getRecord->getTag as $tag)
+                                            <li class="award-badge"><a href="{{ 'blog?q=' . $tag->name }}"><i class="bi bi-tags"></i> {{ $tag->name }}</a></li>
+                                        @endforeach
+                                       
+
+                                    </ul>
                                 </div>
                             </div>
+                        @endif
+                        <!-- YOU MAY ALSO LIKE -->
+                        <div class="mt-5">
+                            <h3 class="fw-bold mb-4">Вам може сподобатись</h3>
 
-
-
-
-                            <div class="col-lg-4">
-                                <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-                                    <div class="sidebar-widget mb-5 Make-a-Reservation">
-
-                                        <div class="booking-card aos-init aos-animate" data-aos="fade-left"
-                                            data-aos-delay="200">
-                                            <h3>Замовити страву</h3>
-                                            <form action="" method="post" class="php-email-form">
-                                                <div class="row gy-3">
-                                                    <div class="col-md-12">
-                                                        <input type="text" name="name" class="form-control"
-                                                            placeholder="Ваше ім'я" required="">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <input type="tel" name="phone" class="form-control"
-                                                            placeholder="Ваш телефон" required="">
-                                                    </div>
-
-                                                    <div class="col-12">
-                                                        <textarea name="message" class="form-control" rows="3" placeholder="ваше повідомлення"></textarea>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="loading">Loading</div>
-                                                        <div class="error-message"></div>
-                                                        <div class="sent-message">Your reservation request has been sent.
-                                                            We'll contact
-                                                            you shortly!</div>
-                                                        <button type="submit"
-                                                            class="btn btn-primary w-100">Надіслати</button>
-                                                    </div>
+                            <div class="row g-4">
+                                @if (!empty($getRelatedPost->count()))
+                                    <!-- ITEM -->
+                                    <div class="col-md-4">
+                                        @foreach ($getRelatedPost as $related)
+                                            <div class="card card-bg shadow-sm h-100">
+                                                @if (!empty($related->getImage()))
+                                                    <img src="{{ $related->getImage() }}" class="card-img-top"
+                                                        style="height: 180px; object-fit: cover;">
+                                                @endif
+                                                <div class="card-body">
+                                                    <h5 class="card-title fw-semibold">{{ $related->title }}</h5>
+                                                    <p class="fw-bold mb-1">195 грн</p>
+                                                    <a href="#" class="btn btn-related  w-100">Переглянути</a>
                                                 </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        @endforeach
                                     </div>
+                                @endif
 
 
 
-                                    <div class="sidebar-widget search  mb-5">
-                                        <h5 class="mb-2">Пошук</h5>
-                                        <form action="#" class="search-form">
-                                            <input type="text" class="form-control" placeholder="пошук">
-                                            <i class="ti-search"></i>
-                                        </form>
-                                    </div>
-
-
-
-
-                                    <div class="sidebar-widget category mb-5 mx-2">
-                                        <h5 class="mb-2">Розділи меню</h5>
-                                        <ul class="list-unstyled">
-                                            @foreach ($getMenu as $menu)
-                                                <li class="align-items-center">
-                                                    <a href="{{ $menu->slug }}">{{ $menu->name }}</a>
-                                                    <span>({{ $menu->totalAssort() }})</span>
-                                                </li>
-                                            @endforeach
-
-
-                                        </ul>
-                                    </div>
-
-
-                                    <div class="sidebar-widget tags mb-5 mx-2">
-                                        <h5 class="mb-2">Теги</h5>
-
-                                        <a href="#">Doctors</a>
-
-                                    </div>
-
-                                    <div class="sidebar-widget schedule-widget mb-5 mx-2">
-                                        <h5 class="mb-2">Години роботи:</h5>
-
-                                        <ul class="list-unstyled">
-                                            <li class="d-flex  align-items-start">
-                                                <a href="#">Пн–Сб:</a>
-                                                <span> &nbsp;09:00–18:00</span>
-                                            </li>
-                                            <li class="d-flex  align-items-center">
-                                                <a href="#">Неділя:</a>
-                                                <span> &nbsp;Зачинено</span>
-                                            </li>
-                                        </ul>
-
-                                        <div class="sidebar-contatct-info mt-4">
-                                            <p class="mb-0">Маєте питання? Ми на зв'язку.</p>
-                                            <h3>+380 (97) 882 05 90</h3>
-                                        </div>
-                                    </div>
-
-                                </div>
                             </div>
                         </div>
+
+                    </article>
+                </div>
+
+                <!-- RIGHT SIDEBAR -->
+                <div class="col-lg-4">
+
+                    <!-- FORM -->
+                    <div class="booking-card aos-init aos-animate shadow-sm mb-4" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Залишити повідомлення</h5>
+
+                            <form class="php-email-form">
+                                <div class="mb-3">
+                                    <label class="form-label">Ім’я</label>
+                                    <input type="text" class="form-control" placeholder="Ваше ім’я">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Телефон</label>
+                                    <input type="text" class="form-control" placeholder="+380 (__) ___-__-__">
+                                </div>
+
+                                <button class="btn btn-assort w-100">Надіслати</button>
+                            </form>
+                        </div>
                     </div>
-                </section>
+
+                    <!-- CATEGORIES -->
+                    <div class=" card card-bg mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Розділи меню</h5>
+                            <ul class="list-unstyled">
+                                @foreach ($getMenu as $menu)
+                                    <li class="align-items-center">
+                                        <a class="text-decoration" href="{{ $menu->slug }}">{{ $menu->name }}</a>
+                                        <span>({{ $menu->totalAssort() }})</span>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- LAST ADDED -->
+                    <div class="card card-bg mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Останні додані</h5>
+                            @foreach ($getRecentPost as $recent)
+                                <div class="d-flex mb-3">
+                                    @if (!empty($recent->getImage()))
+                                        <img src="{{ $recent->getImage() }}" class="me-3 rounded" width="70"
+                                            height="70" style="object-fit: cover;" alt="{{ $recent->title }}">
+                                    @endif
+                                    <div>
+                                        <a href="{{ $recent->slug }}"
+                                            class="text-decoration-none fw-semibold">{{ $recent->title }}</a>
+                                        <div class="text-muted ">{{ $recent->price }} грн</div>
+                                        <span
+                                            class="small">{{ $recent->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
+                                    </div>
+                                </div>
+                            @endforeach
+
+
+                        </div>
+                    </div>
+
+                    <!-- WORKING HOURS -->
+                    <div class="card card-bg shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Графік роботи</h5>
+                            <ul class="list-unstyled text-muted">
+                                <li>Пн–Пт: 09:00 – 22:00</li>
+                                <li>Сб: 10:00 – 23:00</li>
+                                <li>Нд: 10:00 – 21:00</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+        </div>
+    </section>
 
-        </section>
+</main>
 
-    </main>
-@endsection
+
 @section('script')
 @endsection

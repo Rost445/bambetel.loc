@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="menu-card-content">
                                         <h4><a href="{{ url($value->slug) }}">{{ $value->title }}</a></h4>
-                                        <p><a href="{{ url($value->slug) }}" class="feature-link">Переглянути <i class="bi bi-arrow-right"></i></a></p>
+                                        <p><a href="{{ url($value->slug) }}" class="btn btn-related f">Переглянути </a></p>
                                         <div class="spice-level">
                                             <span class="spice-dot"></span>
                                             <span class="spice-dot"></span>
