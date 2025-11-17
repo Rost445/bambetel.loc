@@ -236,6 +236,33 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12 mb-4">
+                                         @if (!empty($getRelatedPost->count()))
+                                <div class="recent-posts-widget widget-item">
+
+                                    <h3 class="widget-title">Схожі дописи</h3>
+                                    @foreach ($getRelatedPost as $related)
+                                        <div class="post-item">
+                                            @if (!empty($related->getImage()))
+                                                <a href="{{ url($related->slug) }}">
+                                                    <img src="{{ $related->getImage() }}" alt="{{ $related->title }}"
+                                                        class="flex-shrink-0" style="height: 100px"; width="100px"; object-fit="cover">
+                                                </a>
+                                            @endif
+                                            <div>
+                                                <h4><a href="{{ url($related->slug) }}">{{ $related->title }}</a></h4>
+                                                <time
+                                                    datetime="2020-01-01">{{ $related->created_at->locale('uk')->translatedFormat('d F Y') }}</time>
+                                            </div>
+                                        </div><!-- End recent post item-->
+                                    @endforeach
+
+
+                                </div>
+                            @endif
+                                    </div>
+                                </div>
                             </div>
 
 

@@ -32,6 +32,7 @@ class HomeController extends Controller
    {
     $data['getMenu'] = MenuModel::getMenu();
     $data['getRecentPost'] = AssortModel::getRecentPost();
+     $data['getRelatedPost'] = AssortModel::getRelatedPost($getRecord->menu_id, $getRecord->id);
     $data['getRecord'] = $getRecord;
     return view('assort_detail',$data);
    }else{

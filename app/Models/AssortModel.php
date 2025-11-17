@@ -73,6 +73,20 @@ class AssortModel extends Model
             ->get();
     }
 
+static public function getRelatedPost($menu_id, $id)
+    {
+        return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.id', '!=', $id)
+            ->where('assort.menu_id', '=', $menu_id)
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->limit(2)
+            ->get();
+    }
 
     static public function getRecord()
     {
