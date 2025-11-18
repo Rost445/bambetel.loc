@@ -12,27 +12,35 @@
     <nav aria-label="breadcrumb">
                 <ol class="breadcrumb p-3 rounded-3">
                     <li class="breadcrumb-item">
-                        <a class="link-body-emphasis" href="#">
+                        <a class="link-body-emphasis" href="{{  url('/')  }}">
                            <i class="bi bi-house-door-fill"></i>
                             <span class="visually-hidden">Головна</span>
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Library</a>
+                        <a class="link-body-emphasis fw-semibold text-decoration-none" href="   {{ url('/assort') }}">@if (!empty($title))
+                        {{ $title }}
+                    @else
+                       Меню
+                    @endif</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                   
                 </ol>
             </nav>
 </div>
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <span class="description-title">Menu</span>
+                <span class="description-title">@if (!empty($title))
+                        {{ $title }}
+                    @else
+                       Меню
+                    @endif</span>
                 <h2> @if (!empty($title))
                         {{ $title }}
                     @else
-                        Обладнання
+                         Меню
                     @endif</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+             
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">

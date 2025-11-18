@@ -29,26 +29,69 @@
 @php
     $getMenuHeader = App\Models\MenuModel::getMenuMenu();
 @endphp
-                <nav id="navmenu" class="navmenu">
-                    <ul>
-                        <li><a href="{{url('')}}" class="active">Головна</a></li>
-                        <li class="dropdown">
-                           
-                            <a href="{{ ('assort') }}"><span>Меню</span> <i
-                                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                                 @foreach ($getMenuHeader as $MenuHeader)
-                                <li><a href="{{ $MenuHeader->slug }}">{{ $MenuHeader->title }}</a></li>
-                               @endforeach
-                            </ul>
-                        </li>
-                        <li><a href="{{ ('about') }}">Про кафе</a></li>
-                        <li><a href="{{ ('gallery') }}">Фото</a></li>
-                        <li><a href="{{ ('contacts') }}">Контакти</a></li>
-                        <li><a href="{{ ('reservation') }}">Бронювання</a></li>
-                    </ul>
-                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-                </nav>
+
+<nav id="navmenu" class="navmenu">
+    <ul>
+        <li>
+            <a href="{{ url('/') }}"
+               class="{{ Request::segment(1) == '' ? 'active' : '' }}">
+                Головна
+            </a>
+        </li>
+
+        <li class="dropdown">
+            <a href="{{ url('assort') }}"
+               class="{{ Request::segment(1) == 'assort' ? 'active' : '' }}">
+                <span>Меню</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i>
+            </a>
+
+            <ul>
+                @foreach ($getMenuHeader as $MenuHeader)
+                    <li>
+                        <a href="{{ url($MenuHeader->slug) }}"
+                           class="{{ Request::segment(1) == $MenuHeader->slug ? 'active' : '' }}">
+                            {{ $MenuHeader->title }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
+
+        <li>
+            <a href="{{ url('about') }}"
+               class="{{ Request::segment(1) == 'about' ? 'active' : '' }}">
+                Про кафе
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url('gallery') }}"
+               class="{{ Request::segment(1) == 'gallery' ? 'active' : '' }}">
+                Фото
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url('contacts') }}"
+               class="{{ Request::segment(1) == 'contacts' ? 'active' : '' }}">
+                Контакти
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url('reservation') }}"
+               class="{{ Request::segment(1) == 'reservation' ? 'active' : '' }}">
+                Бронювання
+            </a>
+        </li>
+    </ul>
+
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+
+
+              
 
             </div>
 

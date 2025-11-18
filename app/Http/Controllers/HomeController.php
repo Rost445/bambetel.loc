@@ -17,11 +17,11 @@ class HomeController extends Controller
   {
 
     $getRecord = AssortModel::getRecordFront();
+    $data['title'] = 'Меню'; 
+     $data['meta_title'] = 'Меню'; 
     $data['getRecord'] = $getRecord;
-    $data['meta_title'] =       $getRecord->meta_title;
-    $data['meta_description'] = $getRecord->meta_description;
-    $data['meta_keywords'] =    $getRecord->meta_keywords;
-    $data['getRecord'] = AssortModel::getRecordFront();
+    
+
     return view('assort', $data);
   }
 
