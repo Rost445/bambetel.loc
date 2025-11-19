@@ -10,17 +10,22 @@ class HomeController extends Controller
 {
   public function home()
   {
-    return view('home');
+    $data['title'] = 'Головна';
+    $data['meta_title'] = 'Головна';
+    $data['meta_keywords'] = 'Головна';
+    $data['meta_description'] = 'Головна';
+
+    return view('home', $data);
   }
 
   public function assort()
   {
 
     $getRecord = AssortModel::getRecordFront();
-    $data['title'] = 'Меню'; 
-     $data['meta_title'] = 'Меню'; 
+    $data['title'] = 'Меню';
+    $data['meta_title'] = 'Меню';
     $data['getRecord'] = $getRecord;
-    
+
 
     return view('assort', $data);
   }

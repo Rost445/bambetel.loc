@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>{{ !empty($meta_title) ? $meta_title : '' }}</title>
-    @if (!empty($meta_description))
-         <meta name="description" content="{{ $meta_description }}">
-     @endif
+    
      @if (!empty($meta_keywords))
          <meta name="keywords" content="{{ $meta_keywords }}">
+        @endif
+     @if (!empty($meta_description))
+         <meta name="description" content="{{ $meta_description }}">
      @endif
     
 
