@@ -15,10 +15,10 @@
                             <span class="visually-hidden">Головна</span>
                         </a>
                     </li>
-                    <li class="breadcrumb-item">
+                {{--     <li class="breadcrumb-item">
                         <a class="link-body-emphasis fw-semibold text-decoration-none"
                             href="{{ url('/assort') }}">Меню</a>
-                    </li>
+                    </li> --}}
                     <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
                 </ol>
             </nav>

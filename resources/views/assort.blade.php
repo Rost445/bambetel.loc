@@ -18,11 +18,13 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a class="link-body-emphasis fw-semibold text-decoration-none" href="   {{ url('/assort') }}">@if (!empty($title))
+           @if (!empty($title))
                         {{ $title }}
                     @else
                        Меню
-                    @endif</a>
+                    @endif
+
+
                     </li>
                    
                 </ol>
