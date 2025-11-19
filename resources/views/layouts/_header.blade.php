@@ -21,7 +21,7 @@
         <div class="branding d-flex align-items-cente">
 
             <div class="container position-relative d-flex align-items-center justify-content-between">
-                <a href="index.html" class="logo d-flex align-items-center">
+                <a href="{{ url('')}}" class="logo d-flex align-items-center">
                     <!-- Uncomment the line below if you also wish to use an image logo -->
                    <img src="{{ url('assets/images/logo-icon.png') }}" alt=""> 
                     {{-- <h1 class="sitename">Platia</h1> --}}
@@ -40,8 +40,9 @@
         </li>
 
         <li class="dropdown">
-            <a href="{{ url('assort') }}"
-               class="{{ Request::segment(1) == 'assort' ? 'active' : '' }}">
+          {{--   <a href="{{ url('assort') }}"
+               class="{{ Request::segment(1) == 'assort' ? 'active' : '' }}"> --}}
+               <a href="#"> 
                 <span>Меню</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i>
             </a>

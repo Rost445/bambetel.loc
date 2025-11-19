@@ -37,8 +37,10 @@ class MenuController extends Controller
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:1000',
             'meta_keywords' => 'nullable|string|max:255',
-            'status' => 'required|boolean',
-            'is_menu' => 'required|boolean',
+            //'status' => 'required|boolean',
+           // 'is_menu' => 'required|boolean',
+            'is_menu' => 'required|in:0,1',
+            'status' => 'required|in:0,1'
         ]);
 
 
@@ -74,8 +76,10 @@ class MenuController extends Controller
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:1000',
             'meta_keywords' => 'nullable|string|max:255',
-            'status' => 'required|boolean',
-            'is_menu' => 'required|boolean',
+           /*  'status' => 'required|boolean',
+            'is_menu' => 'required|boolean', */
+              'is_menu' => 'required|in:0,1',
+            'status' => 'required|in:0,1'
         ]);
 
         $save = menuModel::getSingle($id);
