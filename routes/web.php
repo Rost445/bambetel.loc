@@ -69,7 +69,7 @@ Route::group(['middleware' => 'adminuser'], function () {
     Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
     Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
     Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
-    Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.blog.edit');
+    Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
     Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
     Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 });
