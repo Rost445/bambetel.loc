@@ -1,0 +1,165 @@
+.divider {
+    min-height: 70px;
+    padding: 10px 0;
+}
+
+/* Початковий стан */
+.navmenu a,
+.mobile-nav-toggle {
+    color: #352a26;
+    /* Темний */
+}
+
+/* Після скролу */
+.scrolled .navmenu a,
+.scrolled .mobile-nav-toggle {
+    color: #f8efeb;
+}
+
+/* Контейнер */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Стандартна кнопка */
+.page-link {
+    padding: 4px 8px;
+    border: none !important;
+    background: transparent;
+    color: #352a26;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+/* При наведенні */
+.page-link:hover {
+    background: #f0e7e3;
+    color: #352a26;
+}
+
+/* Активна */
+.page-item.active .page-link {
+    background: #352a26;
+    color: #fff !important;
+}
+
+/* Disabled */
+.page-item.disabled .page-link {
+    color: #b9b0ac;
+}
+
+
+
+
+.btn-assort {
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    color: var(--contrast-color);
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-assort:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%);
+    border-color: color-mix(in srgb, var(--accent-color), black 15%);
+    transform: translateY(-2px);
+    color: var(--contrast-color);
+}
+
+.btn-related {
+    background-color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    color: var(--contrast-color);
+    padding: 7px;
+    font-size: 14px;
+
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-related:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%);
+    border-color: color-mix(in srgb, var(--accent-color), black 15%);
+    transform: translateY(-2px);
+    color: var(--contrast-color);
+}
+
+.booking-card {
+    /*background: color-mix(in srgb, var(--surface-color), transparent 70%) !important;*/
+    border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%) !important;
+    padding: 40px !important;
+    border-radius: 15px !important;
+    background-color: white !important;
+
+}
+
+.booking-card .form-control {
+    padding: 12px 15px;
+    border: 2px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    color: var(--default-color);
+    /*background-color: transparent;*/
+}
+
+.card-bg {
+    /*background: color-mix(in srgb, var(--surface-color), transparent 70%) !important;*/
+    border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 90%) !important;
+    padding: 20px !important;
+    border-radius: 15px !important;
+}
+
+.assort-price {
+    color: #e07844 !important;
+}
+
+.assort-w {
+    background-color:
+        color-mix(in srgb, #32CD32, transparent 85%);
+    color: #289e28;
+    width: 110px;
+    padding-left: 5px;
+   
+}
+
+.award-badge {
+   display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+     color: #e07844 !important;
+   
+
+    border: 1px solid   #e07844 !important;
+}
+.search-widget form {
+    position: relative;
+}
+
+.search-widget input {
+    padding-right: 45px; /* щоб текст не налазив на іконку */
+}
+
+.search-widget button {
+    background: none;
+    border: 0;
+    color: var(--default-color);
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+

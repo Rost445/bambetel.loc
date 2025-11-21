@@ -35,7 +35,7 @@
     <!-- Main CSS File -->
     <link href="{{ url('front/assets/css/main.css') }}" rel="stylesheet">
     @if (!Request::is('/'))
-        <link href="{{ url('resources/css/app.css') }}" rel="stylesheet">
+        <link href="{{ url('front/assets/css/custom.css') }}" rel="stylesheet">
     @endif
     @yield('style')
 </head>
