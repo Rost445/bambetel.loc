@@ -56,7 +56,7 @@
                                         
                                         <img src="{{ $value->getImage() }}" alt="Appetizer" class="img-fluid">
                                        <div class="dietary-badges">
-                                            <span class="badge-gluten-free">{{ $value->menu_name }}</span>
+                                            <a href="{{ url($value->menu_slug) }}"><span class="badge-gluten-free">{{ $value->menu_name }}</span></a>
                                         </div>
                                         <div class="price-overlay">{{ $value->price }} ₴</div>
                                     </div>

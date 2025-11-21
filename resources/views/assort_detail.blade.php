@@ -50,7 +50,7 @@
                         <h1 class="fw-bold mb-3">{{ $getRecord->title }}</h1>
 
                         <div class="d-flex gap-3 text-muted mb-3">
-                            <span><i class="bi bi-tag"></i> Категорія: {{ $getRecord->menu_name }}</span>
+                           <span><i class="bi bi-tag"></i> Категорія: <a href="{{ url($getRecord->menu_slug) }}"> {{ $getRecord->menu_name }}</a></span>
                             <span><i class="bi bi-clock"></i>
                                 {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
                         </div>
