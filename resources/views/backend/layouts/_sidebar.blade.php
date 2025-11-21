@@ -44,7 +44,8 @@
                   </li>
 
                   <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/gallery') }}">
+                        <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.page.*') ? 'active' : '' }}"
+                          href="{{ route('panel.page.list') }}">
                           <i class="mdi mdi-book-open-variant"></i>
                           <span class="hide-menu">Сторінки</span>
                       </a>

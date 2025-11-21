@@ -7,7 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AssortController;
-
+use App\Http\Controllers\PageController;  
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,6 +73,17 @@ Route::group(['middleware' => 'adminuser'], function () {
     Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
     Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 });
+
+
+//Page
+
+    Route::get('panel/page/list', [PageController::class, 'page'])->name('panel.page.list');
+    Route::get('panel/page/add', [PageController::class, 'add_page'])->name('panel.page.add');
+    Route::post('panel/page/add', [PageController::class, 'insert_page']);
+    Route::get('panel/page/edit/{id}', [PageController::class, 'edit_page'])->name('panel.page.edit');
+    Route::post('panel/page/edit/{id}', [PageController::class, 'update_page']);
+    Route::get('panel/page/delete/{id}', [PageController::class, 'delete_page']);
+
 
 
 
