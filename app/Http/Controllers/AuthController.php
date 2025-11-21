@@ -10,24 +10,36 @@ use App\Mail\RegisterMail;
 use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\PageModel;
 
 class AuthController extends Controller
 {
     public function login()
     {
-        return view('auth.login', ['header_title' => "Увійдіть до свого облікового запису"]);
+         $getPage =  PageModel::getSlug('login');
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        return view('auth.login', ['header_title' => "Увійдіть до свого облікового запису"],$data);
     }
 
     public function register()
     {
-        return view('auth.register', ['header_title' => "Створити обліковий запис"]);
+          $getPage =  PageModel::getSlug('register');
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        return view('auth.register', ['header_title' => "Створити обліковий запис"],$data);
     }
 
     public function forgot()
     {
+         $getPage =  PageModel::getSlug('forgot');
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
 
-        return view('auth.login',  ['header_title' => "Відновлення паролю"]);
+        return view('auth.login',  ['header_title' => "Відновлення паролю"],$data);
     }
 
      public function forgot_password(Request $request){
@@ -49,7 +61,10 @@ class AuthController extends Controller
 
         $user = User::where('remember_token', '=', $token)->first();
         if (!empty($user)) {
-           
+          $getPage =  PageModel::getSlug('reset');
+            $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+            $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+            $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
             $data['header_title'] = "Відновлення паролю";
             $data['user'] = $user;
             return view('auth.reset', $data);

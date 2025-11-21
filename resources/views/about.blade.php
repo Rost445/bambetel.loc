@@ -17,10 +17,12 @@
                             <span class="visually-hidden">Головна</span>
                         </a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Library</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                   
+                    <li class="breadcrumb-item active" aria-current="page">@if (!empty($title))
+            {{ $title }}
+            @else
+            Про кафе
+        @endif</li>
                 </ol>
             </nav>
 </div>

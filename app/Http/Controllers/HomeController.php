@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AssortModel;
 use App\Models\MenuModel;
+use App\Models\PageModel;
+use App\Models\User;
 
 class HomeController extends Controller
 {
   public function home()
   {
-    $data['title'] = 'Головна';
-    $data['meta_title'] = 'Головна';
-    $data['meta_keywords'] = 'Головна';
-    $data['meta_description'] = 'Головна';
+      $getPage =  PageModel::getSlug('golovna');
+        $data['title'] = !empty($getPage) ? $getPage->title : '';
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
 
     return view('home', $data);
   }
@@ -64,12 +67,14 @@ class HomeController extends Controller
 
   public function about()
   {
-$data['title'] = 'Про нас';
-    $data['meta_title'] = 'Про нас';
-    $data['meta_keywords'] = 'Про нас';
-    $data['meta_description'] = 'Про нас';
+   $getPage =  PageModel::getSlug('about');
+        $data['title'] = !empty($getPage) ? $getPage->title : '';
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['description'] = !empty($getPage) ? $getPage->description : '';
 
-    return view('about');
+    return view('about',$data);
   }
 
   public function gallery()
@@ -86,4 +91,6 @@ $data['title'] = 'Про нас';
   {
     return view(' reservation');
   }
+
+   
 }
