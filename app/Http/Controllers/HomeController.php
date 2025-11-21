@@ -64,7 +64,10 @@ class HomeController extends Controller
 
   public function about()
   {
-
+$data['title'] = 'Про нас';
+    $data['meta_title'] = 'Про нас';
+    $data['meta_keywords'] = 'Про нас';
+    $data['meta_description'] = 'Про нас';
 
     return view('about');
   }
