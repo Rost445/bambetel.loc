@@ -25,7 +25,7 @@ class AuthController extends Controller
 
     public function register()
     {
-          $getPage =  PageModel::getSlug('register');
+        $getPage =  PageModel::getSlug('register');
         $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
         $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
         $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';

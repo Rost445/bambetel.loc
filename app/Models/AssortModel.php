@@ -67,7 +67,7 @@ class AssortModel extends Model
         if (!$result) {
             return collect([]); // Завжди повертаємо колекцію
         }
-        $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+        $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug','menu_id')
             ->join('users', 'users.id', '=', 'assort.user_id')
             ->join('menu', 'menu.id', '=', 'assort.menu_id')
             ->where('assort.menu_id', '=', $menu_id)

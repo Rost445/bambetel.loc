@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Models\AssortModel;
 use App\Models\MenuModel;
 use App\Models\PageModel;
-use App\Models\User;
+
 
 class HomeController extends Controller
 {
@@ -79,16 +79,34 @@ class HomeController extends Controller
 
   public function gallery()
   {
-    return view('gallery');
+    $getPage =  PageModel::getSlug('gallery');
+        $data['title'] = !empty($getPage) ? $getPage->title : '';
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['description'] = !empty($getPage) ? $getPage->description : '';
+    return view('gallery',$data);
   }
 
   public function contacts()
   {
+     $getPage =  PageModel::getSlug('contacts');
+        $data['title'] = !empty($getPage) ? $getPage->title : '';
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['description'] = !empty($getPage) ? $getPage->description : '';
     return view('contacts');
   }
 
   public function reservation()
   {
+      $getPage =  PageModel::getSlug('reservation');
+        $data['title'] = !empty($getPage) ? $getPage->title : '';
+        $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+        $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+        $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+        $data['description'] = !empty($getPage) ? $getPage->description : '';
     return view(' reservation');
   }
 

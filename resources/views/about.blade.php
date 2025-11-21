@@ -28,8 +28,16 @@
 </div>
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <span class="description-title">&nbsp;About</span>
-                <h2>About</h2>
+                <span class="description-title">&nbsp;@if (!empty($title))
+            {{ $title }}
+            @else
+            Про кафе
+        @endif</span>
+                <h2>@if (!empty($title))
+            {{ $title }}
+            @else
+            Про кафе
+        @endif</h2>
                 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div><!-- End Section Title -->
 

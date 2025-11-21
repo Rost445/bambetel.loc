@@ -6,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+ 
+     @if (!empty($meta_keywords))
+    <meta name="keywords" content="{{ $meta_keywords }}">
+        @endif
+     @if (!empty($meta_description))
+    <meta name="description" content="{{ $meta_description }}">
+     @endif
     <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/images/favicon.png') }}">
    
     <!-- Custom CSS -->
    
-    <title>Кафе Bambetel - Відновлення паролю</title>
+      <title>{{ !empty($meta_title) ? $meta_title : '' }}</title>
     <!-- Custom CSS -->
     <link href="{{ url('dist/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

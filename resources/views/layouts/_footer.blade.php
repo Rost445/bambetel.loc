@@ -5,66 +5,62 @@
 
             <div class="col-lg-4">
                 <div class="footer-content">
-                    <a href="index.html" class="logo d-flex align-items-center mb-4">
-                        <span class="sitename">Platia</span>
+                    <a href="{{ url('/') }}" class="logo d-flex align-items-center mb-4">
+                        <span class="sitename">Bambetel</span>
                     </a>
-                    <p class="mb-4">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                        cubilia curae. Donec velit neque auctor sit amet aliquam vel ullamcorper sit amet ligula.
+                    <p class="mb-4">Бамбетель | Вареники | Сніданки | Гофри <br>
+                        Справжня домашня кухня з любов’ю та турботою. 
+                       
                     </p>
 
                     <div class="newsletter-form">
-                        <h5>Stay Updated</h5>
-                        <form action="forms/newsletter.php" method="post" class="php-email-form">
-                            <div class="input-group">
-                                <input type="email" name="email" class="form-control" placeholder="Enter your email"
-                                    required="">
-                                <button type="submit" class="btn-subscribe">
-                                    <i class="bi bi-send"></i>
-                                </button>
-                            </div>
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Thank you for subscribing!</div>
-                        </form>
+                       
                     </div>
                 </div>
             </div>
+@php
+    $getMenuHeader = App\Models\MenuModel::getMenuMenu();
+@endphp
 
             <div class="col-lg-2 col-6">
                 <div class="footer-links">
-                    <h4>Company</h4>
+                    <h4>Сторінки</h4>
                     <ul>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> About</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Careers</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Press</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Blog</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                        <a href="{{ url('') }}"><i class="bi bi-chevron-right"></i> Головна</a></li>
+                        <li><a href="{{ url('assort') }}"><i class="bi bi-chevron-right"></i> Меню</a></li>
+                        <li><a href="{{ url('gallery') }}"><i class="bi bi-chevron-right"></i>Фото</a></li>
+                        <li><a href="{{ url('contacts') }}"><i class="bi bi-chevron-right"></i>Контакти</a></li>
+                        <li><a href="{{ url('reservation') }}"><i class="bi bi-chevron-right"></i>Бронювання</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="col-lg-2 col-6">
                 <div class="footer-links">
-                    <h4>Solutions</h4>
+                    <h4>Меню</h4>
                     <ul>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Digital Strategy</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Cloud Computing</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Data Analytics</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> AI Solutions</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Cybersecurity</a></li>
+                         @foreach ($getMenuHeader as $MenuHeader)
+                    <li>
+                        <a href="{{ url($MenuHeader->slug) }}"
+                           class="{{ Request::segment(1) == $MenuHeader->slug ? 'active' : '' }}">
+                            <i class="bi bi-chevron-right"></i> {{ $MenuHeader->title }}
+                        </a>
+                    </li>
+                @endforeach
+                       
                     </ul>
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="footer-contact">
-                    <h4>Get in Touch</h4>
+                    <h4>Зв'яжіться з нами</h4>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="bi bi-geo-alt"></i>
                         </div>
                         <div class="contact-info">
-                            <p>2847 Maple Avenue<br>Los Angeles, CA 90210<br>United States</p>
+                            <p>вул. Леся Курбаса, 2<br>Городенка 78100</p>
                         </div>
                     </div>
 
@@ -73,7 +69,7 @@
                             <i class="bi bi-telephone"></i>
                         </div>
                         <div class="contact-info">
-                            <p>+1 (555) 987-6543</p>
+                            <p> +380 (97) 882 05 90</p>
                         </div>
                     </div>
 
@@ -87,11 +83,9 @@
                     </div>
 
                     <div class="social-links">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
-                        <a href="#"><i class="bi bi-github"></i></a>
+                        <a href="https://www.instagram.com/cafe_bambetel_/"><i class="bi bi-instagram"></i></a><p class="pt-2">Instagram</p>
+                  
+                      
                     </div>
                 </div>
             </div>
@@ -104,23 +98,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="copyright">
-                        <p>© <span>Copyright</span> <strong class="px-1 sitename">Platia</strong> <span>All Rights
+                        <p>© <span>Copyright</span> <strong class="px-1 sitename">Bambetel</strong> <span>All Rights
                                 Reserved</span></p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Cookie Policy</a>
+                        <a href="#">Політика конфенденційності</a>
                     </div>
-                    <div class="credits">
-                        <!-- All the links in the footer should remain intact. -->
-                        <!-- You can delete the links only if you've purchased the pro version. -->
-                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
+                   
                 </div>
             </div>
         </div>

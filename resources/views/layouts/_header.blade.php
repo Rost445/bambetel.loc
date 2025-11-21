@@ -12,7 +12,7 @@
                     <a href="{{ route('login') }}" class="facebook"><i class="bi bi-box-arrow-in-left"></i>&nbsp;Логін</a>
                     <a href="{{ route('register') }}" class="facebook"><i class="bi bi-person-plus"></i>&nbsp;Реєстрація</a>
                     <a href="#" class="disabled"> | </a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i>&nbsp;Instagram</a>
+                    <a href="https://www.instagram.com/cafe_bambetel_/" class="instagram"><i class="bi bi-instagram"></i>&nbsp;Instagram</a>
                    
                 </div>
             </div>
