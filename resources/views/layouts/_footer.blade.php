@@ -14,7 +14,7 @@
                     </p>
 
                     <div class="newsletter-form">
-                       
+                          <img src="{{ url('assets/images/logo-icon.png') }}" alt=""> 
                     </div>
                 </div>
             </div>
