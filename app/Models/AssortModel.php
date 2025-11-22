@@ -34,6 +34,7 @@ class AssortModel extends Model
             ->join('users', 'users.id', '=', 'assort.user_id')
             ->join('menu', 'menu.id', '=', 'assort.menu_id')
             ->where('assort.status', '=', 0)
+            ->where('menu.is_menu', 0)
             ->where('assort.is_publish', '=', 1)
             ->where('assort.is_delete', '=', 0)
             ->where('assort.slug', '=', $slug)
@@ -44,7 +45,8 @@ class AssortModel extends Model
     {
         $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
             ->join('users', 'users.id', '=', 'assort.user_id')
-            ->join('menu', 'menu.id', '=', 'assort.menu_id');
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('menu.is_menu', 0);
 
         if (!empty(Request::get('q'))) {
             $return = $return->where('assort.title', 'like', '%' . Request::get('q') . '%');
@@ -53,6 +55,7 @@ class AssortModel extends Model
 
         $return = $return->where('assort.status', '=', 0)
             ->where('assort.is_publish', '=', 1)
+
             ->where('assort.is_delete', '=', 0)
             ->orderBy('assort.id', 'desc')
             ->paginate(9);
@@ -71,6 +74,7 @@ class AssortModel extends Model
             ->join('users', 'users.id', '=', 'assort.user_id')
             ->join('menu', 'menu.id', '=', 'assort.menu_id')
             ->where('assort.menu_id', '=', $menu_id)
+            ->where('menu.is_menu', 0)
             ->where('assort.status', '=', 0)
             ->where('assort.is_publish', '=', 1)
             ->where('assort.is_delete', '=', 0)
@@ -91,6 +95,7 @@ class AssortModel extends Model
             ->where('assort.status', '=', 0)
             ->where('assort.is_publish', '=', 1)
             ->where('assort.is_delete', '=', 0)
+            ->where('menu.is_menu', 0)
             ->orderBy('assort.id', 'desc')
             ->limit(2)
             ->get();
@@ -106,6 +111,7 @@ static public function getRelatedPost($menu_id, $id)
             ->where('assort.status', '=', 0)
             ->where('assort.is_publish', '=', 1)
             ->where('assort.is_delete', '=', 0)
+            ->where('menu.is_menu', 0)
             ->orderBy('assort.id', 'desc')
             ->limit(2)
             ->get();

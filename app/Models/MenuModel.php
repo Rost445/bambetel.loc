@@ -28,6 +28,8 @@ class MenuModel extends Model
     {
         return self::select('menu.*')
         ->where('status', '=', 0)
+         ->where('is_menu', 0)
+        
         ->where('is_delete', '=', 0)
         ->get();
     }
