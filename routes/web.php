@@ -7,7 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AssortController;
-use App\Http\Controllers\PageController;  
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,51 +38,60 @@ Route::get('forgot-password', [AuthController::class, 'forgot'])->name('forgot')
 Route::post('forgot-password', [AuthController::class, 'forgot_password'])->name('forgot_password');
 Route::get('reset/{token}', [AuthController::class, 'reset']);
 Route::post('reset/{token}', [AuthController::class, 'post_reset']);
-
-
-
-
-
-
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+//Admin
+Route::group(['middleware' => 'admin'], function () {
+
+  Route::get('panel/user/list', [UserController::class, 'user'])->name('panel.user.list');
+  Route::get('panel/user/add', [UserController::class, 'add_user'])->name('panel.user.add');
+  Route::post('panel/user/add', [UserController::class, 'insert_user']);
+  Route::get('panel/user/edit/{id}', [UserController::class, 'edit_user'])->name('panel.user.edit');
+  Route::post('panel/user/edit/{id}', [UserController::class, 'update_user']);
+  Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
+
+
+  //Page
+
+  Route::get('panel/page/list', [PageController::class, 'page'])->name('panel.page.list');
+  Route::get('panel/page/add', [PageController::class, 'add_page'])->name('panel.page.add');
+  Route::post('panel/page/add', [PageController::class, 'insert_page']);
+  Route::get('panel/page/edit/{id}', [PageController::class, 'edit_page'])->name('panel.page.edit');
+  Route::post('panel/page/edit/{id}', [PageController::class, 'update_page']);
+  Route::get('panel/page/delete/{id}', [PageController::class, 'delete_page']);
+});
 
 //Adminuser
 Route::group(['middleware' => 'adminuser'], function () {
-    Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
-    Route::get('panel/user/list', [UserController::class, 'user'])->name('panel.user.list');
-    Route::get('panel/user/add', [UserController::class, 'add_user'])->name('panel.user.add');
-    Route::post('panel/user/add', [UserController::class, 'insert_user']);
-    Route::get('panel/user/edit/{id}', [UserController::class, 'edit_user'])->name('panel.user.edit');
-    Route::post('panel/user/edit/{id}', [UserController::class, 'update_user']);
-    Route::get('panel/user/delete/{id}', [UserController::class, 'delete_user']);
 
-    //Menu
-    Route::get('panel/menu/list', [MenuController::class, 'menu'])->name('panel.menu.list');
-    Route::get('panel/menu/add', [MenuController::class, 'add_menu'])->name('panel.menu.add');
-    Route::post('panel/menu/add', [MenuController::class, 'insert_menu']);
-    Route::get('panel/menu/edit/{id}', [MenuController::class, 'edit_menu'])->name('panel.menu.edit');
-    Route::post('panel/menu/edit/{id}', [MenuController::class, 'update_menu']);
-    Route::get('panel/menu/delete/{id}', [MenuController::class, 'delete_menu']);
+  Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+  Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
+  Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
+  Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
+  Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
+  Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
+  Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 
-    //Assortment Menu
+  //Menu
+  Route::get('panel/menu/list', [MenuController::class, 'menu'])->name('panel.menu.list');
+  Route::get('panel/menu/add', [MenuController::class, 'add_menu'])->name('panel.menu.add');
+  Route::post('panel/menu/add', [MenuController::class, 'insert_menu']);
+  Route::get('panel/menu/edit/{id}', [MenuController::class, 'edit_menu'])->name('panel.menu.edit');
+  Route::post('panel/menu/edit/{id}', [MenuController::class, 'update_menu']);
+  Route::get('panel/menu/delete/{id}', [MenuController::class, 'delete_menu']);
 
-    Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
-    Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
-    Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
-    Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
-    Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
-    Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
+  //Assortment Menu
+
+  Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
+  Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
+  Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
+  Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
+  Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
+  Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 });
-
-
-//Page
-
-    Route::get('panel/page/list', [PageController::class, 'page'])->name('panel.page.list');
-    Route::get('panel/page/add', [PageController::class, 'add_page'])->name('panel.page.add');
-    Route::post('panel/page/add', [PageController::class, 'insert_page']);
-    Route::get('panel/page/edit/{id}', [PageController::class, 'edit_page'])->name('panel.page.edit');
-    Route::post('panel/page/edit/{id}', [PageController::class, 'update_page']);
-    Route::get('panel/page/delete/{id}', [PageController::class, 'delete_page']);
 
 
 
