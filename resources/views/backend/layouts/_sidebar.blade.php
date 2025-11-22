@@ -12,7 +12,7 @@
                           <span class="hide-menu">Адмін-панель</span>
                       </a>
                   </li>
-                  @if (Auth::user()->is_admin == 1)
+                @if (Auth::user()->is_admin == 1)
                       <li class="sidebar-item">
                           <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.user.*') ? 'active' : '' }}"
                               href="{{ route('panel.user.list') }}">
@@ -20,7 +20,7 @@
                               <span class="hide-menu">Користувачі</span>
                           </a>
                       </li>
-                  @endif
+                
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.menu.*') ? 'active' : '' }}"
                           href="{{ route('panel.menu.list') }}">
@@ -42,7 +42,7 @@
                           <span class="hide-menu">Фотогалерея</span>
                       </a>
                   </li>
-  @if (Auth::user()->is_admin == 1)
+  
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.page.*') ? 'active' : '' }}"
                           href="{{ route('panel.page.list') }}">

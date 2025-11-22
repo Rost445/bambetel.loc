@@ -62,18 +62,6 @@ Route::group(['middleware' => 'admin'], function () {
   Route::get('panel/page/edit/{id}', [PageController::class, 'edit_page'])->name('panel.page.edit');
   Route::post('panel/page/edit/{id}', [PageController::class, 'update_page']);
   Route::get('panel/page/delete/{id}', [PageController::class, 'delete_page']);
-});
-
-//Adminuser
-Route::group(['middleware' => 'adminuser'], function () {
-
-  Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
-  Route::get('panel/assort/list', [AssortController::class, 'assort'])->name('panel.assort.list');
-  Route::get('panel/assort/add', [AssortController::class, 'add_assort'])->name('panel.assort.add');
-  Route::post('panel/assort/add', [AssortController::class, 'insert_assort']);
-  Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
-  Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
-  Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
 
   //Menu
   Route::get('panel/menu/list', [MenuController::class, 'menu'])->name('panel.menu.list');
@@ -91,6 +79,15 @@ Route::group(['middleware' => 'adminuser'], function () {
   Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
   Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
   Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
+  
+});
+
+//Adminuser
+Route::group(['middleware' => 'adminuser'], function () {
+
+  Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+  
+  
 });
 
 

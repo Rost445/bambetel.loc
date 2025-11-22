@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                     
                             <!-- Column -->
                             <!-- Column -->
                             <div class="card">
@@ -147,7 +147,7 @@
         </div>
         <div class="row">
             <div class="col-4">
-                @if (Auth::user()->is_admin == 1)
+             
                     <div class="card">
                         <div class="card-body">
                             <div class="card-group">
