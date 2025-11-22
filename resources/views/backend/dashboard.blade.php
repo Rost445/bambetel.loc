@@ -40,7 +40,6 @@
                                                 <div class="d-flex no-block align-items-center">
                                                     <div>
                                                         <i class="mdi mdi-account-multiple-plus font-20 text-muted"></i>
-
                                                          <a  class="text-secondary" href="{{ url('panel/user/list') }}"> <p class="font-16 m-b-5">Користувачі &nbsp; <i class="ti-arrow-right"></i></p></a>
                                                     </div>
                                                     <div class="ml-auto">
@@ -182,7 +181,31 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                             @endif
+                              <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-comment font-20 text-muted"></i>
+                                                         <a  class="text-secondary" href="{{ url('panel/comment/list') }}"> <p class="font-16 m-b-5">Відгуки &nbsp; <i class="ti-arrow-right"></i></p></a>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <h1 class="font-light text-right">23</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-purple" role="progressbar"
+                                                        style="width: 75%; height: 6px;" aria-valuenow="25"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
         </div>
 

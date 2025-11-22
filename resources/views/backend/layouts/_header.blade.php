@@ -9,7 +9,7 @@
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="index.html" class="logo">
+                        <a href="{{url('panel/dashboard')}}" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -31,58 +31,26 @@
                             <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>
                         </a>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Toggle which is visible on mobile only -->
-                    <!-- ============================================================== -->
+                
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
+              
                 <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
+                   
                     <ul class="navbar-nav float-left mr-auto">
-                        <!-- <li class="nav-item d-none d-md-block">
-                            <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
-                                <i class="mdi mdi-menu font-24"></i>
-                            </a>
-                        </li> -->
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
+                     
                         
                     </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
+                   
                     <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- Messages -->
-                        <!-- ============================================================== -->
-                      
-                        <!-- ============================================================== -->
-                        <!-- End Messages -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Comment -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown border-right">
-                           
+                       
+                        <li class="nav-item dropwn border-right">
+                           <a class="nav-link" href="{{ config('app.url') }}" target="_blank" rel="noopener noreferrer">На сайт <i class="ti-arrow-right"></i></a>
                         </li>
-                        <!-- ============================================================== -->
-                        <!-- End Comment -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+                    
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{url ('../../assets/images/users/2.jpg') }}" alt="user" class="rounded-circle" width="40">

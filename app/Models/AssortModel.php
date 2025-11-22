@@ -184,5 +184,17 @@ static public function getRelatedPost($menu_id, $id)
         return $this->hasMany(AssortTagsModel::class, 'assort_id');
     }
 
+public function getComment()
+    {
+        return $this->hasMany(AssortCommentModel::class, 'assort_id')->orderBy('assort_comment.id', 'desc');
+    }
+    public function getCommentCount()
+    {
+        return $this->hasMany(AssortCommentModel::class, 'assort_id')->count();
+    }
+    public static function getActiveAssortCount()
+    {
+        return self::where('is_delete', 0)->count();
+    }
 
 }

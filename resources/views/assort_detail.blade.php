@@ -112,6 +112,70 @@
                             </div>
                         </div>
 
+                               <section id="blog-comments" class="blog-comments section">
+                            <div class="container">
+                                <h4 class="comments-count">Коментарів: {{ $getRecord->getCommentCount() }}</h4>
+                                @foreach ($getRecord->getComment as $comment)
+                                    <div id="{{ $comment->id }}" class="comment">
+                                        <div class="d-flex px-4">
+                                            <div>
+                                                <h5><a href="#">{{ $comment->user->name }}</a>
+                                                    <a href="#" class="reply ReplyOpen" id="{{ $comment->id }}">
+                                                        <i class="bi bi-reply-fill"></i>
+                                                        Відповісти
+                                                    </a>
+                                                </h5>
+                                                <time>{{ $comment->created_at->locale('uk')->translatedFormat('d F Y h:i:s') }}</time>
+                                                <p>
+                                                    {{ $comment->comment }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <section id="comment-form"
+                                            class="comment-form section ShowReply{{ $comment->id }}" style="display:none">
+                                            <div class="container">
+
+
+                                                {{-- відповіді на Коментарі --}}
+                                                <form action="{{ url('blog-comment-reply-submit') }}" method="post">
+                                                   @csrf
+                                                    <h4>Відповісти на коментар</h4>
+                                                    <input type="hidden" name="comment_id" value=" {{ $comment->id }}">
+                                                    <div class="row">
+                                                        <div class="col form-group">
+                                                            <textarea name="comment" class="form-control" placeholder="Ваш коментар *" required></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-primary">Відповісти </button>
+                                                    </div>
+                                                </form>
+                                                {{-- відповіді на Коментарі --}}
+                                            </div>
+
+                                        </section>
+                                        @foreach ($comment->getReply as $reply)
+                                            <div id="comment-reply-2" class="comment comment-reply">
+                                                <div class="d-flex">
+
+                                                    <div>
+                                                        <h5><a href="#">{{ $reply->user->name }}</a> </h5>
+                                                        <time>{{ $reply->created_at->locale('uk')->translatedFormat('d F Y h:i:s') }}</time>
+                                                        <p>
+                                                            {{ $reply->comment }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        @endforeach
+                                    </div><!-- End comment #1 -->
+                                @endforeach
+
+                            </div>
+
+                        </section><!-- /Blog Comments Section -->
+
                     </article>
                 </div>
 

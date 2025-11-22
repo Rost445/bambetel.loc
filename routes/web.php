@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AssortController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,6 +87,11 @@ Route::group(['middleware' => 'admin'], function () {
 Route::group(['middleware' => 'adminuser'], function () {
 
   Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+   
+  // Сomments
+    Route::get('panel/comment/list', [CommentController::class, 'list'])->name('panel.comment.list');
+    Route::delete('panel/comment/{id}', [CommentController::class, 'delete'])->name('panel.comment.delete');
+
   
   
 });

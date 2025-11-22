@@ -37,7 +37,7 @@
                   </li>
 
                   <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel/gallery') }}">
+                      <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel.gallery.*') }}">
                           <i class="mdi mdi-image"></i>
                           <span class="hide-menu">Фотогалерея</span>
                       </a>
@@ -51,6 +51,13 @@
                       </a>
                   </li>
   @endif
+   <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.comment.*') ? 'active' : '' }}"
+                href="{{ url('panel/comment/list') }}">
+                <i class="mdi mdi-comment"></i>
+                <span>Відгуки</span>
+            </a>
+        </li>
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark" href="{{ route('logout') }}">
                           <i class="fa fa-power-off"></i>
