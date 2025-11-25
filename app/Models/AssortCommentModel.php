@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AssortModel;
+use App\Models\AssortCommentReplyModel;
 
 class AssortCommentModel extends Model
 {
@@ -18,7 +19,7 @@ class AssortCommentModel extends Model
 
         public function getReply()
         {
-            //return $this->hasMany(BlogCommentReplyModel::class, 'comment_id');
+            return $this->hasMany(AssortCommentReplyModel::class, 'comment_id');
         }
 
         public function assort()

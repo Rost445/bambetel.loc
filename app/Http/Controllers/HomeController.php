@@ -6,6 +6,10 @@ namespace App\Http\Controllers;
 use App\Models\AssortModel;
 use App\Models\MenuModel;
 use App\Models\PageModel;
+use App\Models\AssortCommentModel;
+use App\Models\AssortCommentReplyModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -110,5 +114,28 @@ class HomeController extends Controller
     return view(' reservation');
   }
 
-   
+   public function AssortCommentSubmit(Request $request)
+    {
+        $save = new AssortCommentModel;
+        $save->user_id = Auth::user()->id;
+        $save->assort_id = $request->assort_id;
+        $save->comment = $request->comment;
+        $save->save();
+
+        return redirect()->back()->with('success', "Ваш коментар успішо опубліковано!");
+    }
+
+
+    public function  AssortCommentReplySubmit(Request $request)
+    {
+        $save = new AssortCommentReplyModel;
+        $save->user_id = Auth::user()->id;
+        $save->comment_id = $request->comment_id;
+
+        $save->comment = $request->comment;
+        $save->save();
+
+        return redirect()->back()->with('success', "Відповідь  опублікована!");
+    }
+
 }

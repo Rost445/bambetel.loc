@@ -16,12 +16,13 @@ class AuthMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
      public function handle(Request $request, Closure $next): Response
-    {
-        if (!empty(Auth::check())) {
+{
+   if (!empty(Auth::check())) {
             return $next($request);
         } else {
             Auth::logout();
             return redirect(url('login'));
         }
-    }
+
+}
 }
