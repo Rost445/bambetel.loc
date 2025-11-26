@@ -55,7 +55,7 @@ class UserController extends Controller
         return redirect('panel/user/list')->with('success', 'Користувача успішно додано!');
     }
 
-     public function edit_user($id)
+    public function edit_user($id)
     {
         $data['active_class'] = 'user';
         $data['getRecord'] = User::getSingle($id);
@@ -65,7 +65,7 @@ class UserController extends Controller
     public function update_user($id, Request $request)
     {
 
-         request()->validate(
+        request()->validate(
             [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email,' . $id,
@@ -80,7 +80,7 @@ class UserController extends Controller
                 'password.min' => 'Пароль повинен містити не менше :min символів.', */
 
             ]
-        ); 
+        );
         $save = User::getSingle($id);
         $save->name     = trim($request->name);
         $save->email    = trim($request->email);
@@ -102,4 +102,29 @@ class UserController extends Controller
         return redirect()->back()->with('success', "Користувач успішно видалений!");
     }
 
+    public function  ChangePassword()
+    {
+        $data['active_class'] = 'change-password';
+
+        $data['header_title'] = 'Змінити пароль';
+        return view('backend.user.change_password', $data);
+    }
+
+
+    public function UpdatePassword(Request $request)
+    {
+        $user = User::getSingle(Auth::user()->id);
+
+        if (Hash::check($request->old_password, $user->password)) {
+            if ($request->new_password == $request->confirm_password) {
+                $user->password = Hash::make($request->new_password);
+                $user->save();
+                return redirect()->back()->with('success', "Пароль успішно оновлено!");
+            } else {
+                return redirect()->back()->with('error', "Новий пароль та пароль підтвердження  не співпадають!");
+            }
+        } else {
+            return redirect()->back()->with('error', "Старий пароль не співпадає!");
+        }
+    }
 }
