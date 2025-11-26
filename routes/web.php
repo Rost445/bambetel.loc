@@ -80,7 +80,6 @@ Route::group(['middleware' => 'admin'], function () {
   Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
   Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
   Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
-  
 });
 
 //Adminuser
@@ -93,9 +92,8 @@ Route::group(['middleware' => 'adminuser'], function () {
   Route::post('assort-comment-reply-submit', [HomeController::class, 'AssortCommentReplySubmit']);
   Route::get('panel/change-password', [UserController::class, 'ChangePassword'])->name('panel.change_password');
   Route::post('panel/change-password', [UserController::class, 'UpdatePassword'])->name('panel.update_password');
-
-  
-  
+  Route::get('panel/account-settings', [UserController::class, 'AccountSettings'])->name('panel.account_settings');
+  Route::post('panel/account-settings', [UserController::class, 'UpdateAccountSettings'])->name('panel.update_account_settings');
 });
 
 

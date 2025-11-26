@@ -59,12 +59,20 @@
                       </a>
                   </li>
                   <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('change-password.*') ? 'active' : '' }}"
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('change-password') ? 'active' : '' }}"
                           href="{{ url('panel/change-password') }}">
                           <i class="mdi mdi-lock"></i>
                           <span>Змінити пароль</span>
                       </a>
                   </li>
+                   <li class="sidebar-item">
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('account-settings') ? 'active' : '' }}"
+                          href="{{ url('panel/account-settings') }}">
+                          <i class="mdi mdi mdi-settings"></i>
+                          <span>Налаштування акаунту</span>
+                      </a>
+                  </li>
+                
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark" href="{{ route('logout') }}">
                           <i class="fa fa-power-off"></i>

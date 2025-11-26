@@ -265,8 +265,8 @@
                                                 <div class="d-flex no-block align-items-center">
                                                     <div>
                                                         <i class="mdi mdi mdi-settings font-20 text-muted"></i>
-                                                        <a class="text-secondary" href="{{ url('panel/settings') }}">
-                                                            <p class="font-16 m-b-5">Налаштування &nbsp; <i
+                                                        <a class="text-secondary" href="{{ url('account-settings') }}">
+                                                            <p class="font-16 m-b-5">Налаштування акаунту&nbsp; <i
                                                                     class="ti-arrow-right"></i></p>
                                                         </a>
                                                     </div>

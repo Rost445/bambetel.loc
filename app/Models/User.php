@@ -56,4 +56,18 @@ class User extends Authenticatable
             ->orderBy('users.id', 'desc')
             ->paginate(10);
     }
+     public function getProfile()
+    {
+        if (!empty($this->profile_pic) && file_exists('upload/profile/' . $this->profile_pic)) {
+            return url('upload/profile/'. $this->profile_pic);
+        } else {
+            return url('assets/img/profile-img.jpg');
+        }
+    }
+
+    public static function getActiveUserCount()
+    {
+        return self::where('is_delete', 0)->count();
+    }
+
 }
