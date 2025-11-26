@@ -9,7 +9,7 @@
                       <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.dashboard') ? 'active' : '' }}"
                           href="{{ route('panel.dashboard') }}">
                           <i class="mdi mdi-av-timer"></i>
-                          <span class="hide-menu">Адмін-панель</span>
+                          <span class="hide-menu"> {{ auth()->user()->is_admin ? 'Адмін-панель' : 'Панель користувача' }}</span>
                       </a>
                   </li>
                   @if (Auth::user()->is_admin == 1)

@@ -28,7 +28,7 @@
                      <nav aria-label="breadcrumb">
                          <ol class="breadcrumb">
                              <li class="breadcrumb-item">
-                                 <a href="{{url('panel/dashboard')}}">Адмін-панель</a>
+                                 <a href="{{url('panel/dashboard')}}"> {{ auth()->user()->is_admin ? 'Адмін-панель' : 'Панель користувача' }}</a>
                              </li>
                             
                              <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
