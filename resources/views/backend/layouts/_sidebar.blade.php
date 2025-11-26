@@ -12,7 +12,7 @@
                           <span class="hide-menu">Адмін-панель</span>
                       </a>
                   </li>
-                @if (Auth::user()->is_admin == 1)
+                  @if (Auth::user()->is_admin == 1)
                       <li class="sidebar-item">
                           <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.user.*') ? 'active' : '' }}"
                               href="{{ route('panel.user.list') }}">
@@ -20,44 +20,51 @@
                               <span class="hide-menu">Користувачі</span>
                           </a>
                       </li>
-                
-                  <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.menu.*') ? 'active' : '' }}"
-                          href="{{ route('panel.menu.list') }}">
-                          <i class="mdi mdi-note-multiple"></i>
-                          <span class="hide-menu">Розділи меню</span>
-                      </a>
-                  </li>
-                  <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.assort.*') ? 'active' : '' }}"
-                          href="{{ route('panel.assort.list') }}">
-                          <i class="mdi mdi-food-fork-drink"></i>
-                          <span class="hide-menu">Асортимент меню</span>
-                      </a>
-                  </li>
 
+                      <li class="sidebar-item">
+                          <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.menu.*') ? 'active' : '' }}"
+                              href="{{ route('panel.menu.list') }}">
+                              <i class="mdi mdi-note-multiple"></i>
+                              <span class="hide-menu">Розділи меню</span>
+                          </a>
+                      </li>
+                      <li class="sidebar-item">
+                          <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.assort.*') ? 'active' : '' }}"
+                              href="{{ route('panel.assort.list') }}">
+                              <i class="mdi mdi-food-fork-drink"></i>
+                              <span class="hide-menu">Асортимент меню</span>
+                          </a>
+                      </li>
+
+                      <li class="sidebar-item">
+                          <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel.gallery.*') }}">
+                              <i class="mdi mdi-image"></i>
+                              <span class="hide-menu">Фотогалерея</span>
+                          </a>
+                      </li>
+
+                      <li class="sidebar-item">
+                          <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.page.*') ? 'active' : '' }}"
+                              href="{{ route('panel.page.list') }}">
+                              <i class="mdi mdi-book-open-variant"></i>
+                              <span class="hide-menu">Сторінки</span>
+                          </a>
+                      </li>
+                  @endif
                   <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel.gallery.*') }}">
-                          <i class="mdi mdi-image"></i>
-                          <span class="hide-menu">Фотогалерея</span>
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.comment.*') ? 'active' : '' }}"
+                          href="{{ url('panel/comment/list') }}">
+                          <i class="mdi mdi-comment"></i>
+                          <span>Відгуки</span>
                       </a>
                   </li>
-  
                   <li class="sidebar-item">
-                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.page.*') ? 'active' : '' }}"
-                          href="{{ route('panel.page.list') }}">
-                          <i class="mdi mdi-book-open-variant"></i>
-                          <span class="hide-menu">Сторінки</span>
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('change-password.*') ? 'active' : '' }}"
+                          href="{{ url('panel/change-password') }}">
+                          <i class="mdi mdi-lock"></i>
+                          <span>Змінити пароль</span>
                       </a>
                   </li>
-  @endif
-   <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.comment.*') ? 'active' : '' }}"
-                href="{{ url('panel/comment/list') }}">
-                <i class="mdi mdi-comment"></i>
-                <span>Відгуки</span>
-            </a>
-        </li>
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark" href="{{ route('logout') }}">
                           <i class="fa fa-power-off"></i>

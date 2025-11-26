@@ -91,6 +91,8 @@ Route::group(['middleware' => 'adminuser'], function () {
   Route::delete('panel/comment/{id}', [CommentController::class, 'delete'])->name('panel.comment.delete');
   Route::post('assort-comment-submit', [HomeController::class, 'AssortCommentSubmit']);
   Route::post('assort-comment-reply-submit', [HomeController::class, 'AssortCommentReplySubmit']);
+  Route::get('panel/change-password', [UserController::class, 'ChangePassword'])->name('panel.change_password');
+  Route::post('panel/change-password', [UserController::class, 'UpdatePassword'])->name('panel.update_password');
 
   
   
