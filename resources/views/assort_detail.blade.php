@@ -187,7 +187,7 @@
 
                             <section id="blog-comments" class="blog-comments section">
                                 <div class="container">
-                                    <h4 class="comments-count">Коментарів: </h4>
+                                    <h4 class="comments-count">Коментарів: {{  $getRecord->getCommentCount() }}</h4>
                                     @foreach ($getRecord->getComment as $comment)
                                         <div id="{{ $comment->id }}" class="comment">
                                             <div class="d-flex px-4">
@@ -384,4 +384,13 @@
 @endsection
 
 @section('script')
+ <script>
+        $(document).ready(function() {
+            $('.ReplyOpen').click(function(e) {
+                e.preventDefault(); // предотвращает перезагрузку страницы при клике
+                var id = $(this).attr('id');
+                $('.ShowReply' + id).toggle();
+            });
+        });
+    </script>
 @endsection

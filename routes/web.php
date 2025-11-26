@@ -89,8 +89,8 @@ Route::group(['middleware' => 'adminuser'], function () {
   Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
   Route::get('panel/comment/list', [CommentController::class, 'list'])->name('panel.comment.list');
   Route::delete('panel/comment/{id}', [CommentController::class, 'delete'])->name('panel.comment.delete');
-     Route::post('assort-comment-submit', [HomeController::class, 'AssortCommentSubmit']);
-    Route::post('assort-comment-reply-submit', [HomeController::class, 'AssortCommentReplySubmit']);
+  Route::post('assort-comment-submit', [HomeController::class, 'AssortCommentSubmit']);
+  Route::post('assort-comment-reply-submit', [HomeController::class, 'AssortCommentReplySubmit']);
 
   
   
@@ -100,5 +100,4 @@ Route::group(['middleware' => 'adminuser'], function () {
 
 
 // Blog Detail
-Route::get('{slug}', [HomeController::class, 'assortdetail'])->name('assort_detail')
-->where('slug', '[A-Za-z0-9\-]+');
+Route::get('{slug}', [HomeController::class, 'assortdetail'])->name('assort_detail');
