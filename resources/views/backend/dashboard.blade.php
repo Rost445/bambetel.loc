@@ -52,8 +52,8 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 75%; height: 6px;" aria-valuenow="25"
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 75%; height: 6px; background-color:#6ea8fe" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
@@ -84,8 +84,8 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 60%; height: 6px;" aria-valuenow="25"
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 60%; height: 6px; background-color: #82c29d;" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
@@ -114,8 +114,8 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-purple" role="progressbar"
-                                                        style="width: 65%; height: 6px;" aria-valuenow="25"
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 65%; height: 6px; background-color: #ffda6a;" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
@@ -143,8 +143,8 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 70%; height: 6px;" aria-valuenow="25"
+                                                    <div class="progress-bar " role="progressbar"
+                                                        style="width: 70%; height: 6px; background-color: #ff9da3;" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
@@ -184,8 +184,8 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 75%; height: 6px;" aria-valuenow="25"
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 75%; height: 6px; background-color: #8de4f6;" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
@@ -218,7 +218,7 @@
                                                 <div class="col-12">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar"
-                                                            style="width: 60%; height: 6px; background-color: #0dcaf0; !important;" aria-valuenow="25"
+                                                            style="width: 60%; height: 6px; background-color: #ffb57a;" aria-valuenow="25"
                                                             aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
@@ -249,7 +249,7 @@
                                             <div class="col-12">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 65%; height: 6px; background-color: #d63384;" aria-valuenow="25"
+                                                        style="width: 65%; height: 6px; background-color: #b79aff;" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
@@ -278,7 +278,7 @@
                                             <div class="col-12">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 70%; height: 6px; background-color: #cc9a06;;" aria-valuenow="25"
+                                                        style="width: 70%; height: 6px; background-color: #7ee3cc;" aria-valuenow="25"
                                                         aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
