@@ -132,7 +132,7 @@ class HomeController extends Controller
         $save->user_id = Auth::user()->id;
         $save->comment_id = $request->comment_id;
 
-        $save->comment = $request->comment;
+        $save->comment = $request->reply;
         $save->save();
 
         return redirect()->back()->with('success', "Відповідь  опублікована!");

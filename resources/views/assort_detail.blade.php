@@ -1,78 +1,79 @@
 @extends('layouts.app')
 @section('style')
-<style>
-    .comment-form {
-  padding-top: 10px;
-}
+    <style>
+        .comment-form {
+            padding-top: 10px;
+        }
 
-.comment-form form {
-  background-color: var(--surface-color);
-  margin-top: 30px;
-  padding: 30px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
+        .comment-form form {
+            background-color: var(--surface-color);
+            margin-top: 30px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
 
-.comment-form form h4 {
-  font-weight: bold;
-  font-size: 22px;
-}
+        .comment-form form h4 {
+            font-weight: bold;
+            font-size: 22px;
+        }
 
-.comment-form form p {
-  font-size: 14px;
-}
+        .comment-form form p {
+            font-size: 14px;
+        }
 
-.comment-form form input {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  font-size: 14px;
-  border-radius: 4px;
-  padding: 10px 10px;
-}
+        .comment-form form input {
+            background-color: var(--surface-color);
+            color: var(--default-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+            font-size: 14px;
+            border-radius: 4px;
+            padding: 10px 10px;
+        }
 
-.comment-form form input:focus {
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  box-shadow: none;
-  border-color: var(--accent-color);
-}
+        .comment-form form input:focus {
+            color: var(--default-color);
+            background-color: var(--surface-color);
+            box-shadow: none;
+            border-color: var(--accent-color);
+        }
 
-.comment-form form input::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
+        .comment-form form input::placeholder {
+            color: color-mix(in srgb, var(--default-color), transparent 50%);
+        }
 
-.comment-form form textarea {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 4px;
-  padding: 10px 10px;
-  font-size: 14px;
-  height: 120px;
-}
+        .comment-form form textarea, .reply-form form textarea {
+            background-color: var(--surface-color);
+            color: var(--default-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+            border-radius: 4px;
+            padding: 10px 10px;
+            font-size: 14px;
+            height: 120px;
+        }
 
-.comment-form form textarea:focus {
-  color: var(--default-color);
-  box-shadow: none;
-  border-color: var(--accent-color);
-  background-color: var(--surface-color);
-}
+        .comment-form form textarea:focus, .reply-form form textarea:focus {
+            color: var(--default-color);
+            box-shadow: none;
+            border-color: var(--accent-color);
+            background-color: var(--surface-color);
+        }
 
-.comment-form form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
+        .comment-form form textarea::placeholder, .reply-form form textarea::placeholder {
+            color: color-mix(in srgb, var(--default-color), transparent 50%);
+        }
 
-.comment-form form .form-group {
-  margin-bottom: 25px;
-}
-.comment-form form .btn {
-  background-color: var(--accent-color);
-  border: none;
-  padding: 10px 30px;
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
-</style>
+        .comment-form form .form-group {
+            margin-bottom: 25px;
+        }
+
+        .comment-form form .btn,.reply-form form .btn {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 10px 30px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -179,102 +180,86 @@
                                             @endforeach
                                         </div>
                                     @endif
-
-
-
                                 </div>
                             </div>
+                            <!--blog comments -->
+                           <section id="blog-comments" class="blog-comments section">
+    <div class="container">
+        <h4 class="comments-count">Коментарів: {{ $getRecord->getCommentCount() }}</h4>
 
-                            <section id="blog-comments" class="blog-comments section">
-                                <div class="container">
-                                    <h4 class="comments-count">Коментарів: {{  $getRecord->getCommentCount() }}</h4>
-                                    @foreach ($getRecord->getComment as $comment)
-                                        <div id="{{ $comment->id }}" class="comment">
-                                            <div class="d-flex px-4">
-                                                <div>
-                                                    <h5><a href="#">{{ $comment->user->name }}</a>
-                                                        <a href="#" class="reply ReplyOpen" id="{{ $comment->id }}">
-                                                            <i class="bi bi-reply-fill"></i>
-                                                            Відповісти
-                                                        </a>
-                                                    </h5>
-                                                    <time>{{ $comment->created_at->locale('uk')->translatedFormat('d F Y h:i:s') }}</time>
-                                                    <p>
-                                                        {{ $comment->comment }}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <section id="comment-form"
-                                                class="comment-form section ShowReply{{ $comment->id }}"
-                                                style="display:none">
-                                                <div class="container">
-                                                    {{-- відповіді на Коментарі --}}
-                                                    <form action="{{ url('blog-comment-reply-submit') }}" method="post">
-                                                        @csrf
-                                                        <h4>Відповісти на коментар</h4>
-                                                        <input type="hidden" name="comment_id"
-                                                            value="{{ $comment->id }}">
-                                                        <div class="row">
-                                                            <div class="col form-group">
-                                                                <textarea name="comment" class="form-control" placeholder="Ваш коментар *" required></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="text-center">
-                                                            <button type="submit" class="btn btn-primary">Відповісти
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                    {{-- відповіді на Коментарі --}}
-                                                </div>
+        @foreach ($getRecord->getComment as $comment)
+            <div id="comment-{{ $comment->id }}" class="comment">
+                <div class="d-flex px-4">
+                    <div>
+                        <!-- Коментар -->
+                        <h5>
+                            <a href="#">{{ $comment->user->name }}</a>
+                            <a href="#" class="reply ReplyOpen" data-id="{{ $comment->id }}">
+                                <i class="bi bi-reply-fill"></i> Відповісти
+                            </a>
+                        </h5>
+                        <time>{{ $comment->created_at->locale('uk')->translatedFormat('d F Y H:i:s') }}</time>
+                        <p>{{ $comment->comment }}</p>
+                    </div>
+                </div>
 
-                                            </section>
-                                            @foreach ($comment->getReply as $reply)
-                                                <div id="comment-reply-2" class="comment comment-reply">
-                                                    <div class="d-flex">
-
-                                                        <div>
-                                                            <h5><a href="#">{{ $reply->user->name }}</a> </h5>
-                                                            <time>{{ $reply->created_at->locale('uk')->translatedFormat('d F Y h:i:s') }}</time>
-                                                            <p>
-                                                                {{ $reply->comment }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div><!-- End comment #1 -->
-                                    @endforeach
+                <!-- Відповіді до коментаря -->
+                @if($comment->getReply->count())
+                    @foreach($comment->getReply as $reply)
+                        <div id="comment-reply-{{ $reply->id }}" class="comment comment-reply ms-4 mt-2 mb-3 p-2 border-start">
+                            <div class="d-flex">
+                                <div>
+                                    <h6><a href="#">{{ $reply->user->name }}</a></h6>
+                                    <time>{{ $reply->created_at->locale('uk')->translatedFormat('d F Y H:i') }}</time>
+                                    <p>{{ $reply->comment }}</p>
                                 </div>
-                            </section><!-- /Blog Comments Section -->
-                            <!-- Comment Form Section -->
-                            <section id="comment-form" class="comment-form section">
-                                <div class="container">
-                                   <div class="row">
-                                            <!-- Comment Form Section -->
-                        <section id="comment-form" class="comment-form section">
-                            <div class="container">
-                                {{-- Коментарі --}}
-                                <form action="{{ url('assort-comment-submit') }}" method="post">
-                                    @csrf
-                                    <h4>Опублікувати коментар</h4>
-                                    <input type="hidden" name="assort_id" value="{{ $getRecord->id }}">
-
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <textarea name="comment" class="form-control" placeholder="Ваш коментар *" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Опублікувати коментар</button>
-                                    </div>
-                                </form>
-                                {{-- Коментарі --}}
                             </div>
-                        </section><!-- /Comment Form Section -->
-                                 
-                                   </div>
-                                </div>
-                            </section><!-- /Comment Form Section -->
+                        </div>
+                    @endforeach
+                @endif
+
+                <!-- Reply Form (hidden by default) -->
+                <div class="reply-form ShowReply{{ $comment->id }} d-none mx-5 mb-4">
+                    <form action="{{ url('assort-comment-reply-submit') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="assort_id" value="{{ $getRecord->id }}">
+                        <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                        <div class="mb-3">
+                            <textarea name="reply" class="form-control" placeholder="Ваша відповідь *" required></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn  btn-sm">Відправити відповідь</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        @endforeach
+
+        <!-- Comment Form Section -->
+        <section id="comment-form" class="comment-form section mt-5">
+            <div class="container">
+                <form action="{{ url('assort-comment-submit') }}" method="post">
+                    @csrf
+                    <h4>Опублікувати коментар</h4>
+                    <input type="hidden" name="assort_id" value="{{ $getRecord->id }}">
+                    <div class="row">
+                        <div class="col form-group">
+                            <textarea name="comment" class="form-control" placeholder="Ваш коментар *" required></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Опублікувати коментар</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- /Comment Form Section -->
+
+    </div>
+</section>
+
+                            <!--.blog comments -->
                         </article>
                     </div>
 
@@ -383,14 +368,34 @@
     </main>
 @endsection
 
-@section('script')
- <script>
-        $(document).ready(function() {
-            $('.ReplyOpen').click(function(e) {
-                e.preventDefault(); // предотвращает перезагрузку страницы при клике
-                var id = $(this).attr('id');
-                $('.ShowReply' + id).toggle();
-            });
-        });
-    </script>
-@endsection
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.body.addEventListener('click', function (e) {
+
+        let btn = e.target.closest('.ReplyOpen');
+        if (!btn) return;
+
+        e.preventDefault();
+
+        let id = btn.dataset.id;
+        let form = document.querySelector('.ShowReply' + id);
+
+        if (!form) return;
+
+        // Закрити всі інші форми
+        document.querySelectorAll('.reply-form').forEach(f => f.classList.add('d-none'));
+
+        // Відкрити потрібну форму
+        form.classList.remove('d-none');
+
+        // Прокрутка
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+});
+</script>
+@endpush
+assort-comment-reply-submit
+
