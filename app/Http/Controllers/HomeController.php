@@ -8,6 +8,7 @@ use App\Models\MenuModel;
 use App\Models\PageModel;
 use App\Models\AssortCommentModel;
 use App\Models\AssortCommentReplyModel;
+use App\Models\PortfolioModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -27,11 +28,12 @@ class HomeController extends Controller
 
   public function assort()
   {
-
+$data['getMenu'] = MenuModel::getMenu();
     $getRecord = AssortModel::getRecordFront();
     $data['title'] = 'Меню';
     $data['meta_title'] = 'Меню';
     $data['getRecord'] = $getRecord;
+
 
 
     return view('assort', $data);
@@ -84,6 +86,9 @@ class HomeController extends Controller
   public function gallery()
   {
     $getPage =  PageModel::getSlug('gallery');
+    
+        $data['getPortfolio'] = PortfolioModel::getRecordActive();
+        $data['getMenu'] = MenuModel::getMenu();
         $data['title'] = !empty($getPage) ? $getPage->title : '';
         $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
         $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';

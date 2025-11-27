@@ -28,6 +28,7 @@ Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contacts', [HomeController::class, 'contacts'])->name('contacts');
 Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('reservation', [HomeController::class, 'reservation'])->name('reservation');
+Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 
 
 //Auth, Login, Forgot And Reset Password
