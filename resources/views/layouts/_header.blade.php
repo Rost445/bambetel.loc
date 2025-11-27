@@ -7,12 +7,33 @@
                 <i class="bi bi-phone d-flex align-items-center ms-4"><span> +380 (97) 882 05 90</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
+                @auth
+                    <a class="dropdown-item d-flex align-items-center" href="{{ url('/panel/dashboard') }}">
+                        <i class="bi bi-person"></i>&nbsp;
+                        <span>Адмін-панель</span>
+                    </a>
 
-                <a href="{{ route('login') }}" class="facebook"><i class="bi bi-box-arrow-in-left"></i>&nbsp;Логін</a>
-                <a href="{{ route('register') }}" class="facebook"><i class="bi bi-person-plus"></i>&nbsp;Реєстрація</a>
-                <a href="#" class="disabled"> | </a>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ url('logout') }}">
+                        <i class="bi bi-box-arrow-right"></i>&nbsp;
+                        <span> Вийти</span>
+                    </a>
+                @else
+                    <a class="dropdown-item d-flex align-items-center" href="{{ url('login') }}">
+                        <i class="bi bi-box-arrow-in-left"></i>&nbsp;
+                        <span> Увійти</span>
+                    </a>
+
+                    <a class="dropdown-item d-flex align-items-center" href="{{ url('register') }}">
+                        <i class="bi bi-person-plus"></i>&nbsp;
+                        <span> Реєстрація</span>
+                    </a>
+                @endauth
+
+                {{-- <a href="{{ route('login') }}" class="facebook"><i class="bi bi-box-arrow-in-left"></i>&nbsp;Логін</a>
+                <a href="{{ route('register') }}" class="facebook"><i class="bi bi-person-plus"></i>&nbsp;Реєстрація</a> --}}
+               
                 <a href="https://www.instagram.com/cafe_bambetel_/" class="instagram"><i
-                        class="bi bi-instagram"></i>&nbsp;Instagram</a>
+                        class="bi bi-instagram"></i></a>
 
             </div>
         </div>

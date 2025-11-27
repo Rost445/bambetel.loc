@@ -36,8 +36,9 @@
                           </a>
                       </li>
 
-                      <li class="sidebar-item">
-                          <a class="sidebar-link waves-effect waves-dark" href="{{ url('panel.gallery.*') }}">
+                       <li class="sidebar-item">
+                          <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.portfolio.*') ? 'active' : '' }}"
+                              href="{{ route('panel.portfolio.list') }}">
                               <i class="mdi mdi-image"></i>
                               <span class="hide-menu">Фотогалерея</span>
                           </a>

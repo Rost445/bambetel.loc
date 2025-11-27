@@ -128,6 +128,8 @@
                                         {{ $getRecord->menu_name }}</a></span>
                                 <span><i class="bi bi-clock"></i>
                                     {{ $getRecord->created_at->locale('uk')->translatedFormat('d F Y') }}</span>
+                                     <span><i class="bi bi-chat-text"></i> Коментарі:
+                                    {{ $getRecord->getCommentCount() }}</span>
                             </div>
 
                             <p class="lead">

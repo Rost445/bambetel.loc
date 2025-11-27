@@ -134,8 +134,8 @@
                                                 <div class="d-flex no-block align-items-center">
                                                     <div>
                                                         <i class="mdi mdi-image font-20 text-muted"></i>
-                                                        <a class="text-secondary" href="#">
-                                                            <p class="font-16 m-b-5">Фото &nbsp; <i
+                                                        <a class="text-secondary" href="{{  url('panel/portfolio/list') }}">
+                                                            <p class="font-16 m-b-5">Фотогалерея &nbsp; <i
                                                                     class="ti-arrow-right"></i></p>
                                                         </a>
                                                     </div>

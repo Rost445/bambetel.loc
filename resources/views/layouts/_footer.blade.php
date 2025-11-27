@@ -5,22 +5,54 @@
 
             <div class="col-lg-4">
                 <div class="footer-content">
+
                     <a href="{{ url('/') }}" class="logo d-flex align-items-center mb-4">
-                        <span class="sitename">Bambetel</span>
+                        <div class="newsletter-form">
+                            <img src="{{ url('assets/images/logo-icon.png') }}" alt="" class="footer-logo">
+                        </div>
                     </a>
                     <p class="mb-4">Бамбетель | Вареники | Сніданки | Гофри <br>
-                        Справжня домашня кухня з любов’ю та турботою. 
-                       
+                        Справжня домашня кухня з любов’ю та турботою.
+
                     </p>
 
-                    <div class="newsletter-form">
-                          <img src="{{ url('assets/images/logo-icon.png') }}" alt=""> 
+  <div class="social-links d-none d-md-flex align-items-center mx-5">
+                        @auth
+                            <a class="dropdown-item d-flex align-items-center" href="{{ url('/panel/dashboard') }}"
+                                title="Адмін-панель">
+                                <i class="bi bi-person"></i>&nbsp;
+
+                            </a>
+
+                            <a class="dropdown-item d-flex align-items-center" href="{{ url('logout') }}" title="Вийти">
+                                <i class="bi bi-box-arrow-right"></i>&nbsp;
+
+                            </a>
+                        @else
+                            <a class="dropdown-item d-flex align-items-center" href="{{ url('login') }}" title="Логін">
+                                <i class="bi bi-box-arrow-in-left"></i>&nbsp;
+
+                            </a>
+
+                            <a class="dropdown-item d-flex align-items-center" href="{{ url('register') }}"
+                                title="Реєстрація">
+                                <i class="bi bi-person-plus"></i>&nbsp;
+
+                            </a>
+                        @endauth
+
+                        {{-- <a href="{{ route('login') }}" class="facebook"><i class="bi bi-box-arrow-in-left"></i>&nbsp;Логін</a>
+                <a href="{{ route('register') }}" class="facebook"><i class="bi bi-person-plus"></i>&nbsp;Реєстрація</a> --}}
+
+                        <a href="https://www.instagram.com/cafe_bambetel_/" class="instagram" title="instagram"><i
+                                class="bi bi-instagram"></i></a>
+
                     </div>
                 </div>
             </div>
-@php
-    $getMenuHeader = App\Models\MenuModel::getMenuMenu();
-@endphp
+            @php
+                $getMenuHeader = App\Models\MenuModel::getMenuMenu();
+            @endphp
 
             <div class="col-lg-2 col-6">
                 <div class="footer-links">
@@ -39,15 +71,15 @@
                 <div class="footer-links">
                     <h4>Меню</h4>
                     <ul>
-                         @foreach ($getMenuHeader as $MenuHeader)
-                    <li>
-                        <a href="{{ url($MenuHeader->slug) }}"
-                           class="{{ Request::segment(1) == $MenuHeader->slug ? 'active' : '' }}">
-                            <i class="bi bi-chevron-right"></i> {{ $MenuHeader->title }}
-                        </a>
-                    </li>
-                @endforeach
-                       
+                        @foreach ($getMenuHeader as $MenuHeader)
+                            <li>
+                                <a href="{{ url($MenuHeader->slug) }}"
+                                    class="{{ Request::segment(1) == $MenuHeader->slug ? 'active' : '' }}">
+                                    <i class="bi bi-chevron-right"></i> {{ $MenuHeader->title }}
+                                </a>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
@@ -82,11 +114,7 @@
                         </div>
                     </div>
 
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/cafe_bambetel_/"><i class="bi bi-instagram"></i></a><p class="pt-2">Instagram</p>
                   
-                      
-                    </div>
                 </div>
             </div>
 
@@ -106,7 +134,7 @@
                     <div class="footer-bottom-links">
                         <a href="#">Політика конфенденційності</a>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

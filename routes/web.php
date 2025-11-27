@@ -9,6 +9,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AssortController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PortfoliosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,6 +81,15 @@ Route::group(['middleware' => 'admin'], function () {
   Route::get('panel/assort/edit/{id}', [AssortController::class, 'edit_assort'])->name('panel.assort.edit');
   Route::post('panel/assort/edit/{id}', [AssortController::class, 'update_assort']);
   Route::get('panel/assort/delete/{id}', [AssortController::class, 'delete_assort']);
+
+
+  //Portofio
+  Route::get('panel/portfolio/list', [PortfoliosController::class, 'list'])->name('panel.portfolio.list');
+  Route::get('panel/portfolio/add', [PortfoliosController::class, 'add_portfolio'])->name('panel.portfolio.add');
+  Route::post('panel/portfolio/add', [PortfoliosController::class, 'insert_portfolio']);
+  Route::get('panel/portfolio/edit/{id}', [PortfoliosController::class, 'edit_portfolio'])->name('panel.portfolio.edit');
+  Route::post('panel/portfolio/edit/{id}', [PortfoliosController::class, 'update_portfolio']);
+  Route::get('panel/portfolio/delete/{id}', [PortfoliosController::class, 'delete_portfolio']);
 });
 
 //Adminuser
