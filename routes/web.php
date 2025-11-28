@@ -93,9 +93,12 @@ Route::group(['middleware' => 'admin'], function () {
   Route::get('panel/portfolio/delete/{id}', [PortfoliosController::class, 'delete_portfolio']);
 
   // Hero
-    Route::get('panel/hero-setting', [HomeController::class, 'hero_setting'])->name('panel.hero_setting');
-    Route::post('panel/hero-setting', [HomeController::class, 'update_hero_setting'])->name('panel.update_hero_setting');
-    
+  Route::get('panel/hero-setting', [HomeController::class, 'hero_setting'])->name('panel.hero_setting');
+  Route::post('panel/hero-setting', [HomeController::class, 'update_hero_setting'])->name('panel.update_hero_setting');
+
+  // Settings
+  Route::get('panel/setting', [HomeController::class, 'setting'])->name('panel.setting');
+  Route::post('panel/setting', [HomeController::class, 'update_setting'])->name('panel.update_setting');
 });
 
 //Adminuser

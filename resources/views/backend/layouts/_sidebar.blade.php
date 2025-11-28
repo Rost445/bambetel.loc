@@ -81,7 +81,17 @@
                           <span class="hide-menu">Налаштування Hero</span>
                       </a>
 
-                  panel/hero-setting
+                    </li>
+                    <li class="sidebar-item">
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('ppanel.setting') ? 'active' : '' }}"
+                          href="{{ route('panel.setting') }}">
+                          <i class="mdi mdi-message-settings-variant"></i>
+                          <span class="hide-menu">Налаштування сайту</span>
+                      </a>
+
+                    </li>
+
+                    
                 
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark" href="{{ route('logout') }}">
