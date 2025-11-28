@@ -41,7 +41,7 @@ class SettingModel extends Model
         if (!empty($this->logo) && file_exists(base_path('upload/setting/' . $this->logo))) {
             return url('upload/setting/' . $this->logo);
         }
-        return url('front/asset/img/logo.png'); // Шлях до стандартного логотипу
+        return url('front/assets/img/logo.png'); // Шлях до стандартного логотипу
     }
 
     public function getFavicon()
@@ -49,7 +49,7 @@ class SettingModel extends Model
         if (!empty($this->favicon) && file_exists(base_path('upload/setting/' . $this->favicon))) {
             return url('upload/setting/' . $this->favicon);
         }
-        return url('front/asset/img/favicon.png'); // Шлях до стандартного логотипу
+        return url('front/assets/img/favicon.png'); // Шлях до стандартного логотипу
     }
 }
 
