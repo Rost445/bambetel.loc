@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                             <label class="form-label">Номер телефону сайту span class="text-danger">*</span></label>
+                             <label class="form-label">Номер телефону сайту <span class="text-danger">*</span></label>
                              <div class="input-group">
                                  <input type="text" value="{{ old('phone', $getRecord->phone ?? '') }}" class="form-control"
                                      name="phone"> 
