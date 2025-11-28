@@ -12,9 +12,11 @@
         <section id="hero" class="hero section dark-background">
 
             <div class="hero-background">
+                 @if (!empty($getHero->getHeroVideo()))
                 <video autoplay="" muted="" loop="" playsinline="">
-                    <source src="{{ url('front/assets/img/restaurant/video-4.mp4') }}" type="video/mp4">
+                    <source src="{{ $getHero->getHeroVideo() }}" type="video/mp4">
                 </video>
+                 @endif
                 <div class="overlay"></div>
             </div>
 
@@ -22,15 +24,14 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="hero-text" data-aos="fade-up" data-aos-delay="100">
-                            <span class="tagline">Experience Culinary Excellence</span>
-                            <h1 class="hero-title">Savor Every Moment at Platia</h1>
-                            <p class="hero-description">Indulge in authentic Italian cuisine crafted with passion and
-                                the finest ingredients. From traditional recipes passed down through generations to
-                                innovative culinary creations, we offer an unforgettable dining experience.</p>
+                            <span class="tagline">Ласкаво просимо!</span>
+                            {{-- <span class="tagline">Ласкаво просимо до  <img class="img-fluid" src="{{ $getHero->getHeroImg() }}" alt=""></span> --}}
+                            <h1 class="hero-title">{{ $getHero->title }}</h1>
+                            <p class="hero-description">{{ $getHero->paragraph }}</p>
 
                             <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
-                                <a href="#" class="btn btn-primary">Book a Table</a>
-                                <a href="#" class="btn btn-outline">View Menu</a>
+                                <a href="{{ $getHero->button_start_link }}" class="btn btn-primary">{{ $getHero->button_start }}</a>
+                                <a href="{{ $getHero->button_end_link }}" class="btn btn-outline">{{ $getHero->button_end }}</a>
                             </div>
 
                             <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
@@ -109,17 +110,18 @@
                 </div>
             </div>
 
-            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
-                <div class="scroll-text">Scroll to Explore</div>
+           {{--  <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+                <div class="scroll-text">
+Перейдіть до Дослідження</div>
                 <div class="scroll-arrow">
                     <i class="bi bi-chevron-down"></i>
                 </div>
-            </div>
+            </div> --}}
 
         </section><!-- /Hero Section -->
 
         <!-- About Section -->
-        <section id="about" class="about section">
+       {{--  <section id="about" class="about section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -191,10 +193,10 @@
 
             </div>
 
-        </section><!-- /About Section -->
+        </section> --}}<!-- /About Section -->
 
         <!-- Menu Section -->
-        <section id="menu" class="menu section">
+        {{-- <section id="menu" class="menu section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -494,10 +496,10 @@
 
             </div>
 
-        </section><!-- /Menu Section -->
+        </section> --}}<!-- /Menu Section -->
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section light-background">
+        {{-- <section id="testimonials" class="testimonials section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -694,10 +696,10 @@
 
             </div>
 
-        </section><!-- /Testimonials Section -->
+        </section> --}}<!-- /Testimonials Section -->
 
         <!-- Chefs Section -->
-        <section id="chefs" class="chefs section">
+       {{--  <section id="chefs" class="chefs section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -855,10 +857,10 @@
 
             </div>
 
-        </section><!-- /Chefs Section -->
+        </section> --}}<!-- /Chefs Section -->
 
         <!-- Book A Table Section -->
-        <section id="book-a-table" class="book-a-table section light-background">
+        {{-- <section id="book-a-table" class="book-a-table section light-background">
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -1030,10 +1032,10 @@
 
             </div>
 
-        </section><!-- /Book A Table Section -->
+        </section> --}}<!-- /Book A Table Section -->
 
         <!-- Location Section -->
-        <section id="location" class="location section">
+        {{-- <section id="location" class="location section">
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -1108,10 +1110,10 @@
 
             </div>
 
-        </section><!-- /Location Section -->
+        </section> --}}<!-- /Location Section -->
 
         <!-- Events Section -->
-        <section id="events" class="events section light-background">
+        {{-- <section id="events" class="events section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -1325,10 +1327,10 @@
 
             </div>
 
-        </section><!-- /Events Section -->
+        </section> --}}<!-- /Events Section -->
 
         <!-- Gallery Section -->
-        <section id="gallery" class="gallery section">
+        {{-- <section id="gallery" class="gallery section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -1474,10 +1476,10 @@
 
             </div>
 
-        </section><!-- /Gallery Section -->
+        </section> --}}<!-- /Gallery Section -->
 
         <!-- Contact Section -->
-        <section id="contact" class="contact section light-background">
+        {{-- <section id="contact" class="contact section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -1606,7 +1608,7 @@
 
             </div>
 
-        </section><!-- /Contact Section -->
+        </section> --}}<!-- /Contact Section -->
 
     </main>
 

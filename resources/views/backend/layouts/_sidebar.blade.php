@@ -39,7 +39,7 @@
                        <li class="sidebar-item">
                           <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.portfolio.*') ? 'active' : '' }}"
                               href="{{ route('panel.portfolio.list') }}">
-                              <i class="mdi mdi-image"></i>
+                              <i class="mdi mdi-image-multiple"></i>
                               <span class="hide-menu">Фотогалерея</span>
                           </a>
                       </li>
@@ -73,6 +73,15 @@
                           <span>Налаштування акаунту</span>
                       </a>
                   </li>
+                  
+                   <li class="sidebar-item">
+                      <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.hero-setting') ? 'active' : '' }}"
+                          href="{{ route('panel.hero_setting') }}">
+                          <i class="mdi mdi-image-area"></i>
+                          <span class="hide-menu">Налаштування Hero</span>
+                      </a>
+
+                  panel/hero-setting
                 
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark" href="{{ route('logout') }}">

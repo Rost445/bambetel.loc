@@ -6,16 +6,16 @@
     <div class="page-breadcrumb mx-2">
         <div class="row">
             <div class="col-5 align-self-center">
-               <h4 class="page-title">
-    {{ auth()->user()->is_admin ? $header_title : 'Панель користувача' }}
-</h4>
+                <h4 class="page-title">
+                    {{ auth()->user()->is_admin ? $header_title : 'Панель користувача' }}
+                </h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item ">
-                          {{ auth()->user()->is_admin ? $header_title : 'Панель користувача' }}
+                                {{ auth()->user()->is_admin ? $header_title : 'Панель користувача' }}
                             </li>
 
                         </ol>
@@ -133,8 +133,8 @@
                                             <div class="col-md-12">
                                                 <div class="d-flex no-block align-items-center">
                                                     <div>
-                                                        <i class="mdi mdi-image font-20 text-muted"></i>
-                                                        <a class="text-secondary" href="{{  url('panel/portfolio/list') }}">
+                                                        <i class="mdi mdi-image-multiple font-20 text-muted"></i>
+                                                        <a class="text-secondary" href="{{ url('panel/portfolio/list') }}">
                                                             <p class="font-16 m-b-5">Фотогалерея &nbsp; <i
                                                                     class="ti-arrow-right"></i></p>
                                                         </a>
@@ -288,15 +288,37 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Column -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="d-flex no-block align-items-center">
+                                                <div>
+                                                    <i class="mdi mdi-image-area font-20 text-muted"></i>
+                                                    <a class="text-secondary" href="{{ url('panel/hero-setting') }}">
+                                                        <p class="font-16 m-b-5">Налаштування Hero &nbsp; <i
+                                                                class="ti-arrow-right"></i></p>
+                                                    </a>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <h1 class="font-light text-right">15</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar"
+                                                    style="width: 70%; height: 6px; background-color: #e37ebc;"
+                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-
-    </div><!--.container-fluid-->
-@endsection
-@section('script')
-@endsection
+                        </div><!--.container-fluid-->
+                    @endsection
+                    @section('script')
+                    @endsection
