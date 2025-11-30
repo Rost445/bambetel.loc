@@ -30,6 +30,9 @@ Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('reservation', [HomeController::class, 'reservation'])->name('reservation');
 Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 
+// POST для обробки форми
+Route::post('/contact', [HomeController::class, 'submit_contact'])->name('submit.contact');
+
 
 //Auth, Login, Forgot And Reset Password
 Route::get('login', [AuthController::class, 'login'])->name('login');

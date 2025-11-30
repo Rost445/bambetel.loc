@@ -1,150 +1,195 @@
 @extends('layouts.app')
 @section('style')
-   
 @endsection
 
 @section('content')
+    @php
+        $getSettingApp = App\Models\SettingModel::getSingle();
+    @endphp
     <main class="main">
         <div class="divider"></div>
 
- <!-- Contact Section -->
-    <section id="contact" class="contact section">
-<div class="container">
-    <nav aria-label="breadcrumb">
-                <ol class="breadcrumb p-3 rounded-3">
-                    <li class="breadcrumb-item">
-                        <a class="link-body-emphasis" href="#">
-                           <i class="bi bi-house-door-fill"></i>
-                            <span class="visually-hidden">Головна</span>
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Library</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
-                </ol>
-            </nav>
-</div>
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Contact</span>
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb p-3 rounded-3">
+                        <li class="breadcrumb-item">
+                            <a class="link-body-emphasis" href="#">
+                                <i class="bi bi-house-door-fill"></i>
+                                <span class="visually-hidden">Головна</span>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            @if (!empty($title))
+                                {{ $title }}
+                            @else
+                                Контакти
+                            @endif
+                        </li>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <!-- Contact Info Boxes -->
-        <div class="row gy-4 mb-5">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="contact-info-box">
-              <div class="icon-box">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <div class="info-content">
-                <h4>Our Address</h4>
-                <p>1842 Maple Avenue, Portland, Oregon 97204</p>
-              </div>
+                    </ol>
+                </nav>
             </div>
-          </div>
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <span class="description-title">
+                    @if (!empty($title))
+                        {{ $title }}
+                    @else
+                        Контакти
+                    @endif
+                </span>
+                <h2>
+                    @if (!empty($title))
+                        {{ $title }}
+                    @else
+                        Контакти
+                    @endif
+                </h2>
+                <p>Напишіть нам! Ми на зв'язку.</p>
+            </div><!-- End Section Title -->
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="contact-info-box">
-              <div class="icon-box">
-                <i class="bi bi-envelope"></i>
-              </div>
-              <div class="info-content">
-                <h4>Email Address</h4>
-                <p>info@example.com</p>
-                <p>contact@example.com</p>
-              </div>
-            </div>
-          </div>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="contact-info-box">
-              <div class="icon-box">
-                <i class="bi bi-headset"></i>
-              </div>
-              <div class="info-content">
-                <h4>Hours of Operation</h4>
-                <p>Sunday-Fri: 9 AM - 6 PM</p>
-                <p>Saturday: 9 AM - 4 PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Google Maps (Full Width) -->
-      <div class="map-section" data-aos="fade-up" data-aos-delay="200">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-
-      <!-- Contact Form Section (Overlapping) -->
-      <div class="container form-container-overlap">
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-10">
-            <div class="contact-form-wrapper">
-              <h2 class="text-center mb-4">Get in Touch</h2>
-
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-person"></i>
-                        <input type="text" class="form-control" name="name" placeholder="First Name" required="">
-                      </div>
+                <!-- Contact Info Boxes -->
+                <div class="row gy-4 mb-5">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-info-box">
+                            <div class="icon-box">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Наша адреса</h4>
+                                <p>{{ $getSettingApp->address ??
+                                    'вул. Леся Курбаса, 2
+                                                                Городенка 78100' }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-envelope"></i>
-                        <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
-                      </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-info-box">
+                            <div class="icon-box">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Електрона пошта</h4>
+                                <p>{{ $getSettingApp->email ?? 'email@example.com' }}</p>
+
+                            </div>
+                        </div>
                     </div>
-                  </div>
 
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-text-left"></i>
-                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                      </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-info-box">
+                            <div class="icon-box">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Графік роботи</h4>
+                                <p>{{ $getSettingApp->worktime ?? 'Пн–Сб: 09:00–18:00' }}</p>
+
+                            </div>
+                        </div>
                     </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="form-group">
-                      <div class="input-with-icon">
-                        <i class="bi bi-chat-dots message-icon"></i>
-                        <textarea class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required=""></textarea>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
-
-                  <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary btn-submit">SEND MESSAGE</button>
-                  </div>
                 </div>
-              </form>
+
             </div>
-          </div>
-        </div>
 
-      </div>
+            <!-- Google Maps (Full Width) -->
+            <div class="map-section" data-aos="fade-up" data-aos-delay="200">
+                @if (!empty($getSettingApp->google_map_link))
+                    <iframe src="{{ $getSettingApp->google_map_link }}" width="100%" height="500" style="border:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                @endif
+            </div>
 
-    </section><!-- /Contact Section -->
+            <!-- Contact Form Section (Overlapping) -->
+            <div class="container form-container-overlap">
+                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-10">
+                        <div class="contact-form-wrapper">
+                            <h2 class="text-center mb-4">Зв'яжіться з нами</h2>
+
+                            <form action="{{ route('submit.contact') }}" method="post">
+                                     @csrf
+                                      <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <i class="bi bi-person"></i>
+                                                <input type="text" class="form-control" name="name" placeholder="Ім'я"
+                                                    required="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <i class="bi bi-envelope"></i>
+                                                <input type="email" class="form-control" name="email"
+                                                    placeholder="Адреса електронної пошти" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                               <i class="bi bi-telephone-fill"></i>
+                                                <input type="tel" name="phone" id="phone" class="form-control"
+                                                    required placeholder="+380(XX)XXX-XX-XX" maxlength="18"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <i class="bi bi-text-left"></i>
+                                                <input type="text" class="form-control" name="subject" placeholder="Тема"
+                                                    required="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <i class="bi bi-chat-dots message-icon"></i>
+                                                <textarea class="form-control" name="message" placeholder="Написати повідомлення..." style="height: 180px"
+                                                    required=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   
+                                    
+                                      <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="verification" class="pb-2 pt-2">{{ $first_number }} +
+                                            {{ $second_number }} = ?</label>
+                                        <input type="text" name="verification" class="form-control" id="verification"
+                                            required placeholder="Сума перевірки">
+                                    </div>
+                                </div>
+             @include('layouts._message')
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-submit"> <i
+                                                class="bi bi-send"></i> &nbsp;ВІДПРАВИТИ</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section><!-- /Contact Section -->
 
 
 

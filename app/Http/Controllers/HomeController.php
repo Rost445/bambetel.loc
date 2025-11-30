@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\AssortModel;
 use App\Models\MenuModel;
 use App\Models\PageModel;
+use App\Models\User;
 use App\Models\AssortCommentModel;
 use App\Models\AssortCommentReplyModel;
 use App\Models\PortfolioModel;
@@ -14,6 +15,10 @@ use Illuminate\Http\Request;
 use App\Models\HeroSettingModel;
 use App\Models\SettingModel;
 use Illuminate\Support\Str;
+use App\Models\ContactUsModel;
+use App\Mail\ContactUsMail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -114,8 +119,8 @@ class HomeController extends Controller
       $data['header_title'] = $getMenu->name;
       $data['getRecord'] = AssortModel::getRecordFrontMenu($getMenu->id) ?? collect([]);
       $data['getMenu'] = MenuModel::getMenu()
-     ->where('is_menu', 0);
-    
+        ->where('is_menu', 0);
+
 
       return view('assort', $data);
     } else {
@@ -166,13 +171,65 @@ class HomeController extends Controller
 
   public function contacts()
   {
+    $first_number = mt_rand(0, 9);
+    $second_number = mt_rand(0, 9);
+    $data['first_number'] = $first_number;
+    $data['second_number'] = $second_number;
+
+    Session::put('total_sum', $first_number + $second_number);
+
+    $data['header_title'] = "Зв'яжіться з нами";
+
     $getPage =  PageModel::getSlug('contacts');
     $data['title'] = !empty($getPage) ? $getPage->title : '';
     $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
     $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
     $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
     $data['description'] = !empty($getPage) ? $getPage->description : '';
-    return view('contacts');
+    return view('contacts',$data);
+  }
+
+  public function submit_contact(Request $request)
+  {
+    $request->validate([
+      'name' => 'required|string|max:255',
+      'email' => 'required|email',
+      'phone' => 'required|string',
+      'subject' => 'required|string',
+      'message' => 'required|string',
+      'verification' => 'required|integer',
+    ]);
+
+    if (Session::has('total_sum') && $request->verification == Session::get('total_sum')) {
+      $save = new ContactUsModel;
+      if (Auth::check()) {
+        $save->user_id = Auth::user()->id;
+      }
+      $save->name = trim($request->name);
+      $save->email  = trim($request->email);
+      $save->phone  = trim($request->phone);
+      $save->subject = trim($request->subject);
+      $save->message = trim($request->message);
+      $save->save();
+
+      $admin = User::where('is_admin', 1)->first();
+
+      if ($admin && $admin->email) {
+        try {
+          Mail::to($admin->email)->send(new ContactUsMail($save));
+        } catch (\Exception $e) {
+          return back()->with('error', 'Помилка відправки email: ' . $e->getMessage());
+        }
+      } else {
+        return back()->with('error', 'Адміністратор не знайдений або не має email.');
+      }
+
+      //$this->sendToTelegram($save);
+
+      return redirect()->back()->with('success', 'Повідомлення успішно відправлено!');
+    } else {
+      return redirect()->back()->with('error', 'Невірна сума перевірки!');
+    }
   }
 
   public function reservation()
