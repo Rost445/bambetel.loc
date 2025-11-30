@@ -113,6 +113,9 @@ class HomeController extends Controller
       $data['meta_keywords'] =    $getMenu->meta_keywords;
       $data['header_title'] = $getMenu->name;
       $data['getRecord'] = AssortModel::getRecordFrontMenu($getMenu->id) ?? collect([]);
+      $data['getMenu'] = MenuModel::getMenu()
+     ->where('is_menu', 0);
+       $data['isCategoryPage'] = true;
 
       return view('assort', $data);
     } else {

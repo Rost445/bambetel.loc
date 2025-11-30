@@ -36,14 +36,16 @@
             <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
                 <!-- Filters -->
-                <div class="menu-filters isotope-filters mb-5" data-aos="fade-up" data-aos-delay="200">
-                    <ul>
-                        <li data-filter="*" class="filter-active">Всі блюда</li>
-                        @foreach ($getMenu as $menu)
-                            <li data-filter=".filter-{{ $menu->slug }}">{{ $menu->name }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                @if(!isset($getMenu)) 
+<div class="menu-filters isotope-filters mb-5" data-aos="fade-up" data-aos-delay="200">
+    <ul>
+        <li data-filter="*" class="filter-active">Всі блюда</li>
+        @foreach ($getMenuList as $menu)
+            <li data-filter=".filter-{{ $menu->slug }}">{{ $menu->name }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
                 <!-- Menu Items -->
                 <div class="menu-grid isotope-container row gy-5" data-aos="fade-up" data-aos-delay="300">
