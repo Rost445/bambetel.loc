@@ -5,18 +5,23 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>{{ !empty($meta_title) ? $meta_title : '' }}</title>
-    
-     @if (!empty($meta_keywords))
-         <meta name="keywords" content="{{ $meta_keywords }}">
-        @endif
-     @if (!empty($meta_description))
-         <meta name="description" content="{{ $meta_description }}">
-     @endif
-    
+
+    @if (!empty($meta_keywords))
+        <meta name="keywords" content="{{ $meta_keywords }}">
+    @endif
+    @if (!empty($meta_description))
+        <meta name="description" content="{{ $meta_description }}">
+    @endif
+    @php
+        $getSettingApp = App\Models\SettingModel::getSingle();
+    @endphp
+    @php
+        $getHeroDesc = App\Models\HeroSettingModel::getSingle();
+    @endphp
 
     <!-- Favicons -->
-    <link href="{{ url('front/assets/img/favicon.png') }}" rel="icon">
-    <link href="front/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ $getSettingApp->getFavicon() }}" rel="icon">
+    <link href="{{ $getSettingApp->getFavicon() }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">

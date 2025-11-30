@@ -49,17 +49,11 @@
                <div class="container" data-aos="fade-up" data-aos-delay="100">
 
                    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-                       <ul class="restaurant-gallery-filters isotope-filters mb-4 justify-content-center d-flex gap-2"
-                           data-aos="fade-up" data-aos-delay="100">
-                           <li data-filter="*" class="filter-active">Всі</li>
-                            @foreach ($getMenu as $menu)
-                            <li data-filter=".filter-{{ $menu->slug}}">{{ $menu->name }}</li>
-                        @endforeach
-                       </ul>
+                     
 
                        <div class="row g-3 isotope-container" data-aos="fade-up" data-aos-delay="200">
                             @foreach ($getPortfolio as $portfolio)
-                           <div class="col-lg-4 col-md-6 isotope-item filter-{{$menu->slug }}">
+                           <div class="col-lg-4 col-md-6 isotope-item filter-">
                                <figure class="gallery-card">
                                    <a href="{{ $portfolio->getImage() }}" class="glightbox"
                                        data-gallery="restaurant-gallery">
@@ -69,10 +63,7 @@
                                    <figcaption class="caption">
                                        <span class="caption-title">{!! $portfolio->title !!}</span>
                                        <span>{!! $portfolio->description !!}</span>
-                                        @if (!empty($portfolio->button_link) && !empty($portfolio->button_name))
-                                        <a href="{{ $portfolio->button_link }}" title="More Details" class="details-link">
-                                            {!! $portfolio->button_name !!}</i></a>
-                                    @endif
+                                       
                                    </figcaption>
                                    
                                </figure>

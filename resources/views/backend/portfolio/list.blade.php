@@ -56,7 +56,7 @@
                                     <th>#</th>
                                         <th>Назва </th>
                                         <th>Опис</th>
-                                        <th>Розділ меню</th>
+                                       {{--  <th>Розділ меню</th> --}}
                                         <th>Зображення </th>
                                         <th>Назва кнопки </th>
                                         <th>Посилання кнопки </th>
@@ -72,7 +72,7 @@
                                             <td>{{ $value->id }}</td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->description }}</td>
-                                            <td>{{ $value->menu ? $value->menu->name : 'Не задано' }}</td>
+                                           {{--  <td>{{ $value->menu ? $value->menu->name : 'Не задано' }}</td> --}}
                                             <td>
                                                 @if (!empty($value->getImage()))
                                                     <img src="{{ $value->getImage() }}" alt="" style="width: 100px" class="img-thumbnail">

@@ -8,12 +8,12 @@
 
                     <a href="{{ url('/') }}" class="logo d-flex align-items-center mb-4">
                         <div class="newsletter-form">
-                            <img src="{{ url('assets/images/logo-icon.png') }}" alt="" class="footer-logo">
+                            <img src="{{ $getSettingApp->getLogo() }}" alt="" class="footer-logo">
                         </div>
                     </a>
-                    <p class="mb-4">Бамбетель | Вареники | Сніданки | Гофри <br>
-                        Справжня домашня кухня з любов’ю та турботою.
+                    <p class="mb-4">
 
+{{ $getHeroDesc->paragraph }}
                     </p>
 
   <div class="social-links d-none d-md-flex align-items-center mx-5">
@@ -43,9 +43,8 @@
 
                         {{-- <a href="{{ route('login') }}" class="facebook"><i class="bi bi-box-arrow-in-left"></i>&nbsp;Логін</a>
                 <a href="{{ route('register') }}" class="facebook"><i class="bi bi-person-plus"></i>&nbsp;Реєстрація</a> --}}
-
-                        <a href="https://www.instagram.com/cafe_bambetel_/" class="instagram" title="instagram"><i
-                                class="bi bi-instagram"></i></a>
+<a href="{{ $getSettingApp->instagram_link ?? 'https://www.instagram.com/cafe_bambetel_/' }}" class="instagram" title="instagram"><i class="bi bi-instagram"></i></a>
+                      
 
                     </div>
                 </div>
@@ -92,7 +91,8 @@
                             <i class="bi bi-geo-alt"></i>
                         </div>
                         <div class="contact-info">
-                            <p>вул. Леся Курбаса, 2<br>Городенка 78100</p>
+                            <p>{{ $getSettingApp->address ?? 'вул. Леся Курбаса, 2
+Городенка 78100' }}</p>
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
                             <i class="bi bi-telephone"></i>
                         </div>
                         <div class="contact-info">
-                            <p> +380 (97) 882 05 90</p>
+                            <p>{{ $getSettingApp->phone ?? '+380 (97) 882 05 90' }}</p>
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@
                             <i class="bi bi-envelope"></i>
                         </div>
                         <div class="contact-info">
-                            <p>contact@example.com</p>
+                            <p>{{ $getSettingApp->email ?? 'reservation@bambetel.ua' }}</p>
                         </div>
                     </div>
 

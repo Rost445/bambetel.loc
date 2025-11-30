@@ -54,9 +54,9 @@
                                  id="title">
                              <div class="text-danger">{{ $errors->first('name') }}</div>
                          </div>
-                         <div class="form-group">
+                       {{--   <div class="form-group">
                              <label for="   menu_id" class="form-label"><b>Розділ меню</b></label><span class="text-danger">
-                                 *</span>
+                                 //*</span>
                              <select class="form-control" name="menu_id" id="menu_id">
                                  @foreach ($menu as $item)
                                      <option value="{{ $item->id }}"
@@ -65,7 +65,7 @@
                                      </option>
                                  @endforeach
                              </select>
-                         </div>
+                         </div> --}}
                          
                          <div class="form-group">
                              <label><b>Завантаження власного файлу</b></label>

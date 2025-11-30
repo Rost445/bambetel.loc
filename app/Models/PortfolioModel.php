@@ -42,10 +42,10 @@ class PortfolioModel extends Model
         }
     }
 
-    public function menu()
-{
-    return $this->belongsTo(MenuModel::class, 'menu_id'); // 'category_id' - це поле у таблиці portfolios
-}
+//     public function menu()
+// {
+//     return $this->belongsTo(MenuModel::class, 'menu_id'); // 'category_id' - це поле у таблиці portfolios
+// }
 public static function getActivePortfolioCount()
 {
     return self::where('is_delete', 0)->count();

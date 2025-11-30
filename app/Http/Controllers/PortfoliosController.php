@@ -22,7 +22,7 @@ class PortfoliosController extends Controller
     {
         $data['active_class'] = 'portfolio';
         $data['header_title'] = 'Додати  фото';
-        $data['menu'] = MenuModel::getMenu();
+       // $data['menu'] = MenuModel::getMenu();
         return view('backend.portfolio.add', $data);
     }
     public function insert_portfolio(Request $request)
@@ -42,7 +42,7 @@ class PortfoliosController extends Controller
     $portfolio->description = trim($request->description);
     $portfolio->button_name = trim($request->button_name);
     $portfolio->button_link = trim($request->button_link);
-    $portfolio->menu_id = $request->menu_id;
+    //$portfolio->menu_id = $request->menu_id;
 
     // ⬇ ДОДАНО ПЕРЕВІРКУ
     if ($request->hasFile('image_name')) {
@@ -67,7 +67,7 @@ class PortfoliosController extends Controller
     {
         $data['active_class'] = 'portfolio';
         $data['getRecord'] = PortfolioModel::getSingle($id);
-        $data['menu'] = MenuModel::getMenu();
+       // $data['menu'] = MenuModel::getMenu();
         $data['header_title'] = 'Редагувати зображення у фотогалереї';
         return view('backend.portfolio.edit', $data);
     }
@@ -90,7 +90,7 @@ class PortfoliosController extends Controller
         $portfolio->description = trim($request->description);
         $portfolio->button_name = trim($request->button_name);
         $portfolio->button_link = trim($request->button_link);
-        $portfolio->menu_id = $request->menu_id; // Оновлення категорії
+        //$portfolio->menu_id = $request->menu_id; // Оновлення категорії
 
         if (!empty($request->file('image_name'))) {
             $file = $request->file('image_name');

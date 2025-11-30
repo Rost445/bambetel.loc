@@ -1,22 +1,19 @@
-
 @extends('layouts.app')
 @section('style')
 @endsection
 
 @section('content')
-
-
     <main class="main">
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
 
             <div class="hero-background">
-                 @if (!empty($getHero->getHeroVideo()))
-                <video autoplay="" muted="" loop="" playsinline="">
-                    <source src="{{ $getHero->getHeroVideo() }}" type="video/mp4">
-                </video>
-                 @endif
+                @if (!empty($getHero->getHeroVideo()))
+                    <video autoplay="" muted="" loop="" playsinline="">
+                        <source src="{{ $getHero->getHeroVideo() }}" type="video/mp4">
+                    </video>
+                @endif
                 <div class="overlay"></div>
             </div>
 
@@ -30,30 +27,34 @@
                             <p class="hero-description">{{ $getHero->paragraph }}</p>
 
                             <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
-                                <a href="{{ $getHero->button_start_link }}" class="btn btn-primary">{{ $getHero->button_start }}</a>
-                                <a href="{{ $getHero->button_end_link }}" class="btn btn-outline">{{ $getHero->button_end }}</a>
+                                <a href="{{ $getHero->button_start_link }}"
+                                    class="btn btn-primary">{{ $getHero->button_start }}</a>
+                                <a href="{{ $getHero->button_end_link }}"
+                                    class="btn btn-outline">{{ $getHero->button_end }}</a>
                             </div>
-
+                           @php
+                $getSettings = App\Models\SettingModel::getSingle();
+            @endphp
                             <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
                                 <div class="feature-item">
                                     <i class="bi bi-clock"></i>
                                     <div class="feature-text">
-                                        <span class="label">Open Daily</span>
-                                        <span class="value">11:00 AM - 11:00 PM</span>
+                                        <span class="label">Графік</span>
+                                        <span class="value">{{ $getSettings->worktime }}</span>
                                     </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="bi bi-geo-alt"></i>
                                     <div class="feature-text">
-                                        <span class="label">Location</span>
-                                        <span class="value">Downtown Chicago</span>
+                                        <span class="label">Адреса</span>
+                                        <span class="value">{{ $getSettings->address }}</span>
                                     </div>
                                 </div>
                                 <div class="feature-item">
                                     <i class="bi bi-telephone"></i>
                                     <div class="feature-text">
-                                        <span class="label">Reservations</span>
-                                        <span class="value">+1 (312) 555-0198</span>
+                                        <span class="label">Бронювання</span>
+                                        <span class="value">{{ $getSettings->phone }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -66,16 +67,16 @@
                             <form action="forms/book-a-table.php" method="post" class="php-email-form">
                                 <div class="row gy-3">
                                     <div class="col-md-6">
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Your Name" required="">
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                            required="">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" name="email" class="form-control"
-                                            placeholder="Your Email" required="">
+                                        <input type="email" name="email" class="form-control" placeholder="Your Email"
+                                            required="">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="tel" name="phone" class="form-control"
-                                            placeholder="Your Phone" required="">
+                                        <input type="tel" name="phone" class="form-control" placeholder="Your Phone"
+                                            required="">
                                     </div>
                                     <div class="col-md-6">
                                         <select name="people" class="form-control" required="">
@@ -110,7 +111,7 @@
                 </div>
             </div>
 
-           {{--  <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+            {{--  <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
                 <div class="scroll-text">
 Перейдіть до Дослідження</div>
                 <div class="scroll-arrow">
@@ -121,7 +122,7 @@
         </section><!-- /Hero Section -->
 
         <!-- About Section -->
-       {{--  <section id="about" class="about section">
+        {{--  <section id="about" class="about section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -699,7 +700,7 @@
         </section> --}}<!-- /Testimonials Section -->
 
         <!-- Chefs Section -->
-       {{--  <section id="chefs" class="chefs section">
+        {{--  <section id="chefs" class="chefs section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -1611,10 +1612,6 @@
         </section> --}}<!-- /Contact Section -->
 
     </main>
-
 @endsection
 @section('script')
 @endsection
-
-
-    
