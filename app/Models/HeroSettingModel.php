@@ -30,7 +30,7 @@ class HeroSettingModel extends Model
         if (!empty($this->video) && file_exists('upload/video/' . $this->video)) {
             return url('upload/video/' . $this->video);
         }
-        //return null; // Відео за замовчуванням не буде
+       // return null;  Відео за замовчуванням не буде
         return url('upload/video/video-4.mp4');
     }
 }

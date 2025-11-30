@@ -115,7 +115,7 @@ class HomeController extends Controller
       $data['getRecord'] = AssortModel::getRecordFrontMenu($getMenu->id) ?? collect([]);
       $data['getMenu'] = MenuModel::getMenu()
      ->where('is_menu', 0);
-       $data['isCategoryPage'] = true;
+    
 
       return view('assort', $data);
     } else {

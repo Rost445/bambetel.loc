@@ -318,7 +318,12 @@
                             </div>
 
 
-                        </div><!--.container-fluid-->
-                    @endsection
-                    @section('script')
-                    @endsection
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('script')
+@endsection

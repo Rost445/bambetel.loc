@@ -59,7 +59,7 @@
 
                        <div class="row g-3 isotope-container" data-aos="fade-up" data-aos-delay="200">
                             @foreach ($getPortfolio as $portfolio)
-                           <div class="col-lg-4 col-md-6 isotope-item filter-{{ $portfolio->menu->slug }}">
+                           <div class="col-lg-4 col-md-6 isotope-item filter-{{$menu->slug }}">
                                <figure class="gallery-card">
                                    <a href="{{ $portfolio->getImage() }}" class="glightbox"
                                        data-gallery="restaurant-gallery">
