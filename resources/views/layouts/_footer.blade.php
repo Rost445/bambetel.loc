@@ -126,8 +126,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="copyright">
-                        <p>© <span>Copyright</span> <strong class="px-1 sitename">Bambetel</strong> <span>All Rights
-                                Reserved</span></p>
+                       <p>{{ date('Y') }} | &copy; <span>Авторське право</span> <strong class="px-1 sitename"><a
+                    href="{{ url('') }}">{{ env('APP_NAME') }}</a></strong> <span>Усі права захищено.</span></p>
+
                     </div>
                 </div>
                 <div class="col-lg-6">
