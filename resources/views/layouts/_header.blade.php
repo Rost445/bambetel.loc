@@ -4,7 +4,7 @@
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
 
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span> +380 (97) 882 05 90</span></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span> {{ $getSettingApp->phone ?? '+380 (97) 882 05 90' }}</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
                 @auth
@@ -32,8 +32,7 @@
                 {{-- <a href="{{ route('login') }}" class="facebook"><i class="bi bi-box-arrow-in-left"></i>&nbsp;Логін</a>
                 <a href="{{ route('register') }}" class="facebook"><i class="bi bi-person-plus"></i>&nbsp;Реєстрація</a> --}}
                
-                <a href="https://www.instagram.com/cafe_bambetel_/" class="instagram"><i
-                        class="bi bi-instagram"></i></a>
+             <a href="{{ $getSettingApp->instagram_link ?? 'https://www.instagram.com/cafe_bambetel_/' }}" class="instagram" title="instagram"><i class="bi bi-instagram"></i></a>
 
             </div>
         </div>
@@ -44,7 +43,7 @@
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a href="{{ url('') }}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ url('assets/images/logo-icon.png') }}" alt="">
+                <img src="{{ $getSettingApp->getLogo() }}" alt="">
                 {{-- <h1 class="sitename">Platia</h1> --}}
             </a>
             @php

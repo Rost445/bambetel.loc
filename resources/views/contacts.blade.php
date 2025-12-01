@@ -47,7 +47,10 @@
                         Контакти
                     @endif
                 </h2>
-                <p>Напишіть нам! Ми на зв'язку.</p>
+             
+                <div class="my-2">
+                     @include('layouts._message')
+                </div>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -176,7 +179,7 @@
                                             required placeholder="Сума перевірки">
                                     </div>
                                 </div>
-             @include('layouts._message')
+            
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-primary btn-submit"> <i
                                                 class="bi bi-send"></i> &nbsp;ВІДПРАВИТИ</button>
