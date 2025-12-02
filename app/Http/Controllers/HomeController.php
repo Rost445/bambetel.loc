@@ -110,6 +110,7 @@ class HomeController extends Controller
 
   public function assortdetail($slug)
   {
+
     $getMenu = MenuModel::getSlug($slug);
     if (!empty($getMenu)) {
       $data['title'] =       $getMenu->name;
@@ -122,6 +123,7 @@ class HomeController extends Controller
         ->where('is_menu', 0);
 
 
+
       return view('assort', $data);
     } else {
       $getRecord = AssortModel::getRecordSlug($slug);
@@ -130,6 +132,11 @@ class HomeController extends Controller
         $data['getMenu'] = MenuModel::getMenu();
         $data['getRecentPost'] = AssortModel::getRecentPost();
         $data['getRelatedPost'] = AssortModel::getRelatedPost($getRecord->menu_id, $getRecord->id);
+        $data['getSettingApp'] = SettingModel::getSingle();
+        // Розбиваємо worktime на дні та час
+        $parts = explode(':', $data['getSettingApp']->worktime, 2);
+        $data['workDays'] = trim($parts[0]); // Пн–Сб
+        $data['workTime'] = trim($parts[1] ?? ''); // 09:00–18:00 або Зачинено
         $data['getRecord'] = $getRecord;
         $data['meta_title'] =       $getRecord->title;
         $data['meta_description'] = $getRecord->meta_description;
@@ -186,7 +193,7 @@ class HomeController extends Controller
     $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
     $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
     $data['description'] = !empty($getPage) ? $getPage->description : '';
-    return view('contacts',$data);
+    return view('contacts', $data);
   }
 
   public function submit_contact(Request $request)
