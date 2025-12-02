@@ -19,6 +19,7 @@ use App\Models\ContactUsModel;
 use App\Mail\ContactUsMail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Reservation;
 
 class HomeController extends Controller
 {
@@ -339,4 +340,45 @@ class HomeController extends Controller
 
     return redirect()->back()->with('success', "Налаштування сторінки збережено!");
   }
+
+  public function sendUniversalForm(Request $request)
+{
+    // Валідація
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:30',
+        'email' => 'nullable|email|max:255',
+        'captcha' => 'required|numeric'
+    ]);
+
+    // Перевірка капчі
+    if ($request->captcha != session('captcha_sum')) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Невірна сума перевірки'
+        ]);
+    }
+
+    // Збереження в базу
+    $reservation = Reservation::create([
+        'name'  => $request->name,
+        'phone' => $request->phone,
+        'email' => $request->email,
+        'page'  => url()->previous(),
+    ]);
+
+    // Відправка на пошту
+    Mail::raw("
+        Нова заявка:
+        Ім'я: {$reservation->name}
+        Телефон: {$reservation->phone}
+        Email: {$reservation->email}
+        Сторінка: {$reservation->page}
+    ", function ($msg) {
+        $msg->to('hello@example.com')
+            ->subject('Нова заявка з форми');
+    });
+
+     return redirect()->back()->with('success', 'Повідомлення успішно відправлено!');
+}
 }

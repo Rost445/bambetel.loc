@@ -10,6 +10,7 @@ use App\Http\Controllers\AssortController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PortfoliosController;
+use App\Http\Controllers\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,7 @@ Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio')
 
 // POST для обробки форми
 Route::post('/contact', [HomeController::class, 'submit_contact'])->name('submit.contact');
+Route::post('/sendUniversalForm', [HomeController::class, 'sendUniversalForm'])->name('form.universal.submit');
 
 
 //Auth, Login, Forgot And Reset Password
@@ -102,6 +104,18 @@ Route::group(['middleware' => 'admin'], function () {
   // Settings
   Route::get('panel/setting', [HomeController::class, 'setting'])->name('panel.setting');
   Route::post('panel/setting', [HomeController::class, 'update_setting'])->name('panel.update_setting');
+
+  // Reservations Admin
+
+Route::get('panel/reservations/list', [ReservationController::class, 'list'])->name('panel.reservations.list');
+Route::get('panel/reservations/view/{id}', [ReservationController::class, 'view'])->name('panel.reservations.view');
+
+Route::get('panel/reservations/delete/{id}', [ReservationController::class, 'delete'])->name('panel.reservations.delete');
+Route::get('panel/reservations/restore/{id}', [ReservationController::class, 'restore'])->name('panel.reservations.restore');
+
+Route::get('panel/reservations/trash', [ReservationController::class, 'trash'])->name('panel.reservations.trash');
+
+
 });
 
 //Adminuser

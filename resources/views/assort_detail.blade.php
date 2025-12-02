@@ -108,10 +108,10 @@
                 <h2>{{ $getRecord->title }}</h2>
 
             </div><!-- End Section Title -->
-            </div>
+            
             <div class="container py-5">
                 <div class="row">
-
+ @include('layouts._message')
                     <!-- LEFT CONTENT -->
                     <div class="col-lg-8">
 
@@ -285,7 +285,8 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-3">Залишити повідомлення</h5>
 
-                                <form class="php-email-form">
+                                <x-universal-form />
+                                {{--    <form class="php-email-form">
                                     <div class="mb-3">
                                         <label class="form-label">Ім’я</label>
                                         <input type="text" class="form-control" placeholder="Ваше ім’я">
@@ -297,7 +298,7 @@
                                     </div>
 
                                     <button class="btn btn-assort w-100">Надіслати</button>
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
                         <!--Пошук-->

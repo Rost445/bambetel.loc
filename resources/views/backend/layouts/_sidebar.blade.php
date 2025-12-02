@@ -51,6 +51,13 @@
                               <span class="hide-menu">Сторінки</span>
                           </a>
                       </li>
+                       <li class="sidebar-item">
+                          <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.reservations.*') ? 'active' : '' }}"
+                              href="{{ route('panel.reservations.list') }}">
+                              <i class="mdi mdi-calendar-check"></i>
+                              <span class="hide-menu">Бронювання</span>
+                          </a>
+                      </li>
                   @endif
                   <li class="sidebar-item">
                       <a class="sidebar-link waves-effect waves-dark {{ Route::is('panel.comment.*') ? 'active' : '' }}"

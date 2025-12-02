@@ -44,49 +44,51 @@
                 <div class="card">
                     <div class="card-body">
                         @include('layouts._message')
-                     
+
                         <h4 class="card-title m-0"><a href="{{ url('panel/page/add') }}" type="button"
-                                class=" float-right btn waves-effect waves-light btn-rounded btn-success"><i class="mdi mdi-book-open-variant"></i>&nbsp;Додати сторінку</a></h4>
+                                class=" float-right btn waves-effect waves-light btn-rounded btn-success"><i
+                                    class="mdi mdi-book-open-variant"></i>&nbsp;Додати сторінку</a></h4>
                     </div>
 
                     <div class="table-responsive px-3">
                         <table class="table table-bordered">
                             <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Слаг</th>
-                                        <th scope="col">Заголовок</th>
-                                        <th scope="col">Мета заголовок</th>
-                                        <th scope="col">Дата створення</th>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Слаг</th>
+                                    <th scope="col">Заголовок</th>
+                                    <th scope="col">Мета заголовок</th>
+                                    <th scope="col">Дата створення</th>
 
+                                </tr>
 
+                                <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
 
-                                        <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
-                                        
-                                </thead>
+                            </thead>
                             <tbody>
 
-                                 @forelse($getRecord as $value)
-                                        <tr>
+                                @forelse($getRecord as $value)
+                                    <tr>
 
-                                            <th scope="row">{{ $value->id }} </th>
-                                            <td>{{ $value->slug }} </td>
-                                            <td>{{ $value->title }} </td>
-                                            <td>{{ $value->meta_title }} </td>
-                                            <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
-                                            <td><a href="{{ url('panel/page/edit/' . $value->id) }}" class="text-primary"><i class="mdi mdi-pencil mr-2"></i>Редагувати</a></td>
-                                          
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="100%">Записів не знайдено!</td>
-                                        </tr>
-                                    @endforelse
+                                        <th scope="row">{{ $value->id }} </th>
+                                        <td>{{ $value->slug }} </td>
+                                        <td>{{ $value->title }} </td>
+                                        <td>{{ $value->meta_title }} </td>
+                                        <td>{{ date('d-m-Y H:i', strtotime($value->created_at)) }}</td>
+                                        <td><a href="{{ url('panel/page/edit/' . $value->id) }}" class="text-primary"><i
+                                                    class="mdi mdi-pencil mr-2"></i>Редагувати</a></td>
+
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="100%">Записів не знайдено!</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
 
                     </div>
-                   
+
 
                 </div>
             </div>
