@@ -20,7 +20,7 @@ class ReservationController extends Controller
         }
 
         $data['reservations'] = $query->orderBy('id', 'desc')->paginate(20);
-        $data['header_title'] = "Заявки";
+        $data['header_title'] = "Бронювання";
           $data['isTrash'] = false; // це активні заявки
 
         return view('backend.reservations.list', $data);
@@ -29,7 +29,7 @@ class ReservationController extends Controller
     // --- Детальний перегляд ---
     public function view($id)
     {
-        $data['header_title'] = "Деталі заявки";
+        $data['header_title'] = "Деталі бронювання";
         $data['item'] = Reservation::findOrFail($id);
 
         return view('backend.reservations.view', $data);
@@ -43,13 +43,13 @@ class ReservationController extends Controller
 
         return redirect()
             ->route('panel.reservations.list')
-            ->with('success', 'Заявку переміщено у корзину');
+            ->with('success', 'Бронювання переміщено у корзину');
     }
 
     // --- Список видалених ---
     public function trash()
     {
-        $data['header_title'] = "Корзина заявок";
+        $data['header_title'] = "Кошик бронювань";
         $data['reservations'] = Reservation::onlyTrashed()->orderBy('id', 'desc')->paginate(20);
    $data['isTrash'] = true; // це кошик
         return view('backend.reservations.trash', $data);
@@ -62,6 +62,6 @@ class ReservationController extends Controller
 
         return redirect()
             ->route('panel.reservations.trash')
-            ->with('success', 'Заявку відновлено');
+            ->with('success', 'Бронювання відновлено');
     }
 }

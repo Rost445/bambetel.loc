@@ -49,9 +49,9 @@
                                     <tr>
                                         <th>Користувач</th>
                                         <th>Відгук</th>
-                                        <th>Відповіді</th>
+                                        <th style="">Відповіді</th>
                                         
-                                        <th scope="col"><i class="mdi mdi-eye mr-2"></i>Редагувати</th>
+                                        <th scope="col"><i class="mdi mdi-eye mr-2"></i>Переглянути</th>
                                         <th scope="col"><i class="mdi mdi-delete mr-2"></i>Видалити</th>
                                     </tr>
                                 </thead>
@@ -65,11 +65,11 @@
                                         @foreach ($comments as $comment)
                                             <tr>
                                                 <td>{{ $comment->user->name ?? 'Анонім' }}</td>
-                                                <td>{{ $comment->comment }}</td>
+                                                <td>{{ Str::limit($comment->comment, 50) }}</td>
                                                 <td>
                                                     @foreach ($comment->getReply as $reply)
                                                         <p><strong>{{ $reply->user->name ?? 'Анонім' }}:</strong>
-                                                            {{ $reply->comment }}</p>
+                                                           {{ Str::limit($reply->comment, 50) }}</p>
                                                     @endforeach
                                                 </td>
                                                 <td>
@@ -87,7 +87,8 @@
                                                     </form>
 
                                                     <a class="text-primary" href="#"
-                                                        onclick="event.preventDefault(); if(confirm('Видалити коментар?')) document.getElementById('delete-comment-{{ $comment->id }}').submit();">
+                                                        onclick="event.preventDefault(); if(confirm('Видалити коментар?'))
+                                                         document.getElementById('delete-comment-{{ $comment->id }}').submit();">
                                                         <i class="mdi mdi-delete mr-2"></i>Видалити
                                                     </a>
                                                 </td>
