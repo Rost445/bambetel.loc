@@ -59,73 +59,87 @@
                              </div>
                          @endif
                          <div class="form-group">
-                             <label class="form-label">Фавікон <span class="text-danger">*</span></label>
+                             <label>Фавікон<span class="text-danger">*</span></label>
                              <div class="input-group">
-                                 <input type="file" name="favicon" class="form-control">
-                             </div>
-
-                             @if (!empty($getRecord) && !empty($getRecord->getFavicon()))
-                                 <div class="mt-3">
-                                     <img class="img-thumbnail" src="{{ $getRecord->getFavicon() }}"
-                                         style="width:120px; height:120px; object-fit: cover;">
+                                 <div class="input-group-prepend">
+                                     <span class="input-group-text">Завантажити</span>
                                  </div>
-                             @endif
+                                 <div class="custom-file">
+                                     <input type="file" name="favicon" class="custom-file-input" id="inputGroupFile01">
+                                     <label class="custom-file-label" for="inputGroupFile01">Вибрати файл</label>
+                                 </div>
+                             </div>
+                               @if (!empty($getRecord) && !empty($getRecord->getFavicon()))
+                                     <div class="mt-3">
+                                         <img class="img-thumbnail" src="{{ $getRecord->getFavicon() }}"
+                                             style="width:120px; height:120px; object-fit: cover;">
+                                     </div>
+                                 @endif
                          </div>
                          <div class="form-group">
-                             <label class="form-label">Логотип <span class="text-danger">*</span></label>
+                             <label>Логотип<span class="text-danger">*</span></label>
                              <div class="input-group">
-                                 <input type="file" name="logo" class="form-control">
-                             </div>
-                             @if (!empty($getRecord) && !empty($getRecord->getLogo()))
-                                 <div class="mt-3">
-                                     <img class="img-thumbnail" src="{{ $getRecord->getLogo() }}"
-                                         style="width:120px; height:120px; object-fit: cover;" alt="">
+                                 <div class="input-group-prepend">
+                                     <span class="input-group-text">Завантажити</span>
                                  </div>
-                             @endif
+                                 <div class="custom-file">
+                                     <input type="file" name="logo" class="custom-file-input" id="inputGroupFile01">
+                                     <label class="custom-file-label" for="inputGroupFile01">Вибрати файл</label>
+                                 </div>
+                                
+                             </div>
+                              @if (!empty($getRecord) && !empty($getRecord->getLogo()))
+                                     <div class="mt-3">
+                                         <img class="img-thumbnail" src="{{ $getRecord->getLogo() }}"
+                                             style="width:120px; height:120px; object-fit: cover;" alt="">
+                                     </div>
+                                 @endif
                          </div>
 
-                            <div class="form-group">
+                         <div class="form-group">
                              <label class="form-label">Електронна пошта сайту <span class="text-danger">*</span></label>
                              <div class="input-group">
-                                 <input type="text" value="{{ old('email', $getRecord->email ?? '') }}" class="form-control"
-                                     name="email"> 
+                                 <input type="text" value="{{ old('email', $getRecord->email ?? '') }}"
+                                     class="form-control" name="email">
 
-                                </div>
-                            </div>
-                            <div class="form-group">
+                             </div>
+                         </div>
+                         <div class="form-group">
                              <label class="form-label">Номер телефону сайту <span class="text-danger">*</span></label>
                              <div class="input-group">
-                                 <input type="text" value="{{ old('phone', $getRecord->phone ?? '') }}" class="form-control"
-                                     name="phone"> 
+                                 <input type="text" value="{{ old('phone', $getRecord->phone ?? '') }}"
+                                     class="form-control" name="phone">
 
-                                </div>  
-                            </div>
-                            <div class="form-group">
+                             </div>
+                         </div>
+                         <div class="form-group">
                              <label class="form-label">Адреса сайту <span class="text-danger">*</span></label>
                              <div class="input-group">
-                                    <textarea name="address" class="form-control tinymce-editor">{{ old('address', $getRecord->address ?? '') }}</textarea>
+                                 <textarea name="address" class="form-control tinymce-editor">{{ old('address', $getRecord->address ?? '') }}</textarea>
 
-                                </div>      
-                            </div>
-                            <div class="form-group">
-                             <label class="form-label">Адреса в Google Maps (вбудований код) <span class="text-danger">*</span></label>
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="form-label">Адреса в Google Maps (вбудований код) <span
+                                     class="text-danger">*</span></label>
                              <div class="input-group">
-                                <input type="text" name="google_map_link" class="form-control" value="{{ old('google_map_link', $getRecord->google_map_link ?? '') }}">
-                                </div>  
-                            </div>
-                             <div class="form-group">
-                              <label for="exampleInputName">Instagram <span class="text-danger">*</span></label>
-                            <input type="text" name="instagram_link" class="form-control" required
-                                value="{{ old('instagram_link', $getRecord->instagram_link ?? '') }}">  
-                            </div>
-                            <div class="form-group">
+                                 <input type="text" name="google_map_link" class="form-control"
+                                     value="{{ old('google_map_link', $getRecord->google_map_link ?? '') }}">
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label for="exampleInputName">Instagram <span class="text-danger">*</span></label>
+                             <input type="text" name="instagram_link" class="form-control" required
+                                 value="{{ old('instagram_link', $getRecord->instagram_link ?? '') }}">
+                         </div>
+                         <div class="form-group">
                              <label class="form-label">Графік роботи <span class="text-danger">*</span></label>
                              <div class="input-group">
                                  <input type="text" value="{{ $getRecord->worktime ?? '' }}" class="form-control"
-                                     name="worktime" rows="4"> 
+                                     name="worktime" rows="4">
 
-                                </div>
-                            </div>
+                             </div>
+                         </div>
 
 
 
