@@ -43,7 +43,7 @@ class ReservationController extends Controller
 
         return redirect()
             ->route('panel.reservations.list')
-            ->with('success', 'Бронювання переміщено у корзину');
+            ->with('success', 'Бронювання переміщено до кошика');
     }
 
     // --- Список видалених ---

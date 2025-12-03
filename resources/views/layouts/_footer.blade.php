@@ -133,7 +133,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="footer-bottom-links">
-                        <a href="#">Політика конфенденційності</a>
+                        <a href="{{ url('privacy') }}">Політика конфенденційності</a>
                     </div>
 
                 </div>

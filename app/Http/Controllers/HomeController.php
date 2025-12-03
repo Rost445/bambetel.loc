@@ -248,8 +248,21 @@ class HomeController extends Controller
     $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
     $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
     $data['description'] = !empty($getPage) ? $getPage->description : '';
-    return view(' reservation');
+    return view(' reservation',$data);
   }
+
+  public function privacy()
+  {
+    $getPage =  PageModel::getSlug('privacy');
+    $data['title'] = !empty($getPage) ? $getPage->title : '';
+    $data['meta_title'] =       !empty($getPage) ? $getPage->meta_title : '';
+    $data['meta_keywords'] =  !empty($getPage) ? $getPage->meta_keywords : '';
+    $data['meta_description'] = !empty($getPage) ? $getPage->meta_description : '';
+    $data['description'] = !empty($getPage) ? $getPage->description : '';
+    return view(' privacy',$data);
+  }
+
+
 
   public function AssortCommentSubmit(Request $request)
   {

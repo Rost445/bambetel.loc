@@ -30,6 +30,7 @@ Route::get('contacts', [HomeController::class, 'contacts'])->name('contacts');
 Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('reservation', [HomeController::class, 'reservation'])->name('reservation');
 Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('privacy', [HomeController::class, 'privacy'])->name('privacy');
 
 // POST для обробки форми
 Route::post('/contact', [HomeController::class, 'submit_contact'])->name('submit.contact');

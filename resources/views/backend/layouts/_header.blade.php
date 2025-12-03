@@ -12,22 +12,13 @@
                   <a href="{{ url('panel/dashboard') }}" class="logo">
                       <!-- Logo icon -->
                       <b class="logo-icon">
-                          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                          <!-- Dark Logo icon -->
-                          <img src="{{ url('../../assets/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
-                          <!-- Light Logo icon -->
-                          <img src="{{ url('../../assets/images/logo-light-icon.png') }}" alt="homepage"
+                         
+                          <img src="{{ $getSettingApp->getLogo() }}" alt="homepage"
                               class="light-logo" />
                       </b>
                       <!--End Logo icon -->
                       <!-- Logo text -->
-                      <span class="logo-text">
-                          <!-- dark Logo text -->
-                          <img src="{{ url('../../assets/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
-                          <!-- Light Logo text -->
-                          <img src="{{ url('../../assets/images/logo-light-text.png') }}" class="light-logo"
-                              alt="homepage" />
-                      </span>
+                    
                   </a>
                   <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
                       <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>

@@ -8,9 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    @php
+         $getSettingApp = App\Models\SettingModel::getSingle();
+     @endphp
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('../../assets/images/favicon.png')  }}">
-    <title>Bambetel-Панель адміна</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $getSettingApp->getFavicon() }}">
+    <title>{{ $header_title }}</title>
     <!-- Custom CSS -->
     <link href="{{url('../../dist/css/style.min.css')  }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -65,7 +68,7 @@
                     "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                     "save table contextmenu directionality emoticons template paste textcolor"
                 ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons | code",
 
             });
         }
