@@ -77,6 +77,47 @@
             color: #fff;
             transition: background-color 0.3s ease;
         }
+          .send-btn {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:active {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        #captcha{
+            width: 60%;
+        }
     </style>
 @endsection
 
@@ -93,10 +134,7 @@
                                 <span class="visually-hidden">Головна</span>
                             </a>
                         </li>
-                        {{--     <li class="breadcrumb-item">
-                        <a class="link-body-emphasis fw-semibold text-decoration-none"
-                            href="{{ url('/assort') }}">Меню</a>
-                    </li> --}}
+                       
                         <li class="breadcrumb-item active" aria-current="page">{{ $header_title }}</li>
                     </ol>
                 </nav>
@@ -286,19 +324,7 @@
                                 <h5 class="card-title mb-3">Залишити повідомлення</h5>
 
                                 <x-universal-form />
-                                {{--    <form class="php-email-form">
-                                    <div class="mb-3">
-                                        <label class="form-label">Ім’я</label>
-                                        <input type="text" class="form-control" placeholder="Ваше ім’я">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Телефон</label>
-                                        <input type="text" class="form-control" placeholder="+380 (__) ___-__-__">
-                                    </div>
-
-                                    <button class="btn btn-assort w-100">Надіслати</button>
-                                </form> --}}
+                               
                             </div>
                         </div>
                         <!--Пошук-->

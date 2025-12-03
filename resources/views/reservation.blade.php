@@ -1,6 +1,48 @@
  @extends('layouts.app')
 @section('style')
-    
+<style>
+        .send-btn {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:active {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        #captcha{
+            width: 60%;
+        }
+</style>
 @endsection
 
 @section('content')
@@ -25,7 +67,7 @@
             </nav>
 </div>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
+ @include('layouts._message')
         <div class="row">
           <div class="col-12">
             <div class="reservation-container">
@@ -34,65 +76,11 @@
                 <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
                   <div class="reservation-form-section">
                     <div class="form-header text-center">
-                      <h3>Make a Reservation</h3>
-                      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>
+                      <h3>Забронювати столик</h3>
+                      
                     </div>
-
-                    <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
-                      <div class="row gy-3">
-                        <div class="col-12">
-                          <input type="text" name="name" class="form-control" placeholder="Full Name" required="">
-                        </div>
-                        <div class="col-12">
-                          <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
-                        </div>
-                        <div class="col-12">
-                          <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required="">
-                        </div>
-                        <div class="col-6">
-                          <input type="date" name="date" class="form-control" required="">
-                        </div>
-                        <div class="col-6">
-                          <input type="time" class="form-control" name="time" required="">
-                        </div>
-                        <div class="col-6">
-                          <select name="people" class="form-select" required="">
-                            <option value="">Guests</option>
-                            <option value="1">1 Guest</option>
-                            <option value="2">2 Guests</option>
-                            <option value="3">3 Guests</option>
-                            <option value="4">4 Guests</option>
-                            <option value="5">5 Guests</option>
-                            <option value="6">6+ Guests</option>
-                          </select>
-                        </div>
-                        <div class="col-6">
-                          <select name="occasion" class="form-select">
-                            <option value="">Occasion</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="anniversary">Anniversary</option>
-                            <option value="business">Business Dinner</option>
-                            <option value="date">Date Night</option>
-                            <option value="celebration">Celebration</option>
-                            <option value="other">Other</option>
-                          </select>
-                        </div>
-                        <div class="col-12">
-                          <textarea class="form-control" name="message" rows="3" placeholder="Special requests or dietary requirements"></textarea>
-                        </div>
-                      </div>
-
-                      <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your reservation request has been submitted successfully. We'll contact you shortly to confirm.</div>
-                      </div>
-
-                      <button type="submit" class="btn-reserve w-100">
-                        <i class="bi bi-calendar-check me-2"></i>
-                        Reserve Table
-                      </button>
-                    </form>
+                    <x-universal-form />
+                   
                   </div>
                 </div>
 

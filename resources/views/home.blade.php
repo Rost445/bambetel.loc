@@ -1,5 +1,49 @@
 @extends('layouts.app')
 @section('style')
+    <style>
+        .send-btn {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:active {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        #captcha {
+            width: 60%;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -32,9 +76,9 @@
                                 <a href="{{ $getHero->button_end_link }}"
                                     class="btn btn-outline">{{ $getHero->button_end }}</a>
                             </div>
-                           @php
-                $getSettings = App\Models\SettingModel::getSingle();
-            @endphp
+                            @php
+                                $getSettings = App\Models\SettingModel::getSingle();
+                            @endphp
                             <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
                                 <div class="feature-item">
                                     <i class="bi bi-clock"></i>
@@ -63,8 +107,11 @@
 
                     <div class="col-lg-4">
                         <div class="booking-card" data-aos="fade-left" data-aos-delay="200">
-                            <h3>Make a Reservation</h3>
-                            <form action="forms/book-a-table.php" method="post" class="php-email-form">
+                            <h3>Забронювати столик</h3>
+                            @include('layouts._message')
+                            <x-universal-form />
+
+                            {{--   <form action="forms/book-a-table.php" method="post" class="php-email-form">
                                 <div class="row gy-3">
                                     <div class="col-md-6">
                                         <input type="text" name="name" class="form-control" placeholder="Your Name"
@@ -105,7 +152,7 @@
                                         <button type="submit" class="btn btn-primary w-100">Reserve Now</button>
                                     </div>
                                 </div>
-                            </form>
+                            </form> --}}
                         </div>
                     </div>
                 </div>

@@ -7,31 +7,43 @@
 .modal-backdrop {
     z-index: 1050 !important;
 }   
- .send-btn {
-            color: rgb(255, 255, 255);
-            background: #fb8429;
-            border: 0;
-            padding: 10px 30px;
-            transition: 0.4s;
-            border-radius: 50px;
+    .send-btn {
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
         }
 
         .send-btn:hover {
-            color: rgb(255, 255, 255);
-            background: #dd7423;
-            border: 0;
-            padding: 10px 30px;
-            transition: 0.4s;
-            border-radius: 50px;
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
         }
 
         .send-btn:active {
-            color: rgb(255, 255, 255);
-            background: #fab179;
-            border: 0;
-            padding: 10px 30px;
-            transition: 0.4s;
-            border-radius: 50px;
+            background: linear-gradient(45deg, var(--accent-color),
+                    color-mix(in srgb, var(--accent-color), blue 15%));
+            color: var(--contrast-color);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
         }
         #captcha{
             width: 60%;
@@ -67,7 +79,7 @@
     </div>
 
     <div class="text-center">
-        <button type="submit" class="send-btn" id="submitBtn">Відправити</button>
+        <button type="submit" class="btn send-btn" id="submitBtn"><i class="bi bi-calendar-check me-2"></i>Забронювати</button>
     </div>
 </form>
 
