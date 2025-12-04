@@ -52,7 +52,8 @@
     <input type="text" name="q" value="{{ request('q') }}" placeholder="Пошук..." class="form-control me-2" />
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
     <button type="submit" class="btn btn-info"><i class="mdi mdi-magnify mr-1"></i>Пошук</button>
-    <a href=" {{ $isTrash ? route('panel.reservations.trash') : route('panel.reservations.list') }}" class="btn btn-danger  waves-effect waves-light" id="clearSearch"><i class="mdi mdi-search mr1"></i>Очистити</a>
+    <a href=" {{ $isTrash ? route('panel.reservations.trash') : route('panel.reservations.list') }}" 
+    class="btn btn-danger  waves-effect waves-light" id="clearSearch"><i class="mdi mdi-broom mr-1"></i>Очистити</a>
                                  </div>
 </form>
                                     </div>
