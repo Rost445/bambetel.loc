@@ -59,10 +59,11 @@
                                     <th scope="col">Заголовок</th>
                                     <th scope="col">Мета заголовок</th>
                                     <th scope="col">Дата створення</th>
+                                    <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</a></th>
 
                                 </tr>
 
-                                <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
+                        
 
                             </thead>
                             <tbody>
