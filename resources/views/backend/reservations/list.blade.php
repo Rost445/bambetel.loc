@@ -47,6 +47,15 @@
                         <h4 class="card-title m-0"><a href="{{ url('panel/reservations/trash') }}" type="button"
                                 class=" float-right btn waves-effect waves-light btn-rounded btn-secondary"><i
                                     class="mdi mdi-delete mr-2"></i>Кошик</a></h4>
+                                    <div class="w-50">
+                                        <form method="GET" action="{{ $isTrash ? route('panel.reservations.trash') : route('panel.reservations.list') }}" class="mb-3 d-flex">
+    <input type="text" name="q" value="{{ request('q') }}" placeholder="Пошук..." class="form-control me-2" />
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button type="submit" class="btn btn-info"><i class="mdi mdi-magnify mr-1"></i>Пошук</button>
+    <a href=" {{ $isTrash ? route('panel.reservations.trash') : route('panel.reservations.list') }}" class="btn btn-danger  waves-effect waves-light" id="clearSearch"><i class="mdi mdi-search mr1"></i>Очистити</a>
+                                 </div>
+</form>
+                                    </div>
 
                     </div>
 
