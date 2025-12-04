@@ -46,9 +46,9 @@
                     <div class="card-body">
                         @include('layouts._message')
                         <div class="card-title m-0 float-right mb-4 mx-3">
-                             <a href="{{ route('panel.reservations.list') }}"
-                                    class=" btn waves-effect waves-light btn-rounded btn-secondary"> <i
-                                        class="mdi mdi-arrow-left mr-2" aria-hidden="true"></i>Назад</a>
+                            <a href="{{ route('panel.reservations.list') }}"
+                                class=" btn waves-effect waves-light btn-rounded btn-secondary"> <i
+                                    class="mdi mdi-arrow-left mr-2" aria-hidden="true"></i>Назад</a>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <table class="table table-bordered table-hover align-middle">
@@ -59,7 +59,8 @@
                                         <th>Телефон</th>
                                         <th>Email</th>
                                         <th>Дата</th>
-                                        <th width="150">Дії</th>
+                                        <th width="150"><i class="mdi mdi-restore mr-2"></i>Відновити</th>
+                                        <th width="150"> <i class="mdi mdi-delete-forever mr-2"></i>Видалити</th>
                                     </tr>
                                 </thead>
 
@@ -71,11 +72,22 @@
                                             <td>{{ $item->phone }}</td>
                                             <td>{{ $item->email ?? '-' }}</td>
                                             <td>{{ $item->created_at->format('d.m.Y H:i') }}</td>
-                                            <td>
-                                                <a class="btn btn-outline-success btn-sm waves-effect waves-light btn-rounded"
+                                            <td>  <a class="btn btn-success btn-sm waves-effect waves-light btn-rounded"
                                                     href="{{ route('panel.reservations.restore', $item->id) }}">
-                                                    <b><i class="mdi mdi-restore mr-2"></i>Відновити</b>
-                                                </a>
+                                                    <b><i class="mdi mdi-restore mr-1"></i>Відновити</b>
+                                                </a></td>
+                                            <td>
+                                              
+                                                <form action="{{ route('panel.reservations.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="btn btn-danger btn-sm waves-effect waves-light btn-rounded"
+                                                        onclick="return confirm('Ви впевнені, що хочете видалити бронювання назавжди?')">
+                                                        <i class="mdi mdi-delete-forever mr-1"></i>Видалити
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @empty
@@ -85,9 +97,9 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                             <div class="mx-3">
-                        {!! $reservations->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                    </div>
+                            <div class="mx-3">
+                                {!! $reservations->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+                            </div>
 
                         </div>
                     </div>

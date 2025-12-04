@@ -64,4 +64,14 @@ class ReservationController extends Controller
             ->route('panel.reservations.trash')
             ->with('success', 'Бронювання відновлено');
     }
+    // --- Повне видалення з кошика ---
+public function destroy($id)
+{
+    $item = Reservation::onlyTrashed()->findOrFail($id);
+    $item->forceDelete();
+
+    return redirect()
+        ->route('panel.reservations.trash')
+        ->with('success', 'Бронювання видалено назавжди');
+}
 }

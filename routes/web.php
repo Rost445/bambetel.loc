@@ -115,6 +115,9 @@ Route::get('panel/reservations/delete/{id}', [ReservationController::class, 'del
 Route::get('panel/reservations/restore/{id}', [ReservationController::class, 'restore'])->name('panel.reservations.restore');
 
 Route::get('panel/reservations/trash', [ReservationController::class, 'trash'])->name('panel.reservations.trash');
+Route::delete('panel/reservations/destroy/{id}', [ReservationController::class, 'destroy'])
+    ->name('panel.reservations.destroy');
+
 
 
 });
