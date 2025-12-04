@@ -83,7 +83,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        class="btn btn-danger btn-sm waves-effect waves-light btn-rounded"
+                                                        class="btn btn-danger btn-sm waves-effect waves-light btn-rounded "
                                                         onclick="return confirm('Ви впевнені, що хочете видалити бронювання назавжди?')">
                                                         <i class="mdi mdi-delete-forever mr-1"></i>Видалити
                                                     </button>
