@@ -74,6 +74,24 @@
         }
     });
     </script>
+
+    <script>
+    function updateTime() {
+        const options = {
+            timeZone: 'Europe/Kyiv',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        };
+
+        const now = new Date().toLocaleString('uk-UA', options);
+        document.getElementById('live-time').textContent = now;
+    }
+
+    updateTime();              // оновити одразу при завантаженні
+    setInterval(updateTime, 1000); // оновлювати щосекунди
+</script>
+
     @yield('script')
 
 </body>
