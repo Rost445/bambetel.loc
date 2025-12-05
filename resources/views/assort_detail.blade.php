@@ -237,7 +237,7 @@
                                                 <div>
                                                     <!-- Коментар -->
                                                     <h5>
-                                                        <a href="#">{{ $comment->user->name }}</a>
+                                                        <a href="#">{{ $comment->user->name ?? 'Анонім' }}</a>
                                                         <a href="#" class="reply ReplyOpen"
                                                             data-id="{{ $comment->id }}">
                                                             <i class="bi bi-reply-fill"></i> Відповісти
@@ -321,7 +321,7 @@
                         <div class="booking-card aos-init aos-animate shadow-sm mb-4" data-aos="fade-up"
                             data-aos-delay="200">
                             <div class="card-body">
-                                <h5 class="card-title mb-3">Залишити повідомлення</h5>
+                                <h5 class="card-title mb-3">Забронювати столик</h5>
 
                                 <x-universal-form />
                                
