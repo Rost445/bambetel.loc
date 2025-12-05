@@ -25,10 +25,7 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="card-body">
-            {{--  <h3 class="header-title">Вітаємо в панелі керування!</h3>
-                        <p>Використовуйте бічне меню для навігації по різних розділах панелі керування.</p> --}}
-        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -49,7 +46,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <h1 class="font-light text-right">23</h1>
+                                                        <h1 class="font-light text-right">{{  $user_count }}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,7 +77,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <h1 class="font-light text-right">169</h1>
+                                                        <h1 class="font-light text-right">{{  $menu_count }}</h1>
                                                     </div>
 
                                                 </div>
@@ -112,7 +109,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <h1 class="font-light text-right">157</h1>
+                                                        <h1 class="font-light text-right">{{$assort_count}}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,7 +152,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <h1 class="font-light text-right">236</h1>
+                                                        <h1 class="font-light text-right">{{ $portfolio_count }}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,7 +182,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <h1 class="font-light text-right">23</h1>
+                                                        <h1 class="font-light text-right">{{ $page_count }}</h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,7 +212,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <h1 class="font-light text-right">15</h1>
+                                                        <h1 class="font-light text-right"></h1>
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,82 +233,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    @if (Auth::user()->is_admin == 1)
-                        <div class="card-body">
-                            <div class="card-group">
-
-                                <!--reservations-->
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="d-flex no-block align-items-center">
-                                                    <div>
-                                                        <i class="mdi mdi-calendar-check font-20 text-muted"></i>
-                                                        <a class="text-secondary"
-                                                            href="{{ url('panel/reservations/list') }}">
-                                                            <p class="font-16 m-b-5">Бронювання &nbsp; <i
-                                                                    class="ti-arrow-right"></i></p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="ml-auto">
-                                                        <h1 class="font-light text-right">224</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar " role="progressbar"
-                                                        style="width: 70%; height: 6px; background-color: #ffc99d;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--.reservations-->
-
-                                <!-- site settings-->
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="d-flex no-block align-items-center">
-                                                    <div>
-                                                        <i class="mdi mdi-message-settings-variant font-20 text-muted"></i>
-                                                        <a class="text-secondary" href="{{ url('panel/setting') }}">
-                                                            <p class="font-16 m-b-5">Налаштування сайту&nbsp; <i
-                                                                    class="ti-arrow-right"></i></p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="ml-auto">
-                                                        <h1 class="font-light text-right">23</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 75%; height: 6px; background-color: #948df6;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--.site settings-->
-
-
-                            </div>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-        <div class="row">
+         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -331,7 +253,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="ml-auto">
-                                                    <h1 class="font-light text-right">169</h1>
+                                                    <h1 class="font-light text-right">{{ $assort_comment_count }}</h1>
                                                 </div>
 
                                             </div>
@@ -364,7 +286,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="ml-auto">
-                                                    <h1 class="font-light text-right">157</h1>
+                                                    <h1 class="font-light text-right"></h1>
                                                 </div>
                                             </div>
                                         </div>
@@ -394,7 +316,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="ml-auto">
-                                                    <h1 class="font-light text-right">236</h1>
+                                                    <h1 class="font-light text-right"></h1>
                                                 </div>
                                             </div>
                                         </div>
@@ -408,9 +330,89 @@
                                     </div>
                                 </div>
                             </div>
-                             <!--.profile settings-->
+                            <!--.profile settings-->
                         </div>
                     </div>
-                @endsection
-                @section('script')
-                @endsection
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    @if (Auth::user()->is_admin == 1)
+                        <div class="card-body">
+                            <div class="card-group">
+
+                                <!--reservations-->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-calendar-check font-20 text-muted"></i>
+                                                        <a class="text-secondary"
+                                                            href="{{ url('panel/reservations/list') }}">
+                                                            <p class="font-16 m-b-5">Бронювання &nbsp; <i
+                                                                    class="ti-arrow-right"></i></p>
+                                                        </a>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <h1 class="font-light text-right">{{ $reservation_count }}</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar " role="progressbar"
+                                                        style="width: 70%; height: 6px; background-color: #e5ff9d;"
+                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--.reservations-->
+
+                                <!-- site settings-->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-message-settings-variant font-20 text-muted"></i>
+                                                        <a class="text-secondary" href="{{ url('panel/setting') }}">
+                                                            <p class="font-16 m-b-5">Налаштування сайту&nbsp; <i
+                                                                    class="ti-arrow-right"></i></p>
+                                                        </a>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <h1 class="font-light text-right"></h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 75%; height: 6px; background-color: #948df6;"
+                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--.site settings-->
+
+
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+       
+    </div>
+@endsection
+@section('script')
+@endsection

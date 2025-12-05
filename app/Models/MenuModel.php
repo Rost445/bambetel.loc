@@ -63,6 +63,10 @@ class MenuModel extends Model
         ->where('is_delete', '=', 0)
         ->get();
     }
+    public static function getActiveMenuCount()
+{
+    return self::where('is_delete', 0)->count();
+}
 
     
 

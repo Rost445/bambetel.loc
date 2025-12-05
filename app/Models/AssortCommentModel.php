@@ -26,4 +26,10 @@ class AssortCommentModel extends Model
 {
     return $this->belongsTo(AssortModel::class, 'assort_id');
 }
+
+public static function getActiveAssortCommentCount()
+{
+   return self::count();
+}
+
 }
