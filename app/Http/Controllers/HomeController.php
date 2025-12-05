@@ -388,7 +388,7 @@ class HomeController extends Controller
         Email: {$reservation->email}
         Сторінка: {$reservation->page}
     ", function ($msg) {
-        $msg->to('hello@example.com')
+        $msg->to('rostislavgritsyk@gmail.com')
             ->subject('Нова заявка з форми');
     });
 

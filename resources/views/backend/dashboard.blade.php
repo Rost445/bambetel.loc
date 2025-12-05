@@ -24,18 +24,18 @@
             </div>
         </div>
     </div>
-
     <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
+        <div class="card-body">
+            {{--  <h3 class="header-title">Вітаємо в панелі керування!</h3>
+                        <p>Використовуйте бічне меню для навігації по різних розділах панелі керування.</p> --}}
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     @if (Auth::user()->is_admin == 1)
                         <div class="card-body">
                             <div class="card-group">
-
+                                <!--users-->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
@@ -63,9 +63,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--.users-->
 
-                                <!-- Column -->
-                                <!-- Column -->
+                                <!--menu sections-->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
@@ -96,8 +96,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Column -->
-                                <!-- Column -->
+                                <!--.menu sections-->
+
+                                <!--assortment-->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
@@ -125,8 +126,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Column -->
-                                <!-- Column -->
+                                <!--.assortment-->
+
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    @if (Auth::user()->is_admin == 1)
+                        <div class="card-body">
+                            <div class="card-group">
+
+                                <!--photo gallery-->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
@@ -154,21 +169,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--.photo gallery-->
 
-                            </div>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-        <!--end row -->
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-group">
-                            @if (Auth::user()->is_admin == 1)
+                                <!--pages-->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
@@ -196,9 +199,124 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
-                            <!-- Column -->
-                            <!-- Column -->
+                                <!--.pages-->
+
+                                <!--hero settings-->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-image-area font-20 text-muted"></i>
+                                                        <a class="text-secondary" href="{{ url('panel/hero-setting') }}">
+                                                            <p class="font-16 m-b-5">Налаштування Hero &nbsp; <i
+                                                                    class="ti-arrow-right"></i></p>
+                                                        </a>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <h1 class="font-light text-right">15</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 70%; height: 6px; background-color: #e37ebc;"
+                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--.hero settings-->
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    @if (Auth::user()->is_admin == 1)
+                        <div class="card-body">
+                            <div class="card-group">
+
+                                <!--reservations-->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-calendar-check font-20 text-muted"></i>
+                                                        <a class="text-secondary"
+                                                            href="{{ url('panel/reservations/list') }}">
+                                                            <p class="font-16 m-b-5">Бронювання &nbsp; <i
+                                                                    class="ti-arrow-right"></i></p>
+                                                        </a>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <h1 class="font-light text-right">224</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar " role="progressbar"
+                                                        style="width: 70%; height: 6px; background-color: #ffc99d;"
+                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--.reservations-->
+
+                                <!-- site settings-->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-message-settings-variant font-20 text-muted"></i>
+                                                        <a class="text-secondary" href="{{ url('panel/setting') }}">
+                                                            <p class="font-16 m-b-5">Налаштування сайту&nbsp; <i
+                                                                    class="ti-arrow-right"></i></p>
+                                                        </a>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <h1 class="font-light text-right">23</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar"
+                                                        style="width: 75%; height: 6px; background-color: #948df6;"
+                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--.site settings-->
+
+
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-group">
+                            <!--comments-->
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
@@ -229,9 +347,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--.comments -->
 
-                            <!-- Column -->
-                            <!-- Column -->
+                            <!--change password-->
+
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
@@ -252,15 +371,16 @@
                                         <div class="col-12">
                                             <div class="progress">
                                                 <div class="progress-bar" role="progressbar"
-                                                    style="width: 65%; height: 6px; background-color: #b79aff;"
+                                                    style="width: 65%; height: 6px; background-color: #9dff9a;"
                                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Column -->
-                            <!-- Column -->
+                            <!--.change password-->
+
+                            <!--profile settings-->
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
@@ -288,42 +408,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Column -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="d-flex no-block align-items-center">
-                                                <div>
-                                                    <i class="mdi mdi-image-area font-20 text-muted"></i>
-                                                    <a class="text-secondary" href="{{ url('panel/hero-setting') }}">
-                                                        <p class="font-16 m-b-5">Налаштування Hero &nbsp; <i
-                                                                class="ti-arrow-right"></i></p>
-                                                    </a>
-                                                </div>
-                                                <div class="ml-auto">
-                                                    <h1 class="font-light text-right">15</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar"
-                                                    style="width: 70%; height: 6px; background-color: #e37ebc;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                             <!--.profile settings-->
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
-@section('script')
-@endsection
+                @endsection
+                @section('script')
+                @endsection
