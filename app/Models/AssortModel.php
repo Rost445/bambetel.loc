@@ -1,0 +1,200 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+
+class AssortModel extends Model
+{
+    use HasFactory;
+    protected $table = 'assort';
+    protected $fillable = [
+        'user_id',
+        'title',
+        'menu_id',
+        'description',
+        'price',
+        'weight',
+        'meta_description',
+        'meta_keywords',
+        'is_publish',
+        'status',
+        'image_file',
+    ];
+    static public function getSingle($id)
+    {
+        return self::find($id);
+    }
+    static public function getRecordSlug($slug)
+    {
+        return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.status', '=', 0)
+            ->where('menu.is_menu', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->where('assort.slug', '=', $slug)
+            ->first();
+    }
+
+    static public function getRecordFront()
+    {
+        $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('menu.is_menu', 0);
+
+        if (!empty(Request::get('q'))) {
+            $return = $return->where('assort.title', 'like', '%' . Request::get('q') . '%');
+        }
+
+
+        $return = $return->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+
+            ->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->paginate(9);
+
+        return $return;
+    }
+
+     static public function getRecordFrontMenu($menu_id)
+    {
+
+        $result = self::where('menu_id', $menu_id)->get();
+        if (!$result) {
+            return collect([]); // Завжди повертаємо колекцію
+        }
+        $return = self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug','menu_id')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.menu_id', '=', $menu_id)
+            ->where('menu.is_menu', 0)
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->paginate(20);
+            
+
+        return $return ?? collect([]);
+        
+    }
+
+
+     static public function getRecentPost()
+    {
+        return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->where('menu.is_menu', 0)
+            ->orderBy('assort.id', 'desc')
+            ->limit(2)
+            ->get();
+    }
+
+static public function getRelatedPost($menu_id, $id)
+    {
+        return  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id')
+            ->where('assort.id', '!=', $id)
+            ->where('assort.menu_id', '=', $menu_id)
+            ->where('assort.status', '=', 0)
+            ->where('assort.is_publish', '=', 1)
+            ->where('assort.is_delete', '=', 0)
+            ->where('menu.is_menu', 0)
+            ->orderBy('assort.id', 'desc')
+            ->limit(2)
+            ->get();
+    }
+
+    static public function getRecord()
+    {
+        $return =  self::select('assort.*', 'users.name as user_name', 'menu.name as menu_name', 'menu.slug as menu_slug')
+            ->join('users', 'users.id', '=', 'assort.user_id')
+            ->join('menu', 'menu.id', '=', 'assort.menu_id');
+
+        if (!empty(Auth::check()) && (Auth::user()->is_admin != 1)) {
+            $return =  $return->where('assort.user_id', '=', Auth::user()->id);
+        }
+
+        if (!empty(Request::get('id'))) {
+            $return =  $return->where('assort.id', '=', Request::get('id'));
+        }
+        if (!empty(Request::get('username'))) {
+            $return =  $return->where('users.name', 'like', '%' . Request::get('username') . '%');
+        }
+        if (!empty(Request::get('title'))) {
+            $return =  $return->where('assort.title', 'like', '%' . Request::get('title') . '%');
+        }
+        if (!empty(Request::get('menu'))) {
+            $return =  $return->where('menu.name', 'like', '%' . Request::get('menu') . '%');
+        }
+
+        if (!empty(Request::get('is_publish'))) {
+            $is_publish = Request::get('is_publish');
+            if ($is_publish == 100) {
+                $is_publish = 0;
+            }
+            $return =  $return->where('assort.is_publish', '=', $is_publish);
+        }
+
+        if (!empty(Request::get('status'))) {
+            $status = Request::get('status');
+            if ($status == 100) {
+                $status = 0;
+            }
+            $return =  $return->where('assort.status', '=', $status);
+        }
+
+        if (!empty(Request::get('start_date'))) {
+            $return =  $return->whereDate('assort.created_at', '>=', Request::get('start_date'));
+        }
+        if (!empty(Request::get('end_date'))) {
+            $return =  $return->whereDate('assort.created_at', '<=', Request::get('end_date'));
+        }
+
+
+        $return =  $return->where('assort.is_delete', '=', 0)
+            ->orderBy('assort.id', 'desc')
+            ->paginate(12);
+
+        return   $return;
+    }
+    public function getImage()
+    {
+        if (!empty($this->image_file) && file_exists('upload/assort/' . $this->image_file)) {
+            return url('upload/assort/' . $this->image_file);
+        } else {
+            return "";
+        }
+    }
+
+    public function getTag()
+    {
+        return $this->hasMany(AssortTagsModel::class, 'assort_id');
+    }
+
+public function getComment()
+    {
+        return $this->hasMany(AssortCommentModel::class, 'assort_id')->orderBy('assort_comment.id', 'desc');
+    }
+    public function getCommentCount()
+    {
+        return $this->hasMany(AssortCommentModel::class, 'assort_id')->count();
+    }
+    public static function getActiveAssortCount()
+    {
+        return self::where('is_delete', 0)->count();
+    }
+
+}
