@@ -32,7 +32,7 @@
         .comment-form form input {
             background-color: var(--surface-color);
             color: var(--default-color);
-            border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+            border: 1px solid #F8EFEB;
             font-size: 14px;
             border-radius: 4px;
             padding: 10px 10px;
@@ -46,14 +46,14 @@
         }
 
         .comment-form form input::placeholder {
-            color: color-mix(in srgb, var(--default-color), transparent 50%);
+            color: #D7D4D4 !important;
         }
 
         .comment-form form textarea,
         .reply-form form textarea {
             background-color: var(--surface-color);
             color: var(--default-color);
-            border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+            border: 1px solid #F8EFEB;
             border-radius: 4px;
             padding: 10px 10px;
             font-size: 14px;
@@ -111,7 +111,6 @@
 
         .send-btn:active {
            background: #be663a;
-                    color-mix(in srgb, var(--accent-color), blue 15%));
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
