@@ -10,8 +10,7 @@
     z-index: 9000 !important;
 }
         .send-btn {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+            background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -23,8 +22,7 @@
         }
 
         .send-btn:hover {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+             background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -36,8 +34,7 @@
         }
 
         .send-btn:active {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+             background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -119,48 +116,6 @@
                             @include('layouts._message')
                             <x-universal-form />
 
-                            {{--   <form action="forms/book-a-table.php" method="post" class="php-email-form">
-                                <div class="row gy-3">
-                                    <div class="col-md-6">
-                                        <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                            required="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="email" name="email" class="form-control" placeholder="Your Email"
-                                            required="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="tel" name="phone" class="form-control" placeholder="Your Phone"
-                                            required="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select name="people" class="form-control" required="">
-                                            <option value="">Guests</option>
-                                            <option value="1">1 Person</option>
-                                            <option value="2">2 People</option>
-                                            <option value="3">3 People</option>
-                                            <option value="4">4 People</option>
-                                            <option value="5">5+ People</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="date" name="date" class="form-control" required="">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="time" name="time" class="form-control" required="">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" class="form-control" rows="3" placeholder="Special requests or dietary restrictions"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Your reservation request has been sent. We'll contact
-                                            you shortly!</div>
-                                        <button type="submit" class="btn btn-primary w-100">Reserve Now</button>
-                                    </div>
-                                </div>
-                            </form> --}}
                         </div>
                     </div>
                 </div>

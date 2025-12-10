@@ -86,8 +86,7 @@
             transition: background-color 0.3s ease;
         }
           .send-btn {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+            background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -99,8 +98,7 @@
         }
 
         .send-btn:hover {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+            background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -112,7 +110,7 @@
         }
 
         .send-btn:active {
-            background: linear-gradient(45deg, var(--accent-color),
+           background: #be663a;
                     color-mix(in srgb, var(--accent-color), blue 15%));
             color: var(--contrast-color);
             border: none;

@@ -47,7 +47,7 @@
 </head>
 
 <body class="index-page @yield('page_class')">
->
+
     @include('layouts._header')
 
     @yield('content')

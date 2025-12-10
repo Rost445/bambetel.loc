@@ -2344,7 +2344,7 @@ section,
 .book-a-table .reservation-info-section .info-cards .info-card .card-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), blue 20%));
+  background: #be663a;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2382,8 +2382,8 @@ section,
 }
 
 .book-a-table .reservation-info-section .additional-info .info-highlight {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  background: #F5E2DA;
+  border: 1px solid #EFC2AD;
   border-radius: 8px;
   padding: 1rem 1.5rem;
   display: flex;
@@ -4014,9 +4014,9 @@ section,
   
 }
 #universalForm .form-control {
-    border: 1px solid color-mix(in srgb, black, transparent 15%) !important;
+    border: 1px solid black !important;
 }
 .page-home #universalForm .form-control {
-    border: 1px solid color-mix(in srgb, white, transparent 15%) !important;
+    border: 1px solid white !important;
 }
 

@@ -12,8 +12,7 @@
 }
 
     .send-btn {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+         background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -25,8 +24,7 @@
         }
 
         .send-btn:hover {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+           background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -38,8 +36,7 @@
         }
 
         .send-btn:active {
-            background: linear-gradient(45deg, var(--accent-color),
-                    color-mix(in srgb, var(--accent-color), blue 15%));
+           background: #be663a;
             color: var(--contrast-color);
             border: none;
             padding: 1rem 2rem;
@@ -52,6 +49,7 @@
         #captcha{
             width: 60%;
         }
+      
     </style>
 @endpush
 <div id="message-container">
@@ -62,7 +60,7 @@
     @csrf
 
     <div class="mb-3">
-        <input type="text" name="name" class="form-control" placeholder="Ваше Ім’я" required>
+        <input type="text" name="name" class="form-control" placeholder="Ваше Ім’я" required >
     </div>
 
     <div class="mb-3">
