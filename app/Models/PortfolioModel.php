@@ -33,14 +33,13 @@ class PortfolioModel extends Model
             ->get();
     }
 
-    public function getImage()
-    {
-        if (!empty($this->image_name) && file_exists('public/upload/portfolio/' . $this->image_name)) {
-            return url('public/upload/portfolio/' . $this->image_name);
-        } else {
-            return "";
-        }
+   public function getImage()
+{
+    if (!empty($this->image_name)) {
+        return asset('upload/portfolio/' . $this->image_name);
     }
+    return "";
+}
 
 //     public function menu()
 // {

@@ -67,27 +67,16 @@
                              </select>
                          </div> --}}
                          
-                         <div class="form-group">
-                             <label><b>Завантаження власного файлу</b></label>
-                             <div class="input-group">
-                                 <div class="input-group-prepend">
-                                     <span class="input-group-text"><b>
-                                             Завантажити</b></span>
-                                 </div>
-                                 <div class="custom-file">
-                                     <input type="file" name="image_name" class="custom-file-input" id="inputGroupFile01">
-                                     <label class="custom-file-label" for="inputGroupFile01">Виберіть файл</label>
-                                 </div>
-                                 
-                             </div>
-                              <div class="my-3">
-                                 @if (!empty($getRecord->getImage()))
-                                     <img alt="" src="{{ $getRecord->getImage() }}" style="height: 120px;"
-                                         class="img-thumbnail">
-                                 @endif
-                             </div>
-                         </div>
-
+                           <div class="form-group">
+                            <label><b>Завантажити файл</b></label>
+                            <input class="form-control" type="file" name="image_name" >
+                                    <div class="my-3">
+                                    @if (!empty($getRecord->getImage()))
+                                    <img alt="" src="{{ $getRecord->getImage() }}" style="height: 120px;" class="img-thumbnail">
+                                    @endif
+                                </div>
+                           </div>
+                         
                          <div class="form-group">
                              <label><b>Опис</b><span class="text-danger"> *</span></label>
                              <textarea rows="7" class="form-control" name="description">{{ $getRecord->description }}</textarea>
