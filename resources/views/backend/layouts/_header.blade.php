@@ -11,7 +11,7 @@
               <div class="navbar-brand">
                   <a href="{{ url('panel/dashboard') }}" class="logo">
                       <!-- Logo icon -->
-                      <b class="logo-icon">
+                      <b class="logo-icon" style="padding:14px 10px; background-color:#9199A1; border-radius:5px">
                          
                           <img src="{{ $getSettingApp->getLogo() }}" alt="homepage"
                               class="light-logo" />

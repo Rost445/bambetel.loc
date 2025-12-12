@@ -34,31 +34,36 @@
                             <div class="card-group">
                                 <!--users-->
                                 <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="d-flex no-block align-items-center">
-                                                    <div>
-                                                        <i class="mdi mdi-account-multiple-plus font-20 text-muted"></i>
-                                                        <a class="text-secondary" href="{{ url('panel/user/list') }}">
-                                                            <p class="font-16 m-b-5">Користувачі &nbsp; <i
-                                                                    class="ti-arrow-right"></i></p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="ml-auto">
-                                                        <h1 class="font-light text-right">{{  $user_count }}</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 75%; height: 6px; background-color:#6ea8fe"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   <div class="card-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex no-block align-items-center">
+                <div>
+                    <i class="mdi mdi-account-multiple-plus font-20 text-muted"></i>
+                    <a class="text-secondary" href="{{ url('panel/user/list') }}">
+                        <p class="font-16 m-b-5">Користувачі &nbsp; <i class="ti-arrow-right"></i></p>
+                    </a>
+                </div>
+                <div class="ml-auto">
+                    <h1 class="font-light text-right">{{ $user_count }}</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="progress">
+                <div class="progress-bar"
+                     role="progressbar"
+                     style="width: {{ $user_count }}%; height: 6px; background-color:#6ea8fe;"
+                     aria-valuenow="{{ $user_count }}"
+                     aria-valuemin="0"
+                     aria-valuemax="10">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
                                 </div>
                                 <!--.users-->
 
@@ -83,11 +88,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 60%; height: 6px; background-color: #82c29d;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
+                                            <div class="progress">
+    <div class="progress-bar"
+         role="progressbar"
+         style="width: {{ $menu_count }}%; height: 6px; background-color: #82c29d;"
+         aria-valuenow="{{ $menu_count }}"
+         aria-valuemin="0"
+         aria-valuemax="100">
+    </div>
+</div>
+
                                             </div>
 
                                         </div>
@@ -114,11 +124,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 65%; height: 6px; background-color: #ffda6a;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
+                                               <div class="progress">
+    <div class="progress-bar"
+         role="progressbar"
+         style="width: {{ $assort_count }}%; height: 6px; background-color: #ffda6a;"
+         aria-valuenow="{{ $assort_count }}"
+         aria-valuemin="0"
+         aria-valuemax="100">
+    </div>
+</div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -157,11 +172,13 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar " role="progressbar"
-                                                        style="width: 70%; height: 6px; background-color: #ff9da3;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
+                                                <div class="progress-bar"
+                     role="progressbar"
+                     style="width: {{ $portfolio_count }}%; height: 6px; background-color: #ff9da3;"
+                     aria-valuenow="{{ $portfolio_count }}"
+                     aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -187,11 +204,13 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 75%; height: 6px; background-color: #8de4f6;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
+                                                 <div class="progress-bar"
+                     role="progressbar"
+                     style="width: {{ $page_count }}%; height: 6px; background-color: #8de4f6;"
+                     aria-valuenow="{{ $page_count }}"
+                     aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -219,8 +238,8 @@
                                             <div class="col-12">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 70%; height: 6px; background-color: #e37ebc;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        style="width: 100%; height: 6px; background-color: #e37ebc;"
+                                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,11 +278,13 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar"
-                                                    style="width: 60%; height: 6px; background-color: #ffb57a;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
+                                           <div class="progress-bar"
+                     role="progressbar"
+                     style="width: {{ $assort_comment_count }}%; height: 6px; background-color: #ffb57a;"
+                     aria-valuenow="{{ $assort_comment_count }}"
+                     aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
                                         </div>
 
                                     </div>
@@ -293,8 +314,8 @@
                                         <div class="col-12">
                                             <div class="progress">
                                                 <div class="progress-bar" role="progressbar"
-                                                    style="width: 65%; height: 6px; background-color: #9dff9a;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    style="width: 100%; height: 6px; background-color: #9dff9a;"
+                                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -323,8 +344,8 @@
                                         <div class="col-12">
                                             <div class="progress">
                                                 <div class="progress-bar" role="progressbar"
-                                                    style="width: 70%; height: 6px; background-color: #7ee3cc;"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    style="width: 100%; height: 6px; background-color: #7ee3cc;"
+                                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -363,11 +384,14 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <div class="progress">
-                                                    <div class="progress-bar " role="progressbar"
-                                                        style="width: 70%; height: 6px; background-color: #e5ff9d;"
-                                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
+                                             <div class="progress">
+                <div class="progress-bar"
+                     role="progressbar"
+                     style="width: {{ $reservation_count }}%; height: 6px; background-color: #e5ff9d;"
+                     aria-valuenow="{{ $reservation_count }}"
+                     aria-valuemin="0"
+                     aria-valuemax="100">
+                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -395,7 +419,7 @@
                                             <div class="col-12">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 75%; height: 6px; background-color: #948df6;"
+                                                        style="width: 100%; height: 6px; background-color: #948df6;"
                                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
                                             </div>

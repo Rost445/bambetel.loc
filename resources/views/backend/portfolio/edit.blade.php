@@ -90,9 +90,9 @@
 
                          <div class="form-group">
                              <label><b>Опис</b><span class="text-danger"> *</span></label>
-                             <textarea class="form-control" name="description">{{ $getRecord->description }}</textarea>
+                             <textarea rows="7" class="form-control" name="description">{{ $getRecord->description }}</textarea>
                          </div>
-                         <div class="form-group">
+                         {{-- <div class="form-group">
                              <label for="button_name" class="form-label"><b>Назва кнопки</b></label><span
                                  class="text-danger">
                                  *</span>
@@ -105,7 +105,7 @@
                                  *</span>
                              <input type="text" name="button_link" value="{{ $getRecord->button_link }}"
                                  class="form-control" id="button_link">
-                         </div>
+                         </div>--}}
                          <div class="form-group">
                              <label><strong>Статус</strong></label>
                              <select class="form-control" name="status">

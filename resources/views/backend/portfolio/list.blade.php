@@ -56,10 +56,10 @@
                                     <th>#</th>
                                         <th>Назва </th>
                                         <th>Опис</th>
-                                       {{--  <th>Розділ меню</th> --}}
+                                     
                                         <th>Зображення </th>
-                                        <th>Назва кнопки </th>
-                                        <th>Посилання кнопки </th>
+                                        
+                                      
                                         <th>Статус</th>
                                         <th>Дата створення</th>
                                     <th scope="col"><i class="mdi mdi-pencil mr-2"></i>Редагувати</th>
@@ -72,14 +72,11 @@
                                             <td>{{ $value->id }}</td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->description }}</td>
-                                           {{--  <td>{{ $value->menu ? $value->menu->name : 'Не задано' }}</td> --}}
                                             <td>
                                                 @if (!empty($value->getImage()))
                                                     <img src="{{ $value->getImage() }}" alt="" style="width: 100px" class="img-thumbnail">
                                                 @endif
                                             </td>
-                                            <td>{{ $value->button_name }}</td>
-                                            <td>{{ $value->button_link }}</td>
                                             <td>{{ $value->status == 1 ? 'Активний' : 'Неактивний' }}</td>
                                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                                             <td>

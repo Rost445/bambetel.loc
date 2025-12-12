@@ -84,20 +84,20 @@
                              <textarea class="form-control" name="description" id="description" rows="3" required>{{ old('description') }}</textarea>
                              <div class="text-danger">{{ $errors->first('description') }}</div>
                          </div>
-                         <div class="form-group">
+                          {{--   <div class="form-group">
                              <label for="button_name" class="form-label"><b>Назва кнопки</b></label><span class="text-danger">
                                  *</span>
                              <input type="text" name="button_name" value="{{ old('button_name') }}" required
                                  class="form-control" id="button_name">
                              <div class="text-danger">{{ $errors->first('button_name') }}</div>
                          </div>
-                         <div class="form-group">
-                             <label for="button_link" class="form-label"><b>Посилання кнопки</b></label><span class="text-danger">
+                      <div class="form-group">
+                            <label for="button_link" class="form-label"><b>Посилання кнопки</b></label><span class="text-danger">
                                  *</span>
                              <input type="text" name="button_link" value="{{ old('button_link') }}" required
                                  class="form-control" id="button_link">
                              <div class="text-danger">{{ $errors->first('button_link') }}</div>
-                         </div>
+                         </div> --}}
                          <div class="form-group">
                              <label for="status" class="form-label"><b>Статус</b></label><span class="text-danger"> *</span>
                              <select class="form-control" name="status" id="status">

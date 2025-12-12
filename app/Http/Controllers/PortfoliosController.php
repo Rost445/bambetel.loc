@@ -30,8 +30,8 @@ class PortfoliosController extends Controller
     $request->validate([
         'title' => 'required|string|max:255',
         'description' => 'required|string',
-        'button_name' => 'required|string',
-        'button_link' => 'nullable|url',
+        /*'button_name' => 'required|string',
+        'button_link' => 'nullable|url',*/
         'status' => 'required|in:1,0',
         'image_name' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
     ]);
@@ -40,8 +40,8 @@ class PortfoliosController extends Controller
 
     $portfolio->title = trim($request->title);
     $portfolio->description = trim($request->description);
-    $portfolio->button_name = trim($request->button_name);
-    $portfolio->button_link = trim($request->button_link);
+    //$portfolio->button_name = trim($request->button_name);
+   // $portfolio->button_link = trim($request->button_link);
     //$portfolio->menu_id = $request->menu_id;
 
     // ⬇ ДОДАНО ПЕРЕВІРКУ
@@ -78,8 +78,8 @@ class PortfoliosController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'button_name' => 'required|string',
-            'button_link' => 'nullable|url',
+           // 'button_name' => 'required|string',
+           // 'button_link' => 'nullable|url',
              'status' => 'required|in:0,1',
             'image_name' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
@@ -88,8 +88,8 @@ class PortfoliosController extends Controller
         $portfolio = PortfolioModel::getSingle($id);
         $portfolio->title = trim($request->title);
         $portfolio->description = trim($request->description);
-        $portfolio->button_name = trim($request->button_name);
-        $portfolio->button_link = trim($request->button_link);
+       // $portfolio->button_name = trim($request->button_name);
+       // $portfolio->button_link = trim($request->button_link);
         //$portfolio->menu_id = $request->menu_id; // Оновлення категорії
 
         if (!empty($request->file('image_name'))) {
